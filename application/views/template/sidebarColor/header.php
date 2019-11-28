@@ -73,7 +73,11 @@ License: You must have a valid license purchased only from themeforest(the above
     <!--end::Global Theme Styles -->
 
     <!--begin::Layout Skins(used by all pages) -->
-
+    <style type="text/css">
+      th.dt-center, td.dt-center{
+        text-align: center;
+      }
+    </style>
     <link href="<?php echo base_url(); ?>assets/css/demo1/skins/header/base/light.css" rel="stylesheet" type="text/css" />
     <link href="<?php echo base_url(); ?>assets/css/demo1/skins/header/menu/light.css" rel="stylesheet" type="text/css" />
     <link href="<?php echo base_url(); ?>assets/css/demo1/skins/brand/dark.css" rel="stylesheet" type="text/css" />
@@ -155,11 +159,7 @@ License: You must have a valid license purchased only from themeforest(the above
             <div class="kt-aside  kt-aside--fixed  kt-grid__item kt-grid kt-grid--desktop kt-grid--hor-desktop" id="kt_aside">
                 <!-- begin:: Aside -->
                 <div class="kt-aside__brand kt-grid__item " id="kt_aside_brand">
-                    <div class="kt-aside__brand-logo">
-                        <a href="demo1/index.html">
-                            <img alt="Logo" src="<?php echo base_url(); ?>assets/media/logos/logo-light.png"/>
-                        </a>
-                    </div>
+                    <div class="kt-aside__brand-logo"><b class="text-primary"><span class="kt-menu__link-text"><?php echo strtoupper($this->session->user['role']) ?></span></b></div>
 
                     <div class="kt-aside__brand-tools">
                         <button class="kt-aside__brand-aside-toggler" id="kt_aside_toggler">

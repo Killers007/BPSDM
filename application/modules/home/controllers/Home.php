@@ -11,6 +11,11 @@ class Home extends MY_Controller {
 
 	}
 
+	function cetak()
+	{
+		$this->load->view('cetak_absensi_v');
+	}
+
 	public function index() {
 
 		if ($this->input->is_ajax_request()) 

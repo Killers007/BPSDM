@@ -13,12 +13,13 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700">        <!--end::Fonts -->
 
         
-        
+        <link href="<?php echo base_url(); ?>assets/css/demo4/pages/pricing/pricing-1.css" rel="stylesheet" type="text/css" />
         <!--begin:: Global Mandatory Vendors -->
 <link href="<?php echo base_url(); ?>assets/vendors/general/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet" type="text/css" />
 <!--end:: Global Mandatory Vendors -->
  <link href="<?php echo base_url(); ?>assets/vendors/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
-
+ <link href="<?php echo base_url(); ?>assets/css/demo4/pages/support-center/faq-2.css" rel="stylesheet" type="text/css" />
+   <link href="<?php echo base_url(); ?>assets/vendors/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css" />
 <!--begin:: Global Optional Vendors -->
 <link href="<?php echo base_url(); ?>assets/vendors/general/tether/dist/css/tether.css" rel="stylesheet" type="text/css" />
 <link href="<?php echo base_url(); ?>assets/vendors/general/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css" rel="stylesheet" type="text/css" />
@@ -51,6 +52,7 @@
 <script src="<?php echo base_url(); ?>assets/vendors/general/jquery/dist/jquery.js" type="text/javascript"></script>
 <!--end:: Global Optional Vendors -->
 
+    <link href="<?php echo base_url(); ?>assets/vendors/general/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css" rel="stylesheet" type="text/css" />
                     <link href="<?php echo base_url(); ?>assets/css/demo4/style.bundle.css" rel="stylesheet" type="text/css" />
 
         <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/media/logos/favicon.ico" />
@@ -58,7 +60,11 @@
     <body  style="background-image: url(<?php echo base_url(); ?>assets/media/demos/demo4/header.jpg); background-position: center top; background-size: 100% 350px;"  class="kt-page--loading-enabled kt-page--loading kt-quick-panel--right kt-demo-panel--right kt-offcanvas-panel--right kt-header--fixed kt-header--minimize-menu kt-header-mobile--fixed kt-subheader--enabled kt-subheader--transparent kt-page--loading"  >
 
                    <!-- begin::Page loader -->
-    
+    <style type="text/css">
+      th.dt-center, td.dt-center{
+        text-align: center;
+      }
+    </style>
 <!-- end::Page Loader -->        
         <!-- begin:: Page -->
     <!-- begin:: Header Mobile -->

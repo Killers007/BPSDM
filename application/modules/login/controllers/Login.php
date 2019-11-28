@@ -10,6 +10,16 @@ class Login extends MY_Controller {
 		$this->load->model('Welcome_m', 'model');
 	}
 
+	function tes()
+	{
+		// $this->load->library('emails');
+		// $this->emails->sendEmail();
+
+		$this->load->library('whatsapp');
+		echo $this->whatsapp->sendMessage();
+       
+	}
+
 	public function index() {
 
 		if ($this->input->is_ajax_request()) 
@@ -91,7 +101,7 @@ class Login extends MY_Controller {
     {
     	if (!empty($this->model->getDataById($str))) 
     	{
-    		$this->form_validation->set_message(__FUNCTION__, "Username $str sudah digunakan");
+    		$this->form_validation->set_message(__FUNCTION__, "NIP / NIK $str sudah digunakan");
     		return FALSE;
     	}
     	else

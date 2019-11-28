@@ -16,7 +16,7 @@ class Welcome_m extends MY_Model {
         );
 
         $rules = array(
-            array('field' => 'pesertaUsername', 'label' => 'Username', 'rules' => 'required|callback_cek_username'),
+            array('field' => 'pesertaNik', 'label' => 'NIK / NIP', 'rules' => 'required|numeric|callback_cek_username'),
             array('field' => 'pesertaNama', 'label' => 'Nama', 'rules' => 'required'),
             array('field' => 'pesertaEmail', 'label' => 'Email', 'rules' => 'required|valid_email'),
             array('field' => 'userPassword', 'label' => 'Password', 'rules' => 'required'),
@@ -30,7 +30,7 @@ class Welcome_m extends MY_Model {
 
     function createAccountPeserta($formData)
     {
-    	$username = $formData['pesertaUsername'];
+    	$username = $formData['pesertaNik'];
     	$password = $formData['userPassword'];
     	unset($formData['userPassword']);
 
@@ -71,19 +71,16 @@ class Welcome_m extends MY_Model {
 		{
 			if ($res->roleId == 4) 
 			{
-				$this->db->where('pesertaUsername', $username);
+				$this->db->where('pesertaNik', $username);
 				$status = $this->db->get('diklat_m_peserta')->row();
 
+				$session['user'] = $username;
 				$session['role'] = 'peserta';
 				$session['nama'] = $status->pesertaNama;
-			}
-			else if ($res->roleId == 3) 
-			{
-				$this->db->where('pengajarUsername', $username);
-				$status = $this->db->get('diklat_m_pengajar')->row();
 
-				$session['role'] = 'pengajar';
-				$session['nama'] = $status->pengajarNama;
+				$this->session->set_userdata('user', $session);
+
+				return ['status' => 'success', 'message' => 'Login Sukses', 'redirect' => base_url('peserta')];
 			}
 			else if ($res->roleId == 2) 
 			{
@@ -99,9 +96,11 @@ class Welcome_m extends MY_Model {
 				$session['nama'] = 'Administrator';
 			}
 
+			$session['user'] = $username;
+
 			$this->session->set_userdata('user', $session);
 
-			return ['status' => 'success', 'message' => 'Login Sukses', 'redirect' => base_url($session['role'])];
+			return ['status' => 'success', 'message' => 'Login Sukses', 'redirect' => base_url('management')];
 		}
 		else
 		{

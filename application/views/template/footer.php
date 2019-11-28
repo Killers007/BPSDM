@@ -90,7 +90,8 @@
 <script src="<?php echo base_url(); ?>assets/vendors/general/popper.js/dist/umd/popper.js" type="text/javascript"></script>
 <script src="<?php echo base_url(); ?>assets/vendors/general/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="<?php echo base_url(); ?>assets/vendors/general/js-cookie/src/js.cookie.js" type="text/javascript"></script>
-<script src="<?php echo base_url(); ?>assets/vendors/general/moment/min/moment.min.js" type="text/javascript"></script>
+<script src="<?php echo base_url(); ?>assets/moment.js" type="text/javascript"></script>
+<!-- <script src="<?php echo base_url(); ?>assets/vendors/general/moment/min/moment.min.js" type="text/javascript"></script> -->
 <script src="<?php echo base_url(); ?>assets/vendors/general/tooltip.js/dist/umd/tooltip.min.js" type="text/javascript"></script>
 <script src="<?php echo base_url(); ?>assets/vendors/general/perfect-scrollbar/dist/perfect-scrollbar.js" type="text/javascript"></script>
 <script src="<?php echo base_url(); ?>assets/vendors/general/sticky-js/dist/sticky.min.js" type="text/javascript"></script>
@@ -157,11 +158,25 @@
                    <script src="<?php echo base_url(); ?>assets/js/demo4/scripts.bundle.js" type="text/javascript"></script>
 
                             <script src="<?php echo base_url(); ?>assets/vendors/custom/datatables/datatables.bundle.js" type="text/javascript"></script>
-                        <!--end::Page Vendors -->
-         
-                    <!--begin::Page Scripts(used by this page) -->
-                            <!-- <script src="<?php echo base_url(); ?>assets/js/demo4/pages/crud/datatables/basic/paginations.js" type="text/javascript"></script> -->
-                        <!--end::Page Scripts -->
+                            <script src="<?php echo base_url(); ?>assets/js/demo1/pages/crud/forms/widgets/bootstrap-datepicker.js" type="text/javascript"></script>
+
+                            <script src="<?php echo base_url(); ?>assets/vendors/custom/datatables/datatables.bundle.js" type="text/javascript"></script>
+                            <script src="<?php echo base_url(); ?>assets/vendors/general/select2/dist/js/select2.full.js" type="text/javascript"></script>
+                            <script src="<?php echo base_url(); ?>assets/js/demo1/pages/crud/forms/widgets/select2.js" type="text/javascript"></script>
+
+                            <script type="text/javascript">
+                                
+                                $(document).ready(function() {
+                                    $('.kt-select2').select2();
+                                });
+                            </script>
+
+                            <script src="<?php echo base_url(); ?>assets/js/demo4/pages/custom/user/profile.js" type="text/javascript"></script>
+
+                            <script src="<?php echo base_url(); ?>assets/vendors/custom/fullcalendar/fullcalendar.bundle.js" type="text/javascript"></script>
+
+                            <!-- <script src="<?php echo base_url(); ?>assets/js/demo1/pages/components/calendar/list-view.js" type="text/javascript"></script> -->
+                            
             </body>
     <!-- end::Body -->
 </html>

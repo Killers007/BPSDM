@@ -18,7 +18,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <base href="../../../../"><!--end::Base Path -->
     <meta charset="utf-8"/>
 
-    <title>Metronic | Login Page 4</title>
+    <title>SI PENDAFTARAN DIKLAT | Sign In</title>
     <meta name="description" content="Login page example">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -80,17 +80,17 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- begin::Body -->
 <body  style="background-image: url(<?php echo base_url() ?>assets/media/demos/demo4/header.jpg); background-position: center top; background-size: 100% 350px;"  class="kt-page--loading-enabled kt-page--loading kt-quick-panel--right kt-demo-panel--right kt-offcanvas-panel--right kt-header--fixed kt-header--minimize-menu kt-header-mobile--fixed kt-subheader--enabled kt-subheader--transparent kt-page--loading"  >
 
-   <!-- begin::Page loader -->
+ <!-- begin::Page loader -->
 
-   <!-- end::Page Loader -->        
-   <!-- begin:: Page -->
-   <div class="kt-grid kt-grid--ver kt-grid--root kt-page">
+ <!-- end::Page Loader -->        
+ <!-- begin:: Page -->
+ <div class="kt-grid kt-grid--ver kt-grid--root kt-page">
     <div class="kt-grid kt-grid--hor kt-grid--root  kt-login kt-login--v4 kt-login--signin" id="kt_login">
         <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor" style="background-image: url(<?php echo base_url() ?>assets/media/bg/bg-2.jpg);">
             <div class="kt-grid__item kt-grid__item--fluid kt-login__wrapper">
                 <div class="kt-login__container">
                     <div class="kt-login__logo">
-                        <a href="#">
+                        <a href="<?php echo base_url() ?>">
                             <img src="<?php echo base_url() ?>assets/media/logos/logo-5.png">     
                         </a>
                     </div>
@@ -100,7 +100,7 @@ License: You must have a valid license purchased only from themeforest(the above
                         </div>
                         <form class="kt-form formLogin" onsubmit="return false">
                             <div class="input-group">
-                                <input class="form-control" type="text" placeholder="Username" name="username" autocomplete="off">
+                                <input class="form-control" type="text" placeholder="Username" name="username" autocapitalize="off">
                             </div>
                             <div class="input-group">
                                 <input class="form-control" type="password" placeholder="Password" name="password">
@@ -113,8 +113,10 @@ License: You must have a valid license purchased only from themeforest(the above
                                     </label>
                                 </div>
                                 <div class="col kt-align-right">
+                                    <a href="javascript:;" id="kt_login_forgot" class="kt-login__link">Forget Password ?</a>
                                 </div>
                             </div>
+
                             <div class="kt-login__actions">
                                 <button id="btnLogin" class="btn btn-brand btn-pill kt-login__btn-primary">Sign In</button>
                             </div>
@@ -131,15 +133,15 @@ License: You must have a valid license purchased only from themeforest(the above
                                 <div class="invalid-feedback cleanError pesertaNama"></div>
                             </div>
                             <div class="input-group">
-                                <input class="form-control is-invalid" type="text" placeholder="Email" name="pesertaEmail" autocomplete="off">
+                                <input class="form-control is-invalid" type="text" placeholder="Email" name="pesertaEmail" autocapitalize="off">
                                 <div class="invalid-feedback cleanError pesertaEmail"></div>
                             </div>
                             <div class="input-group">
-                                <input class="form-control is-invalid" type="text" placeholder="Username" name="pesertaUsername"  autocomplete="off">
-                                <div class="invalid-feedback cleanError pesertaUsername"></div>
+                                <input class="form-control is-invalid" type="text" placeholder="NIP / NIK" name="pesertaNik"  autocapitalize="off">
+                                <div class="invalid-feedback cleanError pesertaNik"></div>
                             </div>
                             <div class="input-group">
-                                <input class="form-control is-invalid" type="password" placeholder="Password" name="userPassword"  autocomplete="off">
+                                <input class="form-control is-invalid" type="password" placeholder="Password" name="userPassword"  autocapitalize="off">
                                 <div class="invalid-feedback cleanError userPassword"></div>
                             </div>
                             <div class="input-group">
@@ -169,7 +171,7 @@ License: You must have a valid license purchased only from themeforest(the above
                         </div>
                         <form class="kt-form" action="">
                             <div class="input-group">
-                                <input class="form-control" type="text" placeholder="Email" name="email" id="kt_email" autocomplete="off">
+                                <input class="form-control" type="text" placeholder="Email" name="email" id="kt_email" autocapitalize="off">
                             </div>
                             <div class="kt-login__actions">
                                 <button id="kt_login_forgot_submit" class="btn btn-brand btn-pill kt-login__btn-primary">Request</button>&nbsp;&nbsp;
@@ -277,6 +279,10 @@ License: You must have a valid license purchased only from themeforest(the above
 <script type="text/javascript">
 
     $(document).ready(function() {
+
+        $( document ).on( 'focus', 'input', function(){
+         $( this ).attr( 'autocapitalize', 'off' );
+     });
 
         $(document).on('click', '#btnLogin', function(event) {
             event.preventDefault();

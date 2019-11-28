@@ -1,0 +1,1095 @@
+
+<div class="kt-body kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor kt-grid--stretch" id="kt_body">
+    <div class="kt-content  kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor" id="kt_content">
+
+      <!-- begin:: Subheader -->
+      <div class="kt-subheader  kt-grid__item" id="kt_subheader">
+        <div class="kt-container  kt-container--fluid ">
+            <div class="kt-subheader__main">
+
+                <h3 class="kt-subheader__title"><?php echo $title ?> <?php echo $dataDiklat->diklatNama ?></h3>
+
+                <span class="kt-subheader__separator kt-subheader__separator--v"></span>
+
+                <!-- <span class="kt-subheader__desc">Pendaftaran : <?php echo $dataDiklat->diklatTanggalPendaftaran.' s.d '.$dataDiklat->diklatTanggalAkhirPendaftaran ?></span> -->
+                <div class="kt-margin-l-20" id="kt_subheader_search_form">
+                    <div class="kt-input-icon kt-input-icon--right kt-subheader__search">
+                        <input type="text" class="form-control" placeholder="Search..." id="field-cari">
+                        <span class="kt-input-icon__icon kt-input-icon__icon--right">
+                            <span>
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
+                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <rect id="bound" x="0" y="0" width="24" height="24"></rect>
+                                        <path d="M14.2928932,16.7071068 C13.9023689,16.3165825 13.9023689,15.6834175 14.2928932,15.2928932 C14.6834175,14.9023689 15.3165825,14.9023689 15.7071068,15.2928932 L19.7071068,19.2928932 C20.0976311,19.6834175 20.0976311,20.3165825 19.7071068,20.7071068 C19.3165825,21.0976311 18.6834175,21.0976311 18.2928932,20.7071068 L14.2928932,16.7071068 Z" id="Path-2" fill="#000000" fill-rule="nonzero" opacity="0.3"></path>
+                                        <path d="M11,16 C13.7614237,16 16,13.7614237 16,11 C16,8.23857625 13.7614237,6 11,6 C8.23857625,6 6,8.23857625 6,11 C6,13.7614237 8.23857625,16 11,16 Z M11,18 C7.13400675,18 4,14.8659932 4,11 C4,7.13400675 7.13400675,4 11,4 C14.8659932,4 18,7.13400675 18,11 C18,14.8659932 14.8659932,18 11,18 Z" id="Path" fill="#000000" fill-rule="nonzero"></path>
+                                    </g>
+                                </svg>                                    <!--<i class="flaticon2-search-1"></i>-->
+                            </span>
+                        </span>
+                    </div>
+                </div>
+              <!--   <a href="#" class="btn btn-label-warning btn-bold btn-sm btn-icon-h kt-margin-l-10">
+                    Add New
+                </a> -->
+
+                <div class="kt-input-icon kt-input-icon--right kt-subheader__search kt-hidden">
+                    <input type="text" class="form-control" placeholder="Search order..." id="generalSearch">
+                    <span class="kt-input-icon__icon kt-input-icon__icon--right">
+                        <span><i class="flaticon2-search-1"></i></span>
+                    </span>
+                </div>
+            </div>
+            <div class="kt-subheader__toolbar">
+                <div class="kt-subheader__wrapper">
+
+                    <a class="btn kt-subheader__btn-daterange" data-toggle="kt-tooltip" title="Tanggal Pendaftaran dibuka s.d ditutup" data-placement="left">
+                        <span class="kt-subheader__desc"><?php echo $dataDiklat->diklatTanggalPendaftaran.' s.d '.$dataDiklat->diklatTanggalAkhirPendaftaran ?></span>
+                    </a>
+
+                    <div class="dropdown dropdown-inline" data-toggle-="kt-tooltip" title="Quick actions" data-placement="left">
+                        <a class="btn btn-icon"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon kt-svg-icon--success kt-svg-icon--md">
+                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <polygon id="Shape" points="0 0 24 0 24 24 0 24"/>
+                                    <path d="M5.85714286,2 L13.7364114,2 C14.0910962,2 14.4343066,2.12568431 14.7051108,2.35473959 L19.4686994,6.3839416 C19.8056532,6.66894833 20,7.08787823 20,7.52920201 L20,20.0833333 C20,21.8738751 19.9795521,22 18.1428571,22 L5.85714286,22 C4.02044787,22 4,21.8738751 4,20.0833333 L4,3.91666667 C4,2.12612489 4.02044787,2 5.85714286,2 Z" id="Combined-Shape" fill="#000000" fill-rule="nonzero" opacity="0.3"/>
+                                    <path d="M11,14 L9,14 C8.44771525,14 8,13.5522847 8,13 C8,12.4477153 8.44771525,12 9,12 L11,12 L11,10 C11,9.44771525 11.4477153,9 12,9 C12.5522847,9 13,9.44771525 13,10 L13,12 L15,12 C15.5522847,12 16,12.4477153 16,13 C16,13.5522847 15.5522847,14 15,14 L13,14 L13,16 C13,16.5522847 12.5522847,17 12,17 C11.4477153,17 11,16.5522847 11,16 L11,14 Z" id="Combined-Shape" fill="#000000"/>
+                                </g>
+                            </svg>                        <!--<i class="flaticon2-plus"></i>-->
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-fit dropdown-menu-md dropdown-menu-right">
+                            <!--begin::Nav-->
+                            <ul class="kt-nav">
+                                <li class="kt-nav__head">
+                                    Add anything or jump to:                                   
+                                    <i class="flaticon2-information" data-toggle="kt-tooltip" data-placement="right" title="Click to learn more..."></i>
+                                </li>
+                                <li class="kt-nav__separator"></li>
+                                <li class="kt-nav__item">
+                                    <a href="#" class="kt-nav__link">
+                                        <i class="kt-nav__link-icon flaticon2-drop"></i>
+                                        <span class="kt-nav__link-text">Order</span>
+                                    </a>
+                                </li>
+                                <li class="kt-nav__item">
+                                    <a href="#" class="kt-nav__link">
+                                        <i class="kt-nav__link-icon flaticon2-calendar-8"></i>
+                                        <span class="kt-nav__link-text">Ticket</span>
+                                    </a>
+                                </li>
+                                <li class="kt-nav__item">
+                                    <a href="#" class="kt-nav__link">
+                                        <i class="kt-nav__link-icon flaticon2-telegram-logo"></i>
+                                        <span class="kt-nav__link-text">Goal</span>
+                                    </a>
+                                </li>
+                                <li class="kt-nav__item">
+                                    <a href="#" class="kt-nav__link">
+                                        <i class="kt-nav__link-icon flaticon2-new-email"></i>
+                                        <span class="kt-nav__link-text">Support Case</span>
+                                        <span class="kt-nav__link-badge">
+                                            <span class="kt-badge kt-badge--brand kt-badge--rounded">5</span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="kt-nav__separator"></li>
+                                <li class="kt-nav__foot">
+                                    <a class="btn btn-label-brand btn-bold btn-sm" href="#">Upgrade plan</a>                                    
+                                    <a class="btn btn-clean btn-bold btn-sm kt-hidden" href="#" data-toggle="kt-tooltip" data-placement="right" title="Click to learn more...">Learn more</a>
+                                </li>
+                            </ul>
+                            <!--end::Nav-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end:: Subheader -->
+    <!-- begin:: Content -->
+
+       <!-- begin:: Content -->
+       <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
+
+        <!-- <div class="kt-portlet kt-portlet--mobile"> -->
+
+            <div class="listPeserta">
+                
+            </div>
+
+            <div class="kt-portlet__body table-responsive">
+                <!--begin: Datatable -->
+                <table id="table" class="">
+                    <thead>
+                        <tr>
+                            <th>nama</th>
+                            <th>nip</th>
+                            <th>Tanggal</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                    </tbody>
+
+                </table>
+                <!--end: Datatable -->
+            </div>
+            <!-- </div>   -->
+        </div>
+        <!-- end:: Content -->     
+
+        <!--Begin::App-->
+        <div class="kt-grid kt-grid--desktop kt-grid--ver kt-grid--ver-desktop kt-app">
+            <!--Begin:: App Aside Mobile Toggle-->
+            <button class="kt-app__aside-close" id="kt_contact_aside_close">
+                <i class="la la-close"></i>
+            </button>
+            <!--End:: App Aside Mobile Toggle-->
+
+            <!--Begin:: App Content-->
+            <div class="kt-grid__item kt-grid__item--fluid kt-app__content">
+
+                <!--Begin::Section-->
+                <!-- <div class="row">
+
+                    <?php foreach ($dataPeserta as $key => $peserta): ?>
+                        <?php $foto = ($peserta->pesertaFoto == null)?base_url('assets/media/users/default.jpg'):base_url('assets/upload/images/'.$peserta->pesertaFoto) ;?>
+                        <div class="col-xl-4">
+                            <div class="kt-portlet kt-portlet--height-fluid">
+                                <div class="kt-portlet__head kt-portlet__head--noborder">
+                                    <div class="kt-portlet__head-label">
+                                        <h3 class="kt-portlet__head-title">
+
+                                        </h3>
+                                    </div>
+                                    <div class="kt-portlet__head-toolbar">
+                                        <a href="#" class="btn btn-icon" data-toggle="dropdown">
+                                            <i class="flaticon-more-1 kt-font-brand"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right">
+                                            <ul class="kt-nav">
+                                                <li class="kt-nav__item">
+                                                    <a href="#" class="kt-nav__link">
+                                                        <i class="kt-nav__link-icon flaticon2-line-chart"></i>
+                                                        <span class="kt-nav__link-text">Reports</span>
+                                                    </a>
+                                                </li>
+                                                <li class="kt-nav__item">
+                                                    <a href="#" class="kt-nav__link">
+                                                        <i class="kt-nav__link-icon flaticon2-send"></i>
+                                                        <span class="kt-nav__link-text">Messages</span>
+                                                    </a>
+                                                </li>
+                                                <li class="kt-nav__item">
+                                                    <a href="#" class="kt-nav__link">
+                                                        <i class="kt-nav__link-icon flaticon2-pie-chart-1"></i>
+                                                        <span class="kt-nav__link-text">Charts</span>
+                                                    </a>
+                                                </li>
+                                                <li class="kt-nav__item">
+                                                    <a href="#" class="kt-nav__link">
+                                                        <i class="kt-nav__link-icon flaticon2-avatar"></i>
+                                                        <span class="kt-nav__link-text">Members</span>
+                                                    </a>
+                                                </li>
+                                                <li class="kt-nav__item">
+                                                    <a href="#" class="kt-nav__link">
+                                                        <i class="kt-nav__link-icon flaticon2-settings"></i>
+                                                        <span class="kt-nav__link-text">Settings</span>
+                                                    </a>
+                                                </li>
+                                            </ul>                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="kt-portlet__body">
+                                        <div class="kt-widget kt-widget--user-profile-2">
+                                            <div class="kt-widget__head">
+                                                <div class="kt-widget__media">
+                                                    <img class="kt-widget__img kt-hidden-" width="90px" height="90px" src="<?php echo $foto ?>" alt="image">
+                                                    <div class="kt-widget__pic kt-widget__pic--warning kt-font-warning kt-font-boldest kt-hidden">
+                                                        AL
+                                                    </div>
+                                                </div>
+
+                                                <div class="kt-widget__info">
+                                                    <a href="#" class="kt-widget__username">                                        
+                                                        <?php echo $peserta->pesertaGelarDepan.' '.$peserta->pesertaNama.' '.$peserta->pesertaGelarBelakang ?>                                                            
+                                                    </a>
+
+                                                    <span class="kt-widget__desc">
+                                                        <?php echo $peserta->pesertaNik ?>                                                            
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                            <div class="kt-widget__body">
+                                                <div class="kt-widget__section">
+                                            </div>                                        
+
+                                            <div class="kt-widget__item">
+                                             <div class="kt-widget__contact">
+                                                <span class="kt-widget__label">No Hp:</span>
+                                                <a href="#" class="kt-widget__data"><?php echo $peserta->pesertaNoHp ?></a>
+                                            </div>
+                                            <div class="kt-widget__contact">
+                                                <span class="kt-widget__label">Email:</span>
+                                                <a href="#" class="kt-widget__data"><?php echo $peserta->pesertaEmail ?></a>
+                                            </div>
+                                            <div class="kt-widget__contact">
+                                                <span class="kt-widget__label">Alamat:</span>
+                                                <a href="#" class="kt-widget__data"><?php echo $peserta->pesertaAlamat ?></a>
+                                            </div>
+                                            <div class="kt-widget__contact">
+                                                <span class="kt-widget__label">TTL:</span>
+                                                <a href="#" class="kt-widget__data"><?php echo $peserta->pesertaTempatLahir.', '.$peserta->pesertaTanggalLahir ?></a>
+                                            </div>
+                                            <div class="kt-widget__contact">
+                                                <span class="kt-widget__label">Agama:</span>
+                                                <a href="#" class="kt-widget__data"><?php echo $peserta->agamaNama ?></a>
+                                            </div>
+                                            <div class="kt-widget__contact">
+                                                <span class="kt-widget__label">Pangkat/Golongan:</span>
+                                                <a href="#" class="kt-widget__data"><?php echo $peserta->pesertaPangkatGolongan ?></a>
+                                            </div>
+                                            <div class="kt-widget__contact">
+                                                <span class="kt-widget__label">Jabatan:</span>
+                                                <a href="#" class="kt-widget__data"><?php echo $peserta->pesertaJabatan ?></a>
+                                            </div>
+                                            <div class="kt-widget__contact">
+                                                <span class="kt-widget__label">Instansi:</span>
+                                                <span class="kt-widget__data"><?php echo $peserta->pesertaInstansi ?></span>
+                                            </div>
+                                            <div class="kt-widget__contact">
+                                                <span class="kt-widget__label">Pendidikan Terakhir:</span>
+                                                <a href="#" class="kt-widget__data"><?php echo $peserta->pesertaPendidikanTerakhir ?></a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="kt-widget__footer">
+                                        <?php if ($peserta->pendaftaranIsAcc): ?>
+                                            <button type="button" data-id="<?php echo $peserta->pesertaNik ?>" class="btnTolak btn btn-label-danger btn-lg btn-upper">Tolak</button>
+                                            <?php else: ?>
+                                                <button type="button" data-id="<?php echo $peserta->pesertaNik ?>" class="btnVerifikasi btn btn-label-success btn-lg btn-upper">Terima</button>
+                                            <?php endif ?>
+                                        </div>
+                                    </div>              
+
+                                </div>
+                            </div>
+                        </div>
+
+                    <?php endforeach ?>
+
+
+                </div> -->
+
+
+                <!--begin::Modal-->
+                <div class="modal fade" id="modal-delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Apakah anda yakin menghapus data?</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                </button>
+                            </div>
+                            <div class="modal-body modalDeleteBody">
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-danger btnConfirmDelete">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--end::Modal-->
+
+
+            </div>
+        </div>
+</div>
+</div>
+
+
+<!--Begin:: Chat-->
+<div class="modal fade- modal-sticky-bottom-right" id="kt_chat_modal" role="dialog" data-backdrop="false">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="kt-chat">
+                <div class="kt-portlet kt-portlet--last">
+                    <div class="kt-portlet__head">
+                        <div class="kt-chat__head ">
+                            <div class="kt-chat__left">
+                                <div class="kt-chat__label">
+                                    <a href="#" class="kt-chat__title chatNama">Jason Muller</a>
+                                    <span class="kt-chat__status">
+                                        <!-- <span class="kt-badge kt-badge--dot kt-badge--success"></span> Active -->
+                                    </span>
+                                </div>                                
+                            </div>
+                            <div class="kt-chat__right">   
+                                <button type="button" class="btn btn-clean btn-sm btn-icon" data-dismiss="modal">
+                                    <i class="flaticon2-cross"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="kt-portlet__body">
+                        <div class="kt-scroll kt-scroll--pull ps ps--active-y" data-height="410" data-mobile-height="300">
+                            <div class="kt-chat__messages kt-chat__messages--solid bodyMessage">
+                                
+                             
+                            </div>
+                        </div>
+                    </div>
+                    <div class="kt-portlet__foot">
+                        <div class="kt-chat__input">
+                            <div class="kt-chat__editor">
+                                <textarea class="textMessage" placeholder="Type here..." style="height: 50px"></textarea>
+                            </div>
+                            <div class="kt-chat__toolbar">
+                                <div class="kt_chat__tools">
+                                   <!--  <a href="#"><i class="flaticon2-link"></i></a>
+                                    <a href="#"><i class="flaticon2-photograph"></i></a>
+                                    <a href="#"><i class="flaticon2-photo-camera"></i></a> -->
+                                </div>                           
+                                <div class="kt_chat__actions">
+                                    <button type="button" class="btn btn-brand btn-md  btn-font-sm btn-upper btn-bold kt-chat__reply btnReply">reply</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--ENd:: Chat-->
+
+<script type="text/javascript">
+    function setTitle(title, button)
+    {
+        $('.modalSimpan').html(button);
+        $('.modalLabel').html(title);
+    }
+
+      var id;
+        $(document).on('click', '.btnModalChat', function(event) {
+            event.preventDefault();
+            $('#kt_chat_modal').modal('show');
+
+            id = $(this).data('id');
+
+            $('.bodyMessage').html('');
+            $('.chatNama').html( $(this).data('nama') );
+
+            $.ajax({
+               url: '<?php echo current_url() ?>',
+               type: 'POST',
+               dataType: 'JSON',
+               data: {id: id, status: 'readMessage'},
+               success: function(res)
+               {
+                    $.each(res, function(index, val) 
+                    {
+                         $('.bodyMessage').append( templateMessage(val.notifContent, val.notifSend, val.notifRead) );
+                    });
+
+               }
+           })
+
+
+        });
+
+        function templateMessage(text, time, notifRead)
+        {
+            var read = (notifRead == '1')?'<span class="fa fa-check"></span>':'';
+            return `<div class="kt-chat__message kt-chat__message--right kt-chat__message--brand">
+                        <div class="kt-chat__user">                                
+                            <span class="kt-chat__datetime">`+time+`</span>
+                            <a href="#" class="kt-chat__username"><?php echo ucwords($this->session->user['nama']) ?></a>                                
+                            <span class="kt-media kt-media--circle kt-media--sm"> 
+                                <span class="kt-badge kt-badge--username kt-badge--unified-success kt-badge--lg kt-badge--rounded kt-badge--bold">
+                                <?php echo strtoupper(substr($this->session->user['nama'], 0, 1)) ?></span>
+                            </span>
+                        </div>
+                        <div class="kt-chat__text">
+                           `+read+`  `+text+`
+                        </div>
+                    </div>`
+        }
+
+    var KTChat = function () {
+     var initChat = function (parentEl) {
+         var messageListEl = KTUtil.find(parentEl, '.kt-scroll');
+
+         if (!messageListEl) {
+             return;
+         }
+
+         KTUtil.scrollInit(messageListEl, {
+             windowScroll: false, 
+             mobileNativeScroll: true,
+             desktopNativeScroll: false, 
+             resetHeightOnDestroy: true, 
+             handleWindowResize: true, 
+             rememberPosition: true,
+             height: function() {  
+                 var height;
+
+                 if (KTUtil.isInResponsiveRange('tablet-and-mobile')) {
+                     return KTUtil.hasAttr(messageListEl, 'data-mobile-height') ? parseInt(KTUtil.attr(messageListEl, 'data-mobile-height')) : 300;
+                 } 
+
+                 if (KTUtil.isInResponsiveRange('desktop') && KTUtil.hasAttr(messageListEl, 'data-height')) {
+                     return parseInt(KTUtil.attr(messageListEl, 'data-height'));
+                 }
+
+                 var chatEl = KTUtil.find(parentEl, '.kt-chat');
+                 var portletHeadEl = KTUtil.find(parentEl, '.kt-portlet > .kt-portlet__head');
+                 var portletBodyEl = KTUtil.find(parentEl, '.kt-portlet > .kt-portlet__body');
+                 var portletFootEl = KTUtil.find(parentEl, '.kt-portlet > .kt-portlet__foot');
+
+                 if (KTUtil.isInResponsiveRange('desktop')) {
+                     height = KTLayout.getContentHeight();
+                 } else {
+                     height = KTUtil.getViewPort().height;
+                 }
+
+                 if (chatEl) {
+                     height = height - parseInt(KTUtil.css(chatEl, 'margin-top')) - parseInt(KTUtil.css(chatEl, 'margin-bottom'));
+                     height = height - parseInt(KTUtil.css(chatEl, 'padding-top')) - parseInt(KTUtil.css(chatEl, 'padding-bottom'));
+                 }
+
+                 if (portletHeadEl) {
+                     height = height - parseInt(KTUtil.css(portletHeadEl, 'height'));
+                     height = height - parseInt(KTUtil.css(portletHeadEl, 'margin-top')) - parseInt(KTUtil.css(portletHeadEl, 'margin-bottom'));
+                 }
+
+                 if (portletBodyEl) {
+                     height = height - parseInt(KTUtil.css(portletBodyEl, 'margin-top')) - parseInt(KTUtil.css(portletBodyEl, 'margin-bottom'));
+                     height = height - parseInt(KTUtil.css(portletBodyEl, 'padding-top')) - parseInt(KTUtil.css(portletBodyEl, 'padding-bottom'));
+                 }
+
+                 if (portletFootEl) {
+                     height = height - parseInt(KTUtil.css(portletFootEl, 'height'));
+                     height = height - parseInt(KTUtil.css(portletFootEl, 'margin-top')) - parseInt(KTUtil.css(portletFootEl, 'margin-bottom'));
+                 }
+
+                 height = height - 5;
+
+                 return height;
+             } 
+         });
+
+         var handleMessaging = function() {
+             var scrollEl = KTUtil.find(parentEl, '.kt-scroll');
+             var messagesEl = KTUtil.find(parentEl, '.kt-chat__messages');
+             var textarea = KTUtil.find(parentEl, '.kt-chat__input textarea');
+
+             if (textarea.value.length === 0 ) {
+                return;
+            }
+
+            var node = document.createElement("DIV");  
+            KTUtil.addClass(node, 'kt-chat__message kt-chat__message--brand kt-chat__message--right');
+
+            var html = 
+            '<div class="kt-chat__user">' +             
+            '<span class="kt-chat__datetime">Just now</span>' +
+            '<a href="#" class="kt-chat__username"><?php echo ucwords($this->session->user['nama']) ?></span></a>' +                   
+            '<span class="kt-media kt-media--circle kt-media--sm">' +
+            '<span class="kt-badge kt-badge--username kt-badge--unified-success kt-badge--lg kt-badge--rounded kt-badge--bold"><?php echo strtoupper(substr($this->session->user['nama'], 0, 1)) ?></span>'  + 
+            '</span>' +
+            '</div>' +
+            '<div class="kt-chat__text kt-bg-light-brand">' + 
+            textarea.value
+            '</div>';
+
+            KTUtil.setHTML(node, html);
+            messagesEl.appendChild(node);
+
+            $.ajax({
+             url: '<?php echo current_url() ?>',
+             type: 'POST',
+             dataType: 'JSON',
+             data: {id: id, message: textarea.value, status: 'sendMessage'},
+             succcess: function(res)
+             {
+
+             }
+         })
+
+            textarea.value = '';
+            scrollEl.scrollTop = 100000;
+
+            var ps;
+            if (ps = KTUtil.data(scrollEl).get('ps')) {
+             ps.update();
+         }                   
+     }
+
+     KTUtil.on(parentEl, '.kt-chat__input textarea', 'keydown', function(e) {
+         if (e.keyCode == 13) {
+             handleMessaging();
+             e.preventDefault();
+
+             return false; 
+         }
+     });
+
+     KTUtil.on(parentEl, '.kt-chat__input .kt-chat__reply', 'click', function(e) {
+         handleMessaging();
+     });
+ }
+
+ return {
+     init: function() {
+         initChat( KTUtil.getByID('kt_chat_modal'));
+
+         setTimeout(function() {
+         }, 1000);
+     },
+
+     setup: function(element) {
+        initChat(element);
+    }
+};
+}();
+
+    $(document).ready(function() {
+
+        $('.templateUser').hide();
+        $('table').hide();
+
+    
+        $(document).on('click', '.btnVerifikasi', function(event) {
+            event.preventDefault();
+            var ini = $(this);
+
+            var id = $(this).data('id')
+
+            $.ajax({
+                url: '<?php echo current_url() ?>/'+id,
+                type: 'POST',
+                dataType: 'JSON',
+                data: {status: '1'},
+                beforeSend : function()
+                {
+                    btnLoading(ini);
+                },
+                success: function(res)
+                {
+                    btnNormal(ini);
+
+                    if (res.status == 'success') 
+                    {
+                        ini.removeClass('btnVerifikasi').addClass('btnTolak');
+                        ini.removeClass('btn-label-success').addClass('btn-label-danger');
+                        ini.html('Tolak');
+                    }
+                }
+            })
+        });
+
+        $(document).on('click', '.btnTolak', function(event) {
+            event.preventDefault();
+            var ini = $(this);
+
+            var id = $(this).data('id')
+
+            $.ajax({
+                url: '<?php echo current_url() ?>/'+id,
+                type: 'POST',
+                dataType: 'JSON',
+                data: {status: '0'},
+                beforeSend : function()
+                {
+                    btnLoading(ini);
+                },
+                success: function(res)
+                {
+                    btnNormal(ini);
+
+                    if (res.status == 'success') 
+                    {
+                        ini.removeClass('btn-label-danger').addClass('btn-label-success');
+                        ini.removeClass('btnTolak').addClass('btnVerifikasi');
+                        ini.html('Terima');
+                    }
+                }
+            })
+        });
+
+
+
+        var dataFull;
+        var tanggal;
+
+
+        oTable = $('#table').dataTable({
+            processing: true,
+            serverSide: true,
+            scrollX: false,
+            lengthMenu: [15, 30],
+            dom: '<"top">rts<"bottom"lp>',
+            'searching'   : true,
+            pagingType: 'numbers',
+            drawCallback: function(settings) {
+
+                $('.listPeserta').html(templateList());
+                $('#table thead').remove();
+            },
+            language:{
+                "search":"Pencarian : ",
+                "info":           "<b>Menampilkan _START_ sampai _END_ dari _TOTAL_ Data</b>",
+
+            },
+            ajax: {
+                'type' : 'GET',
+                'url' : '<?php echo current_url();?>',
+                'dataSrc': function(json)
+                {
+                    return dataFull = json.data;
+                },
+            },
+            columnDefs: [{visible: false, target: 0}],
+            columns: [
+            {data: 'pesertaNik'},
+            {data: 'pesertaNama'},
+            {
+                data: 'pesertaNama', searchable: false, orderable: false, render: function (data, type, row) {
+
+                    var text = templateUser(row);
+
+                    return text;
+                }
+            },
+            ],
+        });
+
+        function templateList()
+        {
+           var text = '<div class="row">';
+
+           $.each(dataFull, function(index, data) {
+            var foto = (data.pesertaFoto == null)?'<?php echo base_url('assets/media/users/default.jpg') ?>':'<?php echo base_url('assets/upload/images/'); ?>/'+data.pesertaFoto;
+            var btnAksi = '';
+
+            if (data.pendaftaranIsAcc == '1') 
+            {
+                btnAksi = `<button type="button" data-id="`+data.pesertaNik+`" class="btnTolak btn btn-label-danger btn-lg btn-upper">Tolak</button>`;
+            }
+            else 
+            {
+                btnAksi = ` <button type="button" data-id="`+data.pesertaNik+`" class="btnVerifikasi btn btn-label-success btn-lg btn-upper">Terima</button>`;
+            }
+
+                text += `
+                        <div class="col-xl-3">
+                            <div class="kt-portlet kt-portlet--height-fluid">
+                                <div class="kt-portlet__head kt-portlet__head--noborder">
+                                    <div class="kt-portlet__head-label">
+                                        <h3 class="kt-portlet__head-title">
+
+                                        </h3>
+                                    </div>
+                                    <div class="kt-portlet__head-toolbar">
+                                        <a href="#" class="btn btn-icon btnModalChat" data-id="`+data.pesertaNik+`" data-nama="`+data.pesertaNama+`" data-foto="`+foto+`">
+                                            <i class=" kt-font-brand flaticon2-send"></i>
+                                        </a>
+                                        </div>
+                                    </div>
+                                    <div class="kt-portlet__body">
+                                        <div class="kt-widget kt-widget--user-profile-2">
+                                            <div class="kt-widget__head">
+                                                <div class="kt-widget__media">
+                                                    <img class="kt-widget__img kt-hidden-" width="90px" height="90px" src="`+foto+`" alt="image">
+                                                    <div class="kt-widget__pic kt-widget__pic--warning kt-font-warning kt-font-boldest kt-hidden">
+                                                        AL
+                                                    </div>
+                                                </div>
+
+                                                <div class="kt-widget__info">
+                                                    <a href="#" class="kt-widget__username">     
+                                                        `+data.pesertaGelarDepan+` `+data.pesertaNama+` `+data.pesertaGelarBelakang+`                                   
+                                                    </a>
+
+                                                    <span class="kt-widget__desc">
+                                                        `+data.pesertaNik +`                                                            
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                            <div class="kt-widget__body">
+                                                <div class="kt-widget__section">
+                                            </div>                                        
+
+                                            <div class="kt-widget__item">
+                                             <div class="kt-widget__contact">
+                                                <span class="kt-widget__label">No Hp:</span>
+                                                <a href="#" class="kt-widget__data">`+data.pesertaNoHp +`</a>
+                                            </div>
+                                            <div class="kt-widget__contact">
+                                                <span class="kt-widget__label">Email:</span>
+                                                <a href="#" class="kt-widget__data">`+data.pesertaEmail +`</a>
+                                            </div>
+                                            <div class="kt-widget__contact">
+                                                <span class="kt-widget__label">Alamat:</span>
+                                                <a href="#" class="kt-widget__data">`+data.pesertaAlamat +`</a>
+                                            </div>
+                                            <div class="kt-widget__contact">
+                                                <span class="kt-widget__label">TTL:</span>
+                                                <a href="#" class="kt-widget__data">`+data.pesertaTempatLahir+`, `+data.pesertaTanggalLahir +`</a>
+                                            </div>
+                                            <div class="kt-widget__contact">
+                                                <span class="kt-widget__label">Agama:</span>
+                                                <a href="#" class="kt-widget__data">`+data.agamaNama +`</a>
+                                            </div>
+                                            <div class="kt-widget__contact">
+                                                <span class="kt-widget__label">Pangkat/Golongan:</span>
+                                                <a href="#" class="kt-widget__data">`+data.pesertaPangkatGolongan +`</a>
+                                            </div>
+                                            <div class="kt-widget__contact">
+                                                <span class="kt-widget__label">Jabatan:</span>
+                                                <a href="#" class="kt-widget__data">`+data.pesertaJabatan +`</a>
+                                            </div>
+                                            <div class="kt-widget__contact">
+                                                <span class="kt-widget__label">Instansi:</span>
+                                                <span class="kt-widget__data">`+data.pesertaInstansi +`</span>
+                                            </div>
+                                            <div class="kt-widget__contact">
+                                                <span class="kt-widget__label">Pendidikan Terakhir:</span>
+                                                <a href="#" class="kt-widget__data">`+data.pesertaPendidikanTerakhir +`</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="kt-widget__footer">
+                                        `+btnAksi+`
+                                        </div>
+                                    </div>              
+
+                                </div>
+                            </div>
+                        </div>
+
+                `
+           });
+
+            return text+'</div>';
+        }
+
+        function templateUser(data)
+        {
+            var foto = (data.pesertaFoto == null)?'<?php echo base_url('assets/media/users/default.jpg') ?>':'<?php echo base_url('assets/upload/images/'); ?>/'+data.pesertaFoto;
+            var btnAksi = '';
+
+            // $('.pesertaFoto').attr('src', foto);
+            // $('.pesertaNama').html(data.pesertaNama);
+
+            // var template = $('.templateUser').html();
+
+            if (data.pendaftaranIsAcc == '1') 
+            {
+                btnAksi = `<button type="button" data-id = "`+data.pesertaNik+`" class="btnTolak btn btn-label-danger btn-sm btn-upper">Tolak</button>&nbsp;`;
+            }
+            else 
+            {
+                btnAksi = `<button type="button" data-id = "`+data.pesertaNik+`" class="btnVerifikasi btn btn-label-success btn-sm btn-upper">Terima</button>&nbsp;`;
+            }
+
+            // $(template).find('.pesertaNama').html(data.pesertaNama).removeClass('pesertaNama');
+            // $(template).find('.pesertaFoto').attr('src', foto).removeClass('pesertaFoto');
+            // 
+            
+            template = `<div class="kt-portlet">
+                        <div class="kt-portlet__body">
+                            <div class="kt-widget kt-widget--user-profile-3">
+                                <div class="kt-widget__top">
+                                    <div class="kt-widget__media kt-hidden-">
+                                        <img src="`+foto+`" alt="image">
+                                    </div>
+                                    <div class="kt-widget__pic kt-widget__pic--danger kt-font-danger kt-font-boldest kt-font-light kt-hidden">
+                                        JM
+                                    </div>
+                                    <div class="kt-widget__content">
+                                        <div class="kt-widget__head">
+                                            <a href="#" class="kt-widget__username">
+                                                `+data.pesertaNama+`
+                                                <i class="flaticon2-correct kt-font-success"></i>                       
+                                            </a>
+
+                                            <div class="kt-widget__action btnAksi">
+                                                `+btnAksi+`
+                                            </div>
+                                        </div>
+
+                                        <div class="kt-widget__subhead">
+                                            <a href="#"><i class="la la-key"></i>`+data.pesertaNik+`</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="kt-widget__bottom">
+                                    <div class="kt-widget__item">
+                                        <div class="kt-widget__icon">
+                                            <i class="la la-phone"></i>
+                                        </div>
+                                        <div class="kt-widget__details">
+                                            <span class="kt-widget__title">No Hp</span>
+                                            <a class="">`+data.pesertaNoHp+`</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="kt-widget__item">
+                                        <div class="kt-widget__icon">
+                                            <i class="la la-black-tie"></i>
+                                        </div>
+                                        <div class="kt-widget__details">
+                                            <span class="kt-widget__title">Pangkat / Golongan</span>
+                                            <a class="">`+data.pesertaPangkatGolongan+`</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="kt-widget__item">
+                                        <div class="kt-widget__icon">
+                                            <i class="la la-certificate"></i>
+                                        </div>
+                                        <div class="kt-widget__details">
+                                            <span class="kt-widget__title">Jabatan</span>
+                                            <a class="">`+data.pesertaJabatan+`</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="kt-widget__item">
+                                        <div class="kt-widget__icon">
+                                            <i class="la la-book"></i>
+                                        </div>
+                                        <div class="kt-widget__details">
+                                            <span class="kt-widget__title">Agama</span>
+                                            <a class="">`+data.agamaNama+`</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="kt-widget__item">
+                                        <div class="kt-widget__icon">
+                                            <i class="la la-suitcase"></i>
+                                        </div>
+                                        <div class="kt-widget__details">
+                                            <span class="kt-widget__title">Instansi</span>
+                                            <a class="">`+data.pesertaInstansi+`</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="kt-widget__item">
+                                        <div class="kt-widget__icon">
+                                            <i class="la la-codepen"></i>
+                                        </div>
+                                        <div class="kt-widget__details">
+                                            <span class="kt-widget__title">Email</span>
+                                            <a class="">`+data.pesertaEmail+`</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="kt-widget__item">
+                                        <div class="kt-widget__icon">
+                                            <i class="la la-birthday-cake"></i>
+                                        </div>
+                                        <div class="kt-widget__details">
+                                            <span class="kt-widget__title">Tempat Tanggal Lahir</span>
+                                            <a class="">`+data.pesertaTempatLahir+`, `+data.pesertaTanggalLahir+`</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="kt-widget__item">
+                                        <div class="kt-widget__icon">
+                                            <i class="la la-map-marker"></i>
+                                        </div>
+                                        <div class="kt-widget__details">
+                                            <span class="kt-widget__title">Alamat</span>
+                                            <a class="">`+data.pesertaAlamat+`</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="kt-widget__item">
+                                        <div class="kt-widget__icon">
+                                            <i class="la la-university"></i>
+                                        </div>
+                                        <div class="kt-widget__details">
+                                            <span class="kt-widget__title">Pendidikan Terakhir</span>
+                                            <a class="">`+data.pesertaPendidikanTerakhir+`</a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>`;
+
+            return template;
+        }
+
+        oTable.fnSetColumnVis(0,false,false);
+        oTable.fnSetColumnVis(1,false,false);
+
+
+        $(document).on('click', '.btnShowModal', function(event) {
+            id = '';
+
+            cleanError();
+            $('#formData').trigger('reset');
+        });
+
+        var id = '';
+        $(document).on('click', '.btnEdit', function(event) {
+            id = $(this).data('id');
+            cleanError();
+
+            $('#modal-edit').modal('show');
+
+            find = dataFull.find(seep => seep.jadwalId == id);
+
+
+            $.each(find, function(index, el) 
+            {
+                $('input[name="'+index+'"]').val(el);
+                $('textarea[name="'+index+'"]').val(el);
+            }); 
+
+            $('input[name="jadwalTanggal"]').val(moment(find.jadwalTanggal).locale('id').format('dddd, D MMMM YYYY'));
+
+        });
+
+
+        $(document).on('click', '.btnDelete', function(event) {
+            id = $(this).data('id');
+            $('#modal-delete').modal('show');
+
+            find = dataFull.find(seep => seep.jadwalId == id);
+
+            template(find);
+        });
+
+        function template(data)
+        {
+            var txt = `<div class="table-responsive">
+            <table class="table table-hover">
+            <tbody>`;
+
+            var label = ['Tanggal', 'Materi Pelajaran', 'Penyaji'];
+            var key   = ['jadwalTanggal', 'jadwalMateriPelajaran', 'jadwalPenyaji'];
+
+            $.each(key, function(index, el) 
+            {
+                if (data[el]) 
+                {
+                    txt += `
+                    <tr>
+                    <th width="30%">`+label[index]+`</th>
+                    <td width="1px">:</td>
+                    <td>`+data[el]+`</td>
+                    </tr>
+                    `;
+                }
+            }); 
+
+            txt += ` </tbody>
+            </table>
+            </div>`;
+
+            $('.modalDeleteBody').html(txt);
+        }
+
+        $(document).on('click', '.btnConfirmDelete', function(event) {
+            event.preventDefault();
+
+            $.ajax({
+                url: '<?php echo base_url('admin/diklat') ?>/deleteDataJadwal/'+id,
+                type: 'POST',
+                dataType: 'JSON',
+                beforeSend: function()
+                {
+                    btnLoading('.btnConfirmDelete');
+                },
+                complete: function()
+                {
+                    btnNormal('.btnConfirmDelete');
+                },
+                success: function(res)
+                {
+                    id = '';
+
+                    toastr[res.status](res.message);
+
+                    $('#modal-delete').modal('hide');
+                    oTable.api().ajax.reload();
+                }
+            })
+        });
+
+        function getError(data)
+        {
+            $.each(data.error, function(index, el) 
+            {
+                $('.'+index).html(el);
+            }); 
+        }
+
+        function cleanError()
+        {
+            $('.cleanError').html('');
+        }
+
+        var btnText;
+        function btnLoading(selector)
+        {
+            btnText = selector.html();
+            selector.html('<i class="fa fa-spinner fa-spin"></i> Loading .....');
+            selector.attr('disabled', 'true');
+        }
+
+        function btnNormal(selector)
+        {
+            selector.html(btnText);
+            selector.removeAttr('disabled');
+        }
+
+        toastConfig();
+        function toastConfig(){
+            toastr.options = {
+                "closeButton": false,
+                "debug": false,
+                "newestOnTop": false,
+                "progressBar": false,
+                "positionClass": "toast-top-right",
+                "preventDuplicates": true,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            }
+        }
+
+        $("#btn-cari").click(function () {
+            oTable.fnFilter($("#field-cari").val());
+        });
+
+        $("#field-cari").on('keyup', function(e) {
+            var key = e.which;
+            if (key == 13) 
+            { 
+                oTable.fnFilter($("#field-cari").val());
+            }
+        });
+
+
+    });
+</script>

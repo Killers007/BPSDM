@@ -7,38 +7,24 @@ class Peserta extends MY_Controller {
 	public function __construct() {
 		parent::__construct();
 
-		$this->load->model('Admin_m', 'model');
+		$this->load->model('Peserta_m', 'model');
+
+		if (!$this->access->accessFor('peserta')) 
+		{
+			show_error('Tidak ada akses ke sini');
+		}
 
 	}
 
-	public function index() {
-		// echo "<pre>";
-		// print_r($this->session->user['role']);
-		// echo "</pre>";exit;
-
-		if ($this->input->is_ajax_request()) 
-		{
-			$res = $this->model->getDataGrid($this->input->get(), 'renderDatatable', array(NULL));
-
-			echo json_encode($res);
-		}
-		else
-		{
-			$data['selectProvinsi'] = $this->model->selectProvinsi();
-			$this->layout->setTemplate(1);
-			$this->layout->setTitle('Dashboard', false)->render('admin_dashboard/index', $data);
-		}
-		
-	}
-
-	function replaceData($id = null)
+	public function index() 
 	{
+
 		if ($this->input->is_ajax_request()) 
 		{
 			$this->load->library('form_validation');
 
 			$this->form_validation->set_error_delimiters('<span class="form-text text-danger">', '</span>');
-			$this->form_validation->set_rules($this->model->rules());
+			$this->form_validation->set_rules($this->model->rulesBiodata());
 
 			if(!$this->form_validation->run())
 			{
@@ -46,7 +32,7 @@ class Peserta extends MY_Controller {
 
 				$res['status'] = false;
 
-				foreach ($this->model->rules() as $value) {
+				foreach ($this->model->rulesBiodata() as $value) {
 					$res['error'][$value['field']] = form_error($value['field']);
 				}
 
@@ -55,36 +41,131 @@ class Peserta extends MY_Controller {
 			}
 			else
 			{
-				$data = $this->model->replaceData($id);
+				$this->load->library('uploads');
+				$imageName = $this->uploads->uploadImage('pesertaFoto')->imageName;
+
+				$data = $this->model->replaceData($imageName);
 
 				echo json_encode($data);
 			}
 		}
+		else
+		{
+			$data['profile'] = $this->model->getProfile();
+			$data['subTitle'] = 'Biodata';
+			$data['selectAgama'] = $this->model->selectAgama();
+
+			$this->layout->setTemplate(0);
+			$this->layout->setTitle('Dashboard', false)->render('updateBiodata_v', $data);
+		}
+		
 	}
 
-	function deleteData($id = null)
+	public function ubah_password() 
 	{
+
 		if ($this->input->is_ajax_request()) 
 		{
-			$data = $this->model->deleteData($id);
+			$this->load->library('form_validation');
+
+			$this->form_validation->set_error_delimiters('<span class="form-text text-danger">', '</span>');
+            $this->form_validation->set_rules($this->model->rulesChangePassword());
+
+            if(!$this->form_validation->run())
+            {
+                $res = array();
+
+                $res['status'] = 'validate';
+
+                foreach ($this->model->rulesChangePassword() as $value) {
+                    $res['error'][$value['field']] = form_error($value['field']);
+                }
+
+                echo json_encode($res);
+            }
+            else
+            {
+				$password = $this->input->post('userPassword', TRUE);
+
+				$res = $this->model->changePassword($password);
+
+				echo json_encode($res);
+            }
+		}
+		else
+		{
+			$data['profile'] = $this->model->getProfile();
+			$data['subTitle'] = 'Ubah Password';
+
+			$this->layout->setTemplate(0);
+			$this->layout->setTitle('Dashboard', false)->render('changePassword_v', $data);
+		}
+		
+	}
+
+	public function setting_notifikasi() 
+	{
+
+		if ($this->input->is_ajax_request()) 
+		{
+			$data = $this->input->post(NULL, TRUE);
+			$data = $this->model->saveNotif($data);
 
 			echo json_encode($data);
 		}
-	}
+		else
+		{
+			$data['profile'] = $this->model->getProfile();
+			$data['subTitle'] = 'Setting Notifikasi';
 
-	function excel()
-	{
-		$this->load->library('excel');
-
-		$data = $this->db->get('test');
+			$this->layout->setTemplate(0);
+			$this->layout->setTitle('Dashboard', false)->render('settingNotifikasi_v', $data);
+		}
 		
-		$field = [
-			'nim' => 'NIM',
-			'nama' => 'Nama', 
-			'ttl' => 'Tempat tanggal lahir',
-		];
-
-		$this->excel->generateExcel($data->result_array(), 'juhdi', $field);
 	}
+
+	public function notifikasi() 
+	{
+
+		if ($this->input->is_ajax_request()) 
+		{
+			$data = $this->input->post(NULL, TRUE);
+			$data = $this->model->saveNotif($data);
+
+			echo json_encode($data);
+		}
+		else
+		{
+			$data['profile'] = $this->model->getProfile();
+			$data['subTitle'] = 'Semua Notifikasi';
+			$data['notifikasiData'] = $this->model->readMessage();
+
+			$this->layout->setTemplate(0);
+			$this->layout->setTitle('Dashboard', false)->render('readNotifikasi_v', $data);
+		}
+		
+	}
+
+	/*
+     * ------------------------------------------------------
+     *  Callback Form Validation
+     * ------------------------------------------------------
+     */
+    
+    public function cek_pass_lama($str)
+    {
+    	if (empty($this->model->cekPassLama($str))) 
+    	{
+    		$this->form_validation->set_message(__FUNCTION__, "Password lama salah");
+    		return FALSE;
+    	}
+    	else
+    	{
+    		return TRUE;
+    	}
+    }
+
+    /* ----------------------   END  ----------------------*/
+
 
 }
