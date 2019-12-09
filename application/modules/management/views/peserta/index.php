@@ -105,7 +105,7 @@
                         Datatable <?php echo $title ?>
                     </h3>
                 </div>
-                <div class="kt-portlet__head-toolbar">
+             <!--    <div class="kt-portlet__head-toolbar">
                     <div class="kt-portlet__head-wrapper">
                         <div class="kt-portlet__head-actions">
                             <div class="dropdown dropdown-inline">
@@ -156,7 +156,7 @@
                                 Tambah Data
                             </a>
                         </div>  
-                    </div>      </div>
+                    </div>      </div> -->
                 </div>
 
                 <div class="kt-portlet__body table-responsive">
@@ -219,7 +219,7 @@
                                             <div class="cleanError pesertaFoto"></div>
                                         </div>
                                     </div> 
-                                    <div class="form-group row">
+                                    <!-- <div class="form-group row">
                                         <div class="col-lg-12">
                                             <label>NIP <span class="text-danger">*</span></label>
                                             <div class="kt-input-icon">
@@ -228,7 +228,7 @@
                                             </div>
                                             <div class="cleanError pesertaNik"></div>
                                         </div>
-                                    </div>   
+                                    </div>   --> 
                                     <div class="form-group row">
                                         <div class="col-lg-3">
                                             <label>Gelar Depan</label>

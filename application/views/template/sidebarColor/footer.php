@@ -131,6 +131,7 @@
                             </script>
 
                             <script src="<?php echo base_url(); ?>assets/js/demo4/pages/custom/user/profile.js" type="text/javascript"></script>
+                            <script src="<?php echo base_url(); ?>assets/js/demo1/pages/crud/forms/widgets/summernote.js" type="text/javascript"></script>
                             
                         <!--end::Page Scripts -->
             </body>

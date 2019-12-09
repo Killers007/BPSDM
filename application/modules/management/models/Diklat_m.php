@@ -73,8 +73,16 @@ class Diklat_m extends MY_Model {
 
 	function saveMessage($id, $message)
 	{
+		$peserta = $this->db->get_where('diklat_m_peserta', ['pesertaNik' => $id])->row();
+
+		if ($peserta->pesertaWaNotif == 1) {
+			$this->load->library('whatsapp');
+			$this->whatsapp->sendMessage($peserta->pesertaNoHp, $message);
+		}
+
 		$data['notifTo'] = $id;
 		$data['notifContent'] = $message;
+		$data['notifFrom'] = $this->session->user['user'];
 
 		$this->db->insert('diklat_t_notif', $data);
 		return $this->db->affected_rows();
@@ -82,10 +90,53 @@ class Diklat_m extends MY_Model {
 
 	function readMessage($id)
 	{
-		$data['notifTo'] = $id;
+		$this->db->group_start();
+		$this->db->where('notifTo', $id);
+		$this->db->where('notifFrom', $this->session->user['user']);
+		$this->db->group_end();
 
+		$this->db->or_group_start();
+		$this->db->where('notifFrom', $id);
+		$this->db->where('notifTo', $this->session->user['user']);
+		$this->db->group_end();
+		
+        $this->db->join('diklat_m_peserta', 'pesertaNik = notifFrom', 'left');
 		$this->db->order_by('notifSend', 'asc');
-		return $this->db->get_where('diklat_t_notif', $data)->result();
+		return $this->db->get('diklat_t_notif')->result();
+	}
+
+	function broadcastEmail($diklatId, $pesan, $header = 'BPSDMD PROV KALSEL')
+	{
+
+		$this->db->where('pendaftaranDiklatId', $diklatId);
+		$this->db->where('pendaftaranIsAcc', 1);
+		$this->db->join('diklat_m_peserta', 'pesertaNik = pendaftaranPesertaId');
+
+		$peserta = $this->db->get('diklat_t_pendaftaran')->result();
+
+		$data = [];
+		$dataEmail = [];
+		foreach ($peserta as $key => $value) {
+			if ($value->pesertaEmailNotif == 1) {
+				$dataEmail[] = array($value->pesertaEmail, $pesan, $header);
+			}
+
+			$data[$key]['bctBody'] = $pesan;
+			$data[$key]['bctReceiver'] = $value->pendaftaranPesertaId;
+			$data[$key]['bctHeader'] = $header;
+			$data[$key]['bctDiklatId'] = $diklatId;
+			$data[$key]['bctSender'] = $this->session->user['user'];
+		}
+
+		if (!empty($data)) 
+		{
+			$this->db->insert_batch('diklat_t_broadcast_email', $data);
+
+
+			return ['status' => 'success', 'message' => 'Email berhasil di sebarkan', 'dataEmail' => $dataEmail];
+		}
+		return ['status' => 'error', 'message' => 'Tidak ada email yang disebarkan'];
+
 	}
 
 	function getPengajar($diklatId)
@@ -104,11 +155,21 @@ class Diklat_m extends MY_Model {
 		return $res;
 	}
 
+	function cektanggalPendaftaran($diklatId)
+	{
+		$this->db->where('diklatId', $diklatId);
+		$this->db->select('IF(diklatTanggalPendaftaran <= DATE(NOW()) && diklatTanggalAkhirPendaftaran >= DATE(NOW()), 1, 0) as diklatStatus');
+		return $this->db->get('diklat_m_diklat')->row()->diklatStatus;
+	}
+
 	function getPeserta($diklatId)
 	{
+		$this->db->where('pendaftaranIsAcc', 1);
 		$this->db->where('pendaftaranDiklatId', $diklatId);
 		$this->db->join('diklat_m_peserta', 'pesertaNik = pendaftaranPesertaId');
 		$this->db->join('diklat_r_agama', 'agamaId = pesertaAgama', 'left');
+		$this->db->join('diklat_r_nilai', 'nilaiMin <= pendaftaranNilai and pendaftaranNilai <= nilaiMax');
+		$this->db->order_by('pesertaNik', 'asc');
 
 		return $this->db->get('diklat_t_pendaftaran')->result();
 	}
@@ -146,7 +207,7 @@ class Diklat_m extends MY_Model {
 	function renderDatatable($nim = NULL)
 	{
 		$this->db->select('*');
-		$this->db->select('IF(diklatTanggalPendaftaran <= NOW() && diklatTanggalAkhirPendaftaran >= NOW(), 1, 0) as diklatStatus');
+		$this->db->select('IF(diklatTanggalPendaftaran <= DATE(NOW()) && diklatTanggalAkhirPendaftaran >= DATE(NOW()), 1, 0) as diklatStatus');
 		$this->db->select('(SELECT COUNT(*) FROM diklat_t_pendaftaran WHERE pendaftaranDiklatId = diklatId and pendaftaranIsAcc = 1) as diklatJumlah');
 		$this->db->select('(SELECT COUNT(*) FROM diklat_t_pendaftaran WHERE pendaftaranDiklatId = diklatId) as diklatJumPendaftar');
 

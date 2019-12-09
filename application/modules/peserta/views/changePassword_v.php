@@ -112,9 +112,8 @@
                                                         <span class="kt-widget__icon">
                                                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
                                                                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                                                    <rect id="bound" x="0" y="0" width="24" height="24"></rect>
-                                                                    <path d="M6,2 L18,2 C18.5522847,2 19,2.44771525 19,3 L19,12 C19,12.5522847 18.5522847,13 18,13 L6,13 C5.44771525,13 5,12.5522847 5,12 L5,3 C5,2.44771525 5.44771525,2 6,2 Z M7.5,5 C7.22385763,5 7,5.22385763 7,5.5 C7,5.77614237 7.22385763,6 7.5,6 L13.5,6 C13.7761424,6 14,5.77614237 14,5.5 C14,5.22385763 13.7761424,5 13.5,5 L7.5,5 Z M7.5,7 C7.22385763,7 7,7.22385763 7,7.5 C7,7.77614237 7.22385763,8 7.5,8 L10.5,8 C10.7761424,8 11,7.77614237 11,7.5 C11,7.22385763 10.7761424,7 10.5,7 L7.5,7 Z" id="Combined-Shape" fill="#000000" opacity="0.3"></path>
-                                                                    <path d="M3.79274528,6.57253826 L12,12.5 L20.2072547,6.57253826 C20.4311176,6.4108595 20.7436609,6.46126971 20.9053396,6.68513259 C20.9668779,6.77033951 21,6.87277228 21,6.97787787 L21,17 C21,18.1045695 20.1045695,19 19,19 L5,19 C3.8954305,19 3,18.1045695 3,17 L3,6.97787787 C3,6.70173549 3.22385763,6.47787787 3.5,6.47787787 C3.60510559,6.47787787 3.70753836,6.51099993 3.79274528,6.57253826 Z" id="Combined-Shape" fill="#000000"></path>
+                                                                    <rect id="bound" x="0" y="0" width="24" height="24"/>
+                                                                    <path d="M5,8.6862915 L5,5 L8.6862915,5 L11.5857864,2.10050506 L14.4852814,5 L19,5 L19,9.51471863 L21.4852814,12 L19,14.4852814 L19,19 L14.4852814,19 L11.5857864,21.8994949 L8.6862915,19 L5,19 L5,15.3137085 L1.6862915,12 L5,8.6862915 Z M12,15 C13.6568542,15 15,13.6568542 15,12 C15,10.3431458 13.6568542,9 12,9 C10.3431458,9 9,10.3431458 9,12 C9,13.6568542 10.3431458,15 12,15 Z" id="Combined-Shape" fill="#000000"/>
                                                                 </g>
                                                             </svg>                            </span>
                                                             <span class="kt-widget__desc">
@@ -124,245 +123,261 @@
                                                     </a>
 
                                                     <a href="<?php echo base_url('peserta/notifikasi') ?>" class="kt-widget__item">
-                                                    <span class="kt-widget__section">
-                                                        <span class="kt-widget__icon">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
-                                                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                                                    <rect id="bound" x="0" y="0" width="24" height="24"></rect>
-                                                                    <path d="M6,2 L18,2 C18.5522847,2 19,2.44771525 19,3 L19,12 C19,12.5522847 18.5522847,13 18,13 L6,13 C5.44771525,13 5,12.5522847 5,12 L5,3 C5,2.44771525 5.44771525,2 6,2 Z M7.5,5 C7.22385763,5 7,5.22385763 7,5.5 C7,5.77614237 7.22385763,6 7.5,6 L13.5,6 C13.7761424,6 14,5.77614237 14,5.5 C14,5.22385763 13.7761424,5 13.5,5 L7.5,5 Z M7.5,7 C7.22385763,7 7,7.22385763 7,7.5 C7,7.77614237 7.22385763,8 7.5,8 L10.5,8 C10.7761424,8 11,7.77614237 11,7.5 C11,7.22385763 10.7761424,7 10.5,7 L7.5,7 Z" id="Combined-Shape" fill="#000000" opacity="0.3"></path>
-                                                                    <path d="M3.79274528,6.57253826 L12,12.5 L20.2072547,6.57253826 C20.4311176,6.4108595 20.7436609,6.46126971 20.9053396,6.68513259 C20.9668779,6.77033951 21,6.87277228 21,6.97787787 L21,17 C21,18.1045695 20.1045695,19 19,19 L5,19 C3.8954305,19 3,18.1045695 3,17 L3,6.97787787 C3,6.70173549 3.22385763,6.47787787 3.5,6.47787787 C3.60510559,6.47787787 3.70753836,6.51099993 3.79274528,6.57253826 Z" id="Combined-Shape" fill="#000000"></path>
-                                                                </g>
-                                                            </svg>                            </span>
-                                                            <span class="kt-widget__desc">
-                                                                Notifikasi                                                      
-                                                            </span>
-                                                        </span>    
-                                                    </a>
+                                                        <span class="kt-widget__section">
+                                                            <span class="kt-widget__icon">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
+                                                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                                        <rect id="bound" x="0" y="0" width="24" height="24"/>
+                                                                        <path d="M16,15.6315789 L16,12 C16,10.3431458 14.6568542,9 13,9 L6.16183229,9 L6.16183229,5.52631579 C6.16183229,4.13107011 7.29290239,3 8.68814808,3 L20.4776218,3 C21.8728674,3 23.0039375,4.13107011 23.0039375,5.52631579 L23.0039375,13.1052632 L23.0206157,17.786793 C23.0215995,18.0629336 22.7985408,18.2875874 22.5224001,18.2885711 C22.3891754,18.2890457 22.2612702,18.2363324 22.1670655,18.1421277 L19.6565168,15.6315789 L16,15.6315789 Z" id="Combined-Shape" fill="#000000"/>
+                                                                        <path d="M1.98505595,18 L1.98505595,13 C1.98505595,11.8954305 2.88048645,11 3.98505595,11 L11.9850559,11 C13.0896254,11 13.9850559,11.8954305 13.9850559,13 L13.9850559,18 C13.9850559,19.1045695 13.0896254,20 11.9850559,20 L4.10078614,20 L2.85693427,21.1905292 C2.65744295,21.3814685 2.34093638,21.3745358 2.14999706,21.1750444 C2.06092565,21.0819836 2.01120804,20.958136 2.01120804,20.8293182 L2.01120804,18.32426 C1.99400175,18.2187196 1.98505595,18.1104045 1.98505595,18 Z M6.5,14 C6.22385763,14 6,14.2238576 6,14.5 C6,14.7761424 6.22385763,15 6.5,15 L11.5,15 C11.7761424,15 12,14.7761424 12,14.5 C12,14.2238576 11.7761424,14 11.5,14 L6.5,14 Z M9.5,16 C9.22385763,16 9,16.2238576 9,16.5 C9,16.7761424 9.22385763,17 9.5,17 L11.5,17 C11.7761424,17 12,16.7761424 12,16.5 C12,16.2238576 11.7761424,16 11.5,16 L9.5,16 Z" id="Combined-Shape" fill="#000000" opacity="0.3"/>
+                                                                    </g>
+                                                                </svg>                            </span>
+                                                                <span class="kt-widget__desc">
+                                                                    Pesan                                                      
+                                                                </span>
+                                                            </span>    
+                                                        </a>
 
+                                                        <a href="<?php echo base_url('peserta/email') ?>" class="kt-widget__item  kt-widget__item">
+                                                            <span class="kt-widget__section">
+                                                                <span class="kt-widget__icon">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon kt-nav__link-icon">
+                                                                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                                            <rect id="bound" x="0" y="0" width="24" height="24"></rect>
+                                                                            <path d="M6,2 L18,2 C18.5522847,2 19,2.44771525 19,3 L19,13 C19,13.5522847 18.5522847,14 18,14 L6,14 C5.44771525,14 5,13.5522847 5,13 L5,3 C5,2.44771525 5.44771525,2 6,2 Z M13.8,4 C13.1562,4 12.4033,4.72985286 12,5.2 C11.5967,4.72985286 10.8438,4 10.2,4 C9.0604,4 8.4,4.88887193 8.4,6.02016349 C8.4,7.27338783 9.6,8.6 12,10 C14.4,8.6 15.6,7.3 15.6,6.1 C15.6,4.96870845 14.9396,4 13.8,4 Z" id="Combined-Shape" fill="#000000" opacity="0.3"></path>
+                                                                            <path d="M3.79274528,6.57253826 L12,12.5 L20.2072547,6.57253826 C20.4311176,6.4108595 20.7436609,6.46126971 20.9053396,6.68513259 C20.9668779,6.77033951 21,6.87277228 21,6.97787787 L21,17 C21,18.1045695 20.1045695,19 19,19 L5,19 C3.8954305,19 3,18.1045695 3,17 L3,6.97787787 C3,6.70173549 3.22385763,6.47787787 3.5,6.47787787 C3.60510559,6.47787787 3.70753836,6.51099993 3.79274528,6.57253826 Z" id="Combined-Shape" fill="#000000"></path>
+                                                                        </g>
+                                                                    </svg>                            </span>
+                                                                    <span class="kt-widget__desc">
+                                                                        Email                                                      
+                                                                    </span>
+                                                                </span>    
+                                                            </a>
+
+                                                        </div>
+                                                    </div>
                                                 </div>
+                                                <!--end::Widget -->
                                             </div>
                                         </div>
-                                        <!--end::Widget -->
+                                        <!--end:: Widgets/Applications/User/Profile1-->
+
                                     </div>
-                                </div>
-                                <!--end:: Widgets/Applications/User/Profile1-->
+                                    <!--End:: App Aside-->
 
-                            </div>
-                            <!--End:: App Aside-->
-
-                            <!--Begin:: App Content-->
-                            <div class="kt-grid__item kt-grid__item--fluid kt-app__content">
-                                <div class="row">
-                                    <div class="col-xl-12">
-                                        <div class="kt-portlet kt-portlet--height-fluid">
-                                            <div class="kt-portlet__head">
-                                                <div class="kt-portlet__head-label">
-                                                    <h3 class="kt-portlet__head-title"><?php echo $subTitle ?></h3>
-                                                </div>
-                                                <div class="kt-portlet__head-toolbar kt-hidden">
-                                                    <div class="kt-portlet__head-toolbar">
-                                                        <div class="dropdown dropdown-inline">
-                                                            <button type="button" class="btn btn-clean btn-sm btn-icon btn-icon-md" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                <i class="la la-sellsy"></i>
-                                                            </button>
-                                                            <div class="dropdown-menu dropdown-menu-right">
-                                                                <ul class="kt-nav">
-                                                                    <li class="kt-nav__section kt-nav__section--first">
-                                                                        <span class="kt-nav__section-text">Quick Actions</span>
-                                                                    </li>
-                                                                    <li class="kt-nav__item">
-                                                                        <a href="#" class="kt-nav__link">
-                                                                            <i class="kt-nav__link-icon flaticon2-graph-1"></i>
-                                                                            <span class="kt-nav__link-text">Statistics</span>
-                                                                        </a>
-                                                                    </li>
-                                                                    <li class="kt-nav__item">
-                                                                        <a href="#" class="kt-nav__link">
-                                                                            <i class="kt-nav__link-icon flaticon2-calendar-4"></i>
-                                                                            <span class="kt-nav__link-text">Events</span>
-                                                                        </a>
-                                                                    </li>
-                                                                    <li class="kt-nav__item">
-                                                                        <a href="#" class="kt-nav__link">
-                                                                            <i class="kt-nav__link-icon flaticon2-layers-1"></i>
-                                                                            <span class="kt-nav__link-text">Reports</span>
-                                                                        </a>
-                                                                    </li>
-                                                                    <li class="kt-nav__item">
-                                                                        <a href="#" class="kt-nav__link">
-                                                                            <i class="kt-nav__link-icon flaticon2-bell-1o"></i>
-                                                                            <span class="kt-nav__link-text">Notifications</span>
-                                                                        </a>
-                                                                    </li>
-                                                                    <li class="kt-nav__item">
-                                                                        <a href="#" class="kt-nav__link">
-                                                                            <i class="kt-nav__link-icon flaticon2-file-1"></i>
-                                                                            <span class="kt-nav__link-text">Files</span>
-                                                                        </a>
-                                                                    </li>
-                                                                </ul>
+                                    <!--Begin:: App Content-->
+                                    <div class="kt-grid__item kt-grid__item--fluid kt-app__content">
+                                        <div class="row">
+                                            <div class="col-xl-12">
+                                                <div class="kt-portlet kt-portlet--height-fluid">
+                                                    <div class="kt-portlet__head">
+                                                        <div class="kt-portlet__head-label">
+                                                            <h3 class="kt-portlet__head-title"><?php echo $subTitle ?></h3>
+                                                        </div>
+                                                        <div class="kt-portlet__head-toolbar kt-hidden">
+                                                            <div class="kt-portlet__head-toolbar">
+                                                                <div class="dropdown dropdown-inline">
+                                                                    <button type="button" class="btn btn-clean btn-sm btn-icon btn-icon-md" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                        <i class="la la-sellsy"></i>
+                                                                    </button>
+                                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                                        <ul class="kt-nav">
+                                                                            <li class="kt-nav__section kt-nav__section--first">
+                                                                                <span class="kt-nav__section-text">Quick Actions</span>
+                                                                            </li>
+                                                                            <li class="kt-nav__item">
+                                                                                <a href="#" class="kt-nav__link">
+                                                                                    <i class="kt-nav__link-icon flaticon2-graph-1"></i>
+                                                                                    <span class="kt-nav__link-text">Statistics</span>
+                                                                                </a>
+                                                                            </li>
+                                                                            <li class="kt-nav__item">
+                                                                                <a href="#" class="kt-nav__link">
+                                                                                    <i class="kt-nav__link-icon flaticon2-calendar-4"></i>
+                                                                                    <span class="kt-nav__link-text">Events</span>
+                                                                                </a>
+                                                                            </li>
+                                                                            <li class="kt-nav__item">
+                                                                                <a href="#" class="kt-nav__link">
+                                                                                    <i class="kt-nav__link-icon flaticon2-layers-1"></i>
+                                                                                    <span class="kt-nav__link-text">Reports</span>
+                                                                                </a>
+                                                                            </li>
+                                                                            <li class="kt-nav__item">
+                                                                                <a href="#" class="kt-nav__link">
+                                                                                    <i class="kt-nav__link-icon flaticon2-bell-1o"></i>
+                                                                                    <span class="kt-nav__link-text">Notifications</span>
+                                                                                </a>
+                                                                            </li>
+                                                                            <li class="kt-nav__item">
+                                                                                <a href="#" class="kt-nav__link">
+                                                                                    <i class="kt-nav__link-icon flaticon2-file-1"></i>
+                                                                                    <span class="kt-nav__link-text">Files</span>
+                                                                                </a>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
+                                                    </div>
+                                                    <form id="formPassword" class="kt-form kt-form--label-right">
+                                                        <div class="kt-portlet__body">
+                                                            <div class="kt-section kt-section--first">
+                                                                <div class="kt-section__body">
+                                                                    <div class="alert alert-solid-danger alert-bold fade show kt-margin-t-20 kt-margin-b-40" role="alert">
+                                                                        <div class="alert-icon"><i class="fa fa-exclamation-triangle"></i></div>
+                                                                        <div class="alert-text">
+                                                                            Konfigurasikan kata sandi pengguna untuk kedaluwarsa secara berkala. Pengguna perlu peringatan bahwa kata sandi mereka akan kedaluwarsa, <br> atau mereka mungkin secara tidak sengaja dikunci dari sistem!</div>
+                                                                            <div class="alert-close">
+                                                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                                                    <span aria-hidden="true"><i class="la la-close"></i></span>
+                                                                                </button>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="form-group row">
+                                                                            <label class="col-xl-3 col-lg-3 col-form-label">Password Lama</label>
+                                                                            <div class="col-lg-9 col-xl-6">
+                                                                                <input type="password" class="form-control" name="userPasswordLama" value="" placeholder="">
+                                                                                <div class="cleanError userPasswordLama"></div>
+                                                                            </div>
+
+                                                                        </div>
+                                                                        <div class="form-group row">
+                                                                            <label class="col-xl-3 col-lg-3 col-form-label">Password Baru</label>
+                                                                            <div class="col-lg-9 col-xl-6">
+                                                                                <input type="password" class="form-control" name="userPassword" value="" placeholder="">
+                                                                                <div class="cleanError userPassword"></div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="form-group form-group-last row">
+                                                                            <label class="col-xl-3 col-lg-3 col-form-label">Ulangi Password</label>
+                                                                            <div class="col-lg-9 col-xl-6">
+                                                                                <input type="password" class="form-control" name="userPasswordVerify" value="" placeholder="">
+                                                                                <div class="cleanError userPasswordVerify"></div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="kt-portlet__foot">
+                                                                <div class="kt-form__actions">
+                                                                    <div class="row">
+                                                                        <div class="col-lg-3 col-xl-3">
+                                                                        </div>
+                                                                        <div class="col-lg-9 col-xl-9">
+                                                                            <button type="submit" id="btnChangePassword" class="btn btn-brand btn-bold">Ubah Password</button>&nbsp;
+                                                                            <button type="reset" class="btn btn-secondary">Cancel</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </form>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <form id="formPassword" class="kt-form kt-form--label-right">
-                                                <div class="kt-portlet__body">
-                                                    <div class="kt-section kt-section--first">
-                                                        <div class="kt-section__body">
-                                                            <div class="alert alert-solid-danger alert-bold fade show kt-margin-t-20 kt-margin-b-40" role="alert">
-                                                                <div class="alert-icon"><i class="fa fa-exclamation-triangle"></i></div>
-                                                                <div class="alert-text">
-                                                                    Konfigurasikan kata sandi pengguna untuk kedaluwarsa secara berkala. Pengguna perlu peringatan bahwa kata sandi mereka akan kedaluwarsa, <br> atau mereka mungkin secara tidak sengaja dikunci dari sistem!</div>
-                                                                    <div class="alert-close">
-                                                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                                                            <span aria-hidden="true"><i class="la la-close"></i></span>
-                                                                        </button>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="form-group row">
-                                                                    <label class="col-xl-3 col-lg-3 col-form-label">Password Lama</label>
-                                                                    <div class="col-lg-9 col-xl-6">
-                                                                        <input type="password" class="form-control" name="userPasswordLama" value="" placeholder="">
-                                                                        <div class="cleanError userPasswordLama"></div>
-                                                                    </div>
-
-                                                                </div>
-                                                                <div class="form-group row">
-                                                                    <label class="col-xl-3 col-lg-3 col-form-label">Password Baru</label>
-                                                                    <div class="col-lg-9 col-xl-6">
-                                                                        <input type="password" class="form-control" name="userPassword" value="" placeholder="">
-                                                                        <div class="cleanError userPassword"></div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="form-group form-group-last row">
-                                                                    <label class="col-xl-3 col-lg-3 col-form-label">Ulangi Password</label>
-                                                                    <div class="col-lg-9 col-xl-6">
-                                                                        <input type="password" class="form-control" name="userPasswordVerify" value="" placeholder="">
-                                                                        <div class="cleanError userPasswordVerify"></div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="kt-portlet__foot">
-                                                        <div class="kt-form__actions">
-                                                            <div class="row">
-                                                                <div class="col-lg-3 col-xl-3">
-                                                                </div>
-                                                                <div class="col-lg-9 col-xl-9">
-                                                                    <button type="submit" id="btnChangePassword" class="btn btn-brand btn-bold">Ubah Password</button>&nbsp;
-                                                                    <button type="reset" class="btn btn-secondary">Cancel</button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                            </div>
+                                            </div>           
                                         </div>
-                                    </div>           
+                                        <!--End:: App Content-->
+                                    </div>
+                                    <!--End::App-->
+
+
                                 </div>
-                                <!--End:: App Content-->
+                                <!-- end:: Content -->                      
                             </div>
-                            <!--End::App-->
 
+                            <script type="text/javascript">
 
-                        </div>
-                        <!-- end:: Content -->                      
-                    </div>
+                                $(document).ready(function() {
 
-                    <script type="text/javascript">
+                                    $(document).on('submit', '#formPassword', function(event) {
+                                        event.preventDefault();
 
-                        $(document).ready(function() {
+                                        var data = new FormData(this);
 
-                            $(document).on('submit', '#formPassword', function(event) {
-                                event.preventDefault();
+                                        $.ajax({
+                                            url: '<?php echo current_url() ?>',
+                                            type: 'POST',
+                                            dataType: 'JSON',
+                                            cache: false,
+                                            processData : false,
+                                            contentType: false,
+                                            data: data,
+                                            beforeSend: function()
+                                            {
+                                                btnLoading('#btnChangePassword');
+                                                cleanError();
+                                            },
+                                            complete: function()
+                                            {
+                                                btnNormal('#btnChangePassword');
+                                            },
+                                            success: function(res)
+                                            {
+                                                if (res.status == 'validate') 
+                                                {
+                                                    getError(res)
+                                                }
+                                                else
+                                                {
+                                                    toastr[res.status](res.message);
 
-                                var data = new FormData(this);
+                                                }
+                                            }
+                                        })
 
-                                $.ajax({
-                                    url: '<?php echo current_url() ?>',
-                                    type: 'POST',
-                                    dataType: 'JSON',
-                                    cache: false,
-                                    processData : false,
-                                    contentType: false,
-                                    data: data,
-                                    beforeSend: function()
+                                    });
+
+                                    function getError(data)
                                     {
-                                        btnLoading('#btnChangePassword');
-                                        cleanError();
-                                    },
-                                    complete: function()
-                                    {
-                                        btnNormal('#btnChangePassword');
-                                    },
-                                    success: function(res)
-                                    {
-                                        if (res.status == 'validate') 
+                                        $.each(data.error, function(index, el) 
                                         {
-                                            getError(res)
-                                        }
-                                        else
-                                        {
-                                            toastr[res.status](res.message);
+                                            $('.'+index).html(el);
+                                        }); 
+                                    }
 
+                                    function cleanError()
+                                    {
+                                        $('.cleanError').html('');
+                                    }
+
+
+                                    var btnText;
+                                    function btnLoading(selector)
+                                    {
+                                        btnText = $(selector).html();
+                                        $(selector).html('<i class="fa fa-spinner fa-spin"></i> Loading .....');
+                                        $(selector).attr('disabled', 'true');
+                                    }
+
+                                    function btnNormal(selector)
+                                    {
+                                        $(selector).html(btnText);
+                                        $(selector).removeAttr('disabled');
+                                    }
+
+                                    toastConfig();
+                                    function toastConfig(){
+                                        toastr.options = {
+                                            "closeButton": false,
+                                            "debug": false,
+                                            "newestOnTop": false,
+                                            "progressBar": false,
+                                            "positionClass": "toast-top-right",
+                                            "preventDuplicates": true,
+                                            "onclick": null,
+                                            "showDuration": "300",
+                                            "hideDuration": "1000",
+                                            "timeOut": "5000",
+                                            "extendedTimeOut": "1000",
+                                            "showEasing": "swing",
+                                            "hideEasing": "linear",
+                                            "showMethod": "fadeIn",
+                                            "hideMethod": "fadeOut"
                                         }
                                     }
-                                })
 
-                            });
+                                });
 
-                            function getError(data)
-                            {
-                                $.each(data.error, function(index, el) 
-                                {
-                                    $('.'+index).html(el);
-                                }); 
-                            }
-
-                            function cleanError()
-                            {
-                                $('.cleanError').html('');
-                            }
-
-
-                            var btnText;
-                            function btnLoading(selector)
-                            {
-                                btnText = $(selector).html();
-                                $(selector).html('<i class="fa fa-spinner fa-spin"></i> Loading .....');
-                                $(selector).attr('disabled', 'true');
-                            }
-
-                            function btnNormal(selector)
-                            {
-                                $(selector).html(btnText);
-                                $(selector).removeAttr('disabled');
-                            }
-
-                            toastConfig();
-                            function toastConfig(){
-                                toastr.options = {
-                                    "closeButton": false,
-                                    "debug": false,
-                                    "newestOnTop": false,
-                                    "progressBar": false,
-                                    "positionClass": "toast-top-right",
-                                    "preventDuplicates": true,
-                                    "onclick": null,
-                                    "showDuration": "300",
-                                    "hideDuration": "1000",
-                                    "timeOut": "5000",
-                                    "extendedTimeOut": "1000",
-                                    "showEasing": "swing",
-                                    "hideEasing": "linear",
-                                    "showMethod": "fadeIn",
-                                    "hideMethod": "fadeOut"
-                                }
-                            }
-
-                        });
-
-                    </script>
+                            </script>

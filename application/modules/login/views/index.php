@@ -113,7 +113,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                     </label>
                                 </div>
                                 <div class="col kt-align-right">
-                                    <a href="javascript:;" id="kt_login_forgot" class="kt-login__link">Forget Password ?</a>
+                                    <a href="javascript:;" id="kt_login_forgot" class="kt-login__link">Lupa Password ?</a>
                                 </div>
                             </div>
 
@@ -166,15 +166,15 @@ License: You must have a valid license purchased only from themeforest(the above
                     </div>
                     <div class="kt-login__forgot">
                         <div class="kt-login__head">
-                            <h3 class="kt-login__title">Forgotten Password ?</h3>
+                            <h3 class="kt-login__title">Lupa Password ?</h3>
                             <div class="kt-login__desc">Enter your email to reset your password:</div>
                         </div>
-                        <form class="kt-form" action="">
+                        <form class="kt-form formReset" onsubmit="return false">
                             <div class="input-group">
                                 <input class="form-control" type="text" placeholder="Email" name="email" id="kt_email" autocapitalize="off">
                             </div>
                             <div class="kt-login__actions">
-                                <button id="kt_login_forgot_submit" class="btn btn-brand btn-pill kt-login__btn-primary">Request</button>&nbsp;&nbsp;
+                                <button class="btn btn-brand btn-pill kt-login__btn-primary" id="btnReset">Request</button>&nbsp;&nbsp;
                                 <button id="kt_login_forgot_cancel" class="btn btn-secondary btn-pill kt-login__btn-secondary">Cancel</button>
                             </div>
                         </form>
@@ -313,6 +313,30 @@ License: You must have a valid license purchased only from themeforest(the above
 
         });
 
+        $(document).on('click', '#btnReset', function(event) {
+            event.preventDefault();
+
+            var email = $('input[name="email"]').val();
+
+            $.ajax({
+                url: '<?php echo current_url() ?>',
+                type: 'POST',
+                dataType: 'JSON',
+                data: {'status' : 'reset', 'email': email},
+                beforeSend: function()
+                {
+                    btnLoading('#btnReset');
+                },
+                success: function(res)
+                {
+                    toastr[res.status](res.message);
+
+                    btnNormal('#btnReset');
+                }
+            })
+
+        });
+
         $(document).on('click', '#btnRegister', function(event) {
             event.preventDefault();
 
@@ -338,6 +362,8 @@ License: You must have a valid license purchased only from themeforest(the above
                     else
                     {
                         toastr[res.status](res.message);
+                        window.location = res.redirect;
+                        
                         $('.cleanError').html('');
                     }
 

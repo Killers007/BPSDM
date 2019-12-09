@@ -7,7 +7,7 @@
                 <h3 class="kt-subheader__title">
                     <button class="kt-subheader__mobile-toggle kt-subheader__mobile-toggle--left" id="kt_subheader_mobile_toggle"><span></span></button>
 
-               Notifikasi           </h3>
+                Notifikasi           </h3>
 
                 <div class="kt-subheader__breadcrumbs">
                     <a href="#" class="kt-subheader__breadcrumbs-home"><i class="flaticon2-shelter"></i></a>
@@ -112,9 +112,8 @@
                                                         <span class="kt-widget__icon">
                                                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
                                                                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                                                    <rect id="bound" x="0" y="0" width="24" height="24"></rect>
-                                                                    <path d="M6,2 L18,2 C18.5522847,2 19,2.44771525 19,3 L19,12 C19,12.5522847 18.5522847,13 18,13 L6,13 C5.44771525,13 5,12.5522847 5,12 L5,3 C5,2.44771525 5.44771525,2 6,2 Z M7.5,5 C7.22385763,5 7,5.22385763 7,5.5 C7,5.77614237 7.22385763,6 7.5,6 L13.5,6 C13.7761424,6 14,5.77614237 14,5.5 C14,5.22385763 13.7761424,5 13.5,5 L7.5,5 Z M7.5,7 C7.22385763,7 7,7.22385763 7,7.5 C7,7.77614237 7.22385763,8 7.5,8 L10.5,8 C10.7761424,8 11,7.77614237 11,7.5 C11,7.22385763 10.7761424,7 10.5,7 L7.5,7 Z" id="Combined-Shape" fill="#000000" opacity="0.3"></path>
-                                                                    <path d="M3.79274528,6.57253826 L12,12.5 L20.2072547,6.57253826 C20.4311176,6.4108595 20.7436609,6.46126971 20.9053396,6.68513259 C20.9668779,6.77033951 21,6.87277228 21,6.97787787 L21,17 C21,18.1045695 20.1045695,19 19,19 L5,19 C3.8954305,19 3,18.1045695 3,17 L3,6.97787787 C3,6.70173549 3.22385763,6.47787787 3.5,6.47787787 C3.60510559,6.47787787 3.70753836,6.51099993 3.79274528,6.57253826 Z" id="Combined-Shape" fill="#000000"></path>
+                                                                    <rect id="bound" x="0" y="0" width="24" height="24"/>
+                                                                    <path d="M5,8.6862915 L5,5 L8.6862915,5 L11.5857864,2.10050506 L14.4852814,5 L19,5 L19,9.51471863 L21.4852814,12 L19,14.4852814 L19,19 L14.4852814,19 L11.5857864,21.8994949 L8.6862915,19 L5,19 L5,15.3137085 L1.6862915,12 L5,8.6862915 Z M12,15 C13.6568542,15 15,13.6568542 15,12 C15,10.3431458 13.6568542,9 12,9 C10.3431458,9 9,10.3431458 9,12 C9,13.6568542 10.3431458,15 12,15 Z" id="Combined-Shape" fill="#000000"/>
                                                                 </g>
                                                             </svg>                            </span>
                                                             <span class="kt-widget__desc">
@@ -124,176 +123,249 @@
                                                     </a>
 
                                                     <a href="<?php echo base_url('peserta/notifikasi') ?>" class="kt-widget__item  kt-widget__item--active">
-                                                    <span class="kt-widget__section">
-                                                        <span class="kt-widget__icon">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
-                                                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                                                    <rect id="bound" x="0" y="0" width="24" height="24"></rect>
-                                                                    <path d="M6,2 L18,2 C18.5522847,2 19,2.44771525 19,3 L19,12 C19,12.5522847 18.5522847,13 18,13 L6,13 C5.44771525,13 5,12.5522847 5,12 L5,3 C5,2.44771525 5.44771525,2 6,2 Z M7.5,5 C7.22385763,5 7,5.22385763 7,5.5 C7,5.77614237 7.22385763,6 7.5,6 L13.5,6 C13.7761424,6 14,5.77614237 14,5.5 C14,5.22385763 13.7761424,5 13.5,5 L7.5,5 Z M7.5,7 C7.22385763,7 7,7.22385763 7,7.5 C7,7.77614237 7.22385763,8 7.5,8 L10.5,8 C10.7761424,8 11,7.77614237 11,7.5 C11,7.22385763 10.7761424,7 10.5,7 L7.5,7 Z" id="Combined-Shape" fill="#000000" opacity="0.3"></path>
-                                                                    <path d="M3.79274528,6.57253826 L12,12.5 L20.2072547,6.57253826 C20.4311176,6.4108595 20.7436609,6.46126971 20.9053396,6.68513259 C20.9668779,6.77033951 21,6.87277228 21,6.97787787 L21,17 C21,18.1045695 20.1045695,19 19,19 L5,19 C3.8954305,19 3,18.1045695 3,17 L3,6.97787787 C3,6.70173549 3.22385763,6.47787787 3.5,6.47787787 C3.60510559,6.47787787 3.70753836,6.51099993 3.79274528,6.57253826 Z" id="Combined-Shape" fill="#000000"></path>
-                                                                </g>
-                                                            </svg>                            </span>
-                                                            <span class="kt-widget__desc">
-                                                                Notifikasi                                                      
-                                                            </span>
-                                                        </span>    
-                                                    </a>
+                                                        <span class="kt-widget__section">
+                                                            <span class="kt-widget__icon">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
+                                                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                                        <rect id="bound" x="0" y="0" width="24" height="24"/>
+                                                                        <path d="M16,15.6315789 L16,12 C16,10.3431458 14.6568542,9 13,9 L6.16183229,9 L6.16183229,5.52631579 C6.16183229,4.13107011 7.29290239,3 8.68814808,3 L20.4776218,3 C21.8728674,3 23.0039375,4.13107011 23.0039375,5.52631579 L23.0039375,13.1052632 L23.0206157,17.786793 C23.0215995,18.0629336 22.7985408,18.2875874 22.5224001,18.2885711 C22.3891754,18.2890457 22.2612702,18.2363324 22.1670655,18.1421277 L19.6565168,15.6315789 L16,15.6315789 Z" id="Combined-Shape" fill="#000000"/>
+                                                                        <path d="M1.98505595,18 L1.98505595,13 C1.98505595,11.8954305 2.88048645,11 3.98505595,11 L11.9850559,11 C13.0896254,11 13.9850559,11.8954305 13.9850559,13 L13.9850559,18 C13.9850559,19.1045695 13.0896254,20 11.9850559,20 L4.10078614,20 L2.85693427,21.1905292 C2.65744295,21.3814685 2.34093638,21.3745358 2.14999706,21.1750444 C2.06092565,21.0819836 2.01120804,20.958136 2.01120804,20.8293182 L2.01120804,18.32426 C1.99400175,18.2187196 1.98505595,18.1104045 1.98505595,18 Z M6.5,14 C6.22385763,14 6,14.2238576 6,14.5 C6,14.7761424 6.22385763,15 6.5,15 L11.5,15 C11.7761424,15 12,14.7761424 12,14.5 C12,14.2238576 11.7761424,14 11.5,14 L6.5,14 Z M9.5,16 C9.22385763,16 9,16.2238576 9,16.5 C9,16.7761424 9.22385763,17 9.5,17 L11.5,17 C11.7761424,17 12,16.7761424 12,16.5 C12,16.2238576 11.7761424,16 11.5,16 L9.5,16 Z" id="Combined-Shape" fill="#000000" opacity="0.3"/>
+                                                                    </g>
+                                                                </svg>                              </span>
+                                                                <span class="kt-widget__desc">
+                                                                    Pesan                                                      
+                                                                </span>
+                                                            </span>    
+                                                        </a>
 
+                                                        <a href="<?php echo base_url('peserta/email') ?>" class="kt-widget__item  kt-widget__item">
+                                                            <span class="kt-widget__section">
+                                                                <span class="kt-widget__icon">
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon kt-nav__link-icon">
+                                                                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                                            <rect id="bound" x="0" y="0" width="24" height="24"></rect>
+                                                                            <path d="M6,2 L18,2 C18.5522847,2 19,2.44771525 19,3 L19,13 C19,13.5522847 18.5522847,14 18,14 L6,14 C5.44771525,14 5,13.5522847 5,13 L5,3 C5,2.44771525 5.44771525,2 6,2 Z M13.8,4 C13.1562,4 12.4033,4.72985286 12,5.2 C11.5967,4.72985286 10.8438,4 10.2,4 C9.0604,4 8.4,4.88887193 8.4,6.02016349 C8.4,7.27338783 9.6,8.6 12,10 C14.4,8.6 15.6,7.3 15.6,6.1 C15.6,4.96870845 14.9396,4 13.8,4 Z" id="Combined-Shape" fill="#000000" opacity="0.3"></path>
+                                                                            <path d="M3.79274528,6.57253826 L12,12.5 L20.2072547,6.57253826 C20.4311176,6.4108595 20.7436609,6.46126971 20.9053396,6.68513259 C20.9668779,6.77033951 21,6.87277228 21,6.97787787 L21,17 C21,18.1045695 20.1045695,19 19,19 L5,19 C3.8954305,19 3,18.1045695 3,17 L3,6.97787787 C3,6.70173549 3.22385763,6.47787787 3.5,6.47787787 C3.60510559,6.47787787 3.70753836,6.51099993 3.79274528,6.57253826 Z" id="Combined-Shape" fill="#000000"></path>
+                                                                        </g>
+                                                                    </svg>                            </span>
+                                                                    <span class="kt-widget__desc">
+                                                                        Email                                                      
+                                                                    </span>
+                                                                </span>    
+                                                            </a>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--end::Widget -->
+                                            </div>
+                                        </div>
+                                        <!--end:: Widgets/Applications/User/Profile1-->
+
+                                    </div>
+                                    <!--End:: App Aside-->
+
+                                    <div class="kt-grid__item kt-grid__item--fluid kt-app__content" id="kt_chat_content">
+                                        <div class="kt-chat">
+                                            <div class="kt-portlet kt-portlet--head-lg kt-portlet--last">
+                                                <div class="kt-portlet__head">
+                                                    <div class="kt-chat__head ">
+                                                        <div class="kt-chat__left">
+                                                            <!--begin:: Aside Mobile Toggle -->
+                                                            <button type="button" class="btn btn-clean btn-sm btn-icon btn-icon-md kt-hidden-desktop" id="kt_chat_aside_mobile_toggle">
+                                                                <i class="flaticon2-open-text-book"></i>
+                                                            </button>
+                                                            <!--end:: Aside Mobile Toggle-->
+
+                                                          
+                                                        </div>
+
+                                                        <div class="kt-chat__center">
+                                                            <div class="kt-chat__label">
+                                                                <a href="#" class="kt-chat__title">PANITIA</a>
+                                                                <span class="kt-chat__status">
+                                                                    <!-- <span class="kt-badge kt-badge--dot kt-badge--success"></span> Active -->
+                                                                </span>
+                                                            </div>
+
+                                                            <div class="kt-chat__pic kt-hidden">
+                                                                <span class="kt-media kt-media--sm kt-media--circle" data-toggle="kt-tooltip" data-placement="right" title="" data-original-title="Jason Muller">                              
+                                                                    <img src="<?php echo base_url('assets/media/users/300_12.jpg') ?>" alt="image">               
+                                                                </span>
+
+                                                                <span class="kt-media kt-media--sm kt-media--circle" data-toggle="kt-tooltip" data-placement="right" title="" data-original-title="Nick Bold">                              
+                                                                    <img src="<?php echo base_url('assets/media/users/300_11.jpg') ?>" alt="image">               
+                                                                </span>
+                                                                <span class="kt-media kt-media--sm kt-media--circle" data-toggle="kt-tooltip" data-placement="right" title="" data-original-title="Milano Esco">                              
+                                                                    <img src="<?php echo base_url('assets/media/users/100_14.jpg') ?>" alt="image">               
+                                                                </span>
+                                                                <span class="kt-media kt-media--sm kt-media--circle" data-toggle="kt-tooltip" data-placement="right" title="" data-original-title="Teresa Fox">                              
+                                                                    <img src="<?php echo base_url('assets/media/users/100_4.jpg') ?>" alt="image">               
+                                                                </span>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="kt-chat__right">
+                                                          
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="kt-portlet__body">
+                                                    <div class="kt-quick-search__wrapper kt-scroll" data-scroll="true" data-height="325" data-mobile-height="200">
+                                                        <div class="kt-chat__messages bodyMessage">
+                                                             <?php foreach ($notifikasiData as $key => $value): ?>
+
+                                                                <?php $fotoPegawai = ($value->pegawaiFoto == null)?base_url('assets/media/users/default.jpg'):base_url('assets/upload/images/'.$value->pegawaiFoto) ?>
+
+                                                                <?php if ($value->notifFrom == $this->session->user['user']): ?>
+                                                                    <div class="kt-chat__message kt-chat__message--right">
+                                                                        <div class="kt-chat__user">
+                                                                            <span class="kt-chat__datetime"><?php echo '<br>'.timeAgo(date('Y-m-d H:i:s', strtotime($value->notifSend))) ?></span>
+                                                                            <a href="#" class="kt-chat__username">You</a>
+                                                                            <span class="kt-media kt-media--circle kt-media--sm"> 
+                                                                                <img src="<?php echo $foto; ?>" alt="image">   
+                                                                            </span>
+                                                                        </div>
+                                                                        <div class="kt-chat__text kt-bg-light-brand">
+                                                                             <?php echo $value->notifContent ?>
+                                                                        </div>
+                                                                    </div>
+                                                                <?php else: ?>
+                                                                    
+                                                                    <div class="kt-chat__message">
+                                                                        <div class="kt-chat__user">
+                                                                            <span class="kt-media kt-media--circle kt-media--sm"> 
+                                                                                <img src="<?php echo $fotoPegawai; ?>" alt="image">   
+                                                                            </span>
+                                                                            <a href="#" class="kt-chat__username"><?php echo ($value->pegawaiNama == NULL)?'Administrator':$value->pegawaiNama ?></a>
+                                                                            <span class="kt-chat__datetime"><?php echo '<br>'.timeAgo(date('Y-m-d H:i:s', strtotime($value->notifSend))) ?></span>
+                                                                        </div>
+                                                                        <div class="kt-chat__text kt-bg-light-success">
+                                                                            <?php echo $value->notifContent ?>
+                                                                        </div>
+                                                                    </div>
+                                                                <?php endif ?>
+
+                                                               <?php endforeach ?>
+                                                            
+                                                            
+                                                        </div>
+                                                        <div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; height: 504px; right: -2px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 259px;"></div></div></div>
+                                                    </div>
+
+                                                    <div class="kt-portlet__foot">
+                                                        <div class="kt-chat__input">
+                                                            <div class="kt-chat__editor">
+                                                                <textarea style="height: 50px" id="textContent" placeholder="Type here..."></textarea>
+                                                            </div>
+                                                            <div class="kt-chat__toolbar">
+                                                                <div class="kt_chat__tools">
+                                                                    <a href="#"><i class="flaticon2-link"></i></a>
+                                                                    <a href="#"><i class="flaticon2-photograph"></i></a>
+                                                                    <a href="#"><i class="flaticon2-photo-camera"></i></a>
+                                                                </div>
+                                                                <div class="kt_chat__actions">
+                                                                    <button type="button" class="btnSend btn btn-brand btn-md btn-upper btn-bold kt-chat__reply">reply</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <!--end::Widget -->
-                                    </div>
-                                </div>
-                                <!--end:: Widgets/Applications/User/Profile1-->
 
-                            </div>
-                            <!--End:: App Aside-->
-
-                            <!--Begin:: App Content-->
-                            <div class="kt-grid__item kt-grid__item--fluid kt-app__content">
-                                <div class="row">
-                                    <div class="col-xl-12">
-                                        <!--Begin::Portlet-->
-                                        <div class="kt-portlet kt-portlet--height-fluid">
-                                            <div class="kt-portlet__head">
-                                                <div class="kt-portlet__head-label">
-                                                    <h3 class="kt-portlet__head-title">
-                                                       Notifikasi
-                                                   </h3>
-                                               </div>
-                                               <div class="kt-portlet__head-toolbar">
-
-                                               </div>
-                                           </div>
-                                           <div class="kt-portlet__body">
-                                            <div class="kt-scroll ps ps--active-y" data-scroll="true" data-height="380" data-mobile-height="300" style="height: 380px; overflow: hidden;">
-                                                <!--Begin::Timeline 3 -->
-                                                <div class="kt-timeline-v2">
-                                                    <div class="kt-timeline-v2__items  kt-padding-top-25 kt-padding-bottom-30">
-                                                        <?php $color = array('success', 'primary', 'warning', 'danger') ?>
-                                                        <?php foreach ($notifikasiData as $key => $value): ?>
+                               </div>
+                               <!--End::App-->
 
 
-                                                            <div class="kt-timeline-v2__item">
-                                                                <span class="kt-timeline-v2__item-time"><?php echo date('H:i', strtotime($value->notifSend));//timeAgo(date('Y-m-d H:i:s', strtotime($value->notifSend))) ?></span>
-                                                                <div class="kt-timeline-v2__item-cricle">
-                                                                    <i class="fa fa-genderless kt-font-<?php echo $color[rand(0, 3)] ?>"></i>
-                                                                </div>
-                                                                <div class="kt-timeline-v2__item-text kt-padding-top-5">
-                                                                 <?php echo $value->notifContent ?>   <?php echo '<br>'.timeAgo(date('Y-m-d H:i:s', strtotime($value->notifSend))) ?>
-                                                             </div>
-                                                         </div>
-                                                     <?php endforeach ?>
+                           </div>
+                           <!-- end:: Content -->                      
+                       </div>
+
+                       <script type="text/javascript">
+
+                        $(document).ready(function() {
+
+                            $(document).on('click', '.btnSend', function(event) {
+                                event.preventDefault();
+
+                                var content = $('#textContent').val();
+                                
+                                $.ajax({
+                                   url: '<?php echo current_url() ?>/',
+                                    type: 'POST',
+                                    dataType: 'JSON',
+                                    data: {'content': content},
+                                    beforeSend: function()
+                                    {
+                                        btnLoading('.btnSend');
+                                    },
+                                    complete: function()
+                                    {
+                                        btnNormal('.btnSend');
+                                    },
+                                    success: function(res)
+                                    {
+                                        $('.bodyMessage').append( template(content) )
+                                        toastr[res.status](res.message);
+                                        $('#textContent').val('');
+                                    }
+                                })
+                                
+                            });
 
 
-                                                 </div>
-                                             </div>
-                                             <!--End::Timeline 3 -->
-                                             <div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; height: 380px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 300px;"></div></div></div>
-                                         </div>
-                                     </div>
-                                     <!--End::Portlet-->
-                                 </div>                                    
-                             </div>           
-                         </div>
-                         <!--End:: App Content-->
-                     </div>
-                     <!--End::App-->
-
-
-                 </div>
-                 <!-- end:: Content -->                      
-             </div>
-
-             <script type="text/javascript">
-
-                $(document).ready(function() {
-
-                    $(document).on('submit', 'form', function(event) {
-                        event.preventDefault();
-
-                        var data = new FormData(this);
-
-                        $.ajax({
-                            url: '<?php echo current_url() ?>/',
-                            type: 'POST',
-                            dataType: 'JSON',
-                            cache: false,
-                            processData : false,
-                            contentType: false,
-                            data: data,
-                            beforeSend: function()
+                            function template(content)
                             {
-                                btnLoading('.btnSimpan');
-                                cleanError();
-                            },
-                            complete: function()
+                                return `<div class="kt-chat__message kt-chat__message--right">
+                                            <div class="kt-chat__user">
+                                                <span class="kt-chat__datetime">Just Now</span>
+                                                <a href="#" class="kt-chat__username">You</a>
+                                                <span class="kt-media kt-media--circle kt-media--sm"> 
+                                                    <img src="<?php echo $foto; ?>" alt="image">   
+                                                </span>
+                                            </div>
+                                            <div class="kt-chat__text kt-bg-light-brand">
+                                                `+content+`
+                                            </div>
+                                        </div>`
+                            }
+
+                            var btnText;
+                            function btnLoading(selector)
                             {
-                                btnNormal('.btnSimpan');
-                            },
-                            success: function(res)
+                                btnText = $(selector).html();
+                                $(selector).html('<i class="fa fa-spinner fa-spin"></i> Loading .....');
+                                $(selector).attr('disabled', 'true');
+                            }
+
+                            function btnNormal(selector)
                             {
-                                if (!res.status) 
-                                {
-                                    getError(res)
-                                }
-                                else
-                                {
-                                    toastr[res.status](res.message);
+                                $(selector).html(btnText);
+                                $(selector).removeAttr('disabled');
+                            }
+
+                            toastConfig();
+                            function toastConfig(){
+                                toastr.options = {
+                                    "closeButton": false,
+                                    "debug": false,
+                                    "newestOnTop": false,
+                                    "progressBar": false,
+                                    "positionClass": "toast-top-right",
+                                    "preventDuplicates": true,
+                                    "onclick": null,
+                                    "showDuration": "300",
+                                    "hideDuration": "1000",
+                                    "timeOut": "5000",
+                                    "extendedTimeOut": "1000",
+                                    "showEasing": "swing",
+                                    "hideEasing": "linear",
+                                    "showMethod": "fadeIn",
+                                    "hideMethod": "fadeOut"
                                 }
                             }
-                        })
 
-                    });
-
-                    function getError(data)
-                    {
-                        $.each(data.error, function(index, el) 
-                        {
-                            $('.'+index).html(el);
-                        }); 
-                    }
-
-                    function cleanError()
-                    {
-                        $('.cleanError').html('');
-                    }
-
-                    var btnText;
-                    function btnLoading(selector)
-                    {
-                        btnText = $(selector).html();
-                        $(selector).html('<i class="fa fa-spinner fa-spin"></i> Loading .....');
-                        $(selector).attr('disabled', 'true');
-                    }
-
-                    function btnNormal(selector)
-                    {
-                        $(selector).html(btnText);
-                        $(selector).removeAttr('disabled');
-                    }
-
-                    toastConfig();
-                    function toastConfig(){
-                        toastr.options = {
-                            "closeButton": false,
-                            "debug": false,
-                            "newestOnTop": false,
-                            "progressBar": false,
-                            "positionClass": "toast-top-right",
-                            "preventDuplicates": true,
-                            "onclick": null,
-                            "showDuration": "300",
-                            "hideDuration": "1000",
-                            "timeOut": "5000",
-                            "extendedTimeOut": "1000",
-                            "showEasing": "swing",
-                            "hideEasing": "linear",
-                            "showMethod": "fadeIn",
-                            "hideMethod": "fadeOut"
-                        }
-                    }
-
-                });
-            </script>
+                        });
+                    </script>

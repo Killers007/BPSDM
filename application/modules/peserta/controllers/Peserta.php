@@ -129,8 +129,8 @@ class Peserta extends MY_Controller {
 
 		if ($this->input->is_ajax_request()) 
 		{
-			$data = $this->input->post(NULL, TRUE);
-			$data = $this->model->saveNotif($data);
+			$data = $this->input->post('content', TRUE);
+			$data = $this->model->sendMessage($data);
 
 			echo json_encode($data);
 		}
@@ -142,6 +142,31 @@ class Peserta extends MY_Controller {
 
 			$this->layout->setTemplate(0);
 			$this->layout->setTitle('Dashboard', false)->render('readNotifikasi_v', $data);
+		}
+		
+	}
+
+	public function email() 
+	{
+
+		if ($this->input->is_ajax_request()) 
+		{
+			$data = $this->input->post(NULL, TRUE);
+			$data = $this->model->saveNotif($data);
+
+			echo json_encode($data);
+		}
+		else
+		{
+			$this->load->helper('time');
+			$data['subTitle'] = 'Email';
+			$data['notifikasiData'] = $this->model->readMessage();
+			
+			$data['getEmail'] = $this->model->getEmail();
+			$data['profile'] = $this->model->getProfile();
+
+			$this->layout->setTemplate(0);
+			$this->layout->setTitle('Dashboard', false)->render('emailRead', $data);
 		}
 		
 	}

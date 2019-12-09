@@ -62,4 +62,56 @@ if( ! function_exists('timeAgo'))
 		}
 	}
 }
+
+if( ! function_exists('date_convert'))
+{
+	function date_convert($tanggal = null, $format = 'Y-m-d')
+    {
+    	if ($tanggal == null) 
+    	{
+    		$tanggal = date('Y-m-d');
+    	}
+    	else
+    	{
+    		$tanggal = date('Y-m-d H:i:s', strtotime($tanggal)); 
+    	}
+
+        $hari = array ( 1 => 'Senin',
+            'Selasa',
+            'Rabu',
+            'Kamis',
+            'Jumat',
+            'Sabtu',
+            'Minggu'
+        );
+
+        $bulan = array (1 =>   'Januari',
+            'Februari',
+            'Maret',
+            'April',
+            'Mei',
+            'Juni',
+            'Juli',
+            'Agustus',
+            'September',
+            'Oktober',
+            'November',
+            'Desember'
+        );
+        $split    = explode('-', $tanggal);
+
+        $num = date('N', strtotime($tanggal)); 
+
+        return $data = (object)array(
+            'dayName' => $hari[$num],
+            'monthName' => $bulan[intval($split[1])],
+            'month' => intval($split[1]),
+            'year' => intval($split[0]),
+            'day' => intval($split[2]),
+            'format' => date($format, strtotime($tanggal)),
+            'default' => intval($split[2]).' '.$bulan[intval($split[1])].' '.intval($split[0]),
+            'formatFull' => intval($split[2]).' '.$bulan[intval($split[1])].' '.intval($split[0]).', '.date('h:i A', strtotime($tanggal)),
+        );
+    }
+}
 ?>

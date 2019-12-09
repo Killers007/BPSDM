@@ -18,9 +18,19 @@ class Pegawai extends MY_Controller {
 	public function index() {
 		if ($this->input->is_ajax_request()) 
 		{
-			$res = $this->model->getDataGrid($this->input->get(), 'renderDatatable', array(NULL));
+			if ($this->input->post('status') == 'reset') 
+			{
+				$res = $this->model->resetPass($this->input->post('nip'));
 
-			echo json_encode($res);
+				echo json_encode($res);
+			}
+			else
+			{
+				$res = $this->model->getDataGrid($this->input->get(), 'renderDatatable', array(NULL));
+
+				echo json_encode($res);
+			}
+
 		}
 		else
 		{

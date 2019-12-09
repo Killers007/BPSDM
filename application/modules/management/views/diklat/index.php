@@ -108,7 +108,7 @@
                 <div class="kt-portlet__head-toolbar">
                     <div class="kt-portlet__head-wrapper">
                         <div class="kt-portlet__head-actions">
-                            <div class="dropdown dropdown-inline">
+                       <!--      <div class="dropdown dropdown-inline">
                                 <button type="button" class="btn btn-default btn-icon-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="la la-download"></i> Export   
                                 </button>
@@ -149,7 +149,7 @@
                                         </li>
                                     </ul>
                                 </div>
-                            </div>
+                            </div> -->
                             &nbsp;
                             <button onclick="setTitle('Tambah', 'Tambah')" data-toggle="modal" data-target="#modal-edit" class="btnShowModal btn btn-brand btn-elevate btn-icon-sm">
                                 <i class="la la-plus"></i>
@@ -339,7 +339,7 @@
         var tanggal;
 
         $('#kt_daterangepicker_2').daterangepicker({
-            minDate: moment('<?php echo date('Y-m-d') ?>').format('MM/DD/YYYY'),
+            // minDate: moment('<?php echo date('Y-m-d') ?>').format('MM/DD/YYYY'),
             buttonClasses: ' btn',
             applyClass: 'btn-primary',
             cancelClass: 'btn-secondary'
@@ -348,7 +348,7 @@
         });
 
         $('#kt_daterangepicker_1').daterangepicker({
-            minDate: moment('<?php echo date('Y-m-d') ?>').format('MM/DD/YYYY'),
+            // minDate: moment('<?php echo date('Y-m-d') ?>').format('MM/DD/YYYY'),
             buttonClasses: ' btn',
             applyClass: 'btn-primary',
             cancelClass: 'btn-secondary'
@@ -424,17 +424,71 @@
 
                     var btnDelete =  ` `;
 
+                    // <a class="dropdown-item" href="<?php echo str_replace('index.php/', '', current_url()) ?>/cetak_absensi/`+data.diklatId+`" target="_blank"><i class="fa fa-cogs"></i> Cetak Daftar Hadir</a>
+                    // <a class="dropdown-item" href="<?php echo str_replace('index.php/', '', current_url()) ?>/word/`+data.diklatId+`" target="_blank"><i class="fa fa-file-word"></i> Cetak Sertifikat</a>
+                    // <a class="dropdown-item" href="<?php echo str_replace('index.php/', '', current_url()) ?>/export_excel/`+data.diklatId+`" target="_blank"><i class="fa fa-file-excel"></i> Export Excel</a>
+                    // <a class="dropdown-item" href="<?php echo str_replace('index.php/', '', current_url()) ?>/jadwal/`+data.diklatId+`"><i class="fa fa-calendar-alt"></i> Kelola Jadwal</a>
+                    // <a class="dropdown-item" href="<?php echo str_replace('index.php/', '', current_url()) ?>/nilai/`+data.diklatId+`"><i class="fa fa-pencil-alt"></i> Isi Nilai</a>
+                    // <a class="dropdown-item" href="<?php echo str_replace('index.php/', '', current_url()) ?>/pendaftaran/`+data.diklatId+`"><i class="fa fa-check-circle"></i> Verifikasi Peserta</a>
+                    // <a class="dropdown-item btnDelete" data-id="`+data.diklatId+`"><i class="fa fa-trash-restore"></i> Hapus</a>
+
                     var btnEtc = `<span class="dropdown">
                             <a href="#" class="btn btn-sm btn-clean btn-icon btn-icon-md" data-toggle="dropdown" aria-expanded="false">
                               <i class="la la-ellipsis-h"></i>
                             </a>
-                            
-                        <div class="dropdown-menu dropdown-menu-right" x-placement="bottom-end" style="display: none; position: absolute; transform: translate3d(1136px, 529px, 0px); top: 0px; left: 0px; will-change: transform;">
-                                <a class="dropdown-item" href="<?php echo str_replace('index.php/', '', current_url()) ?>/cetak_absensi/`+data.diklatId+`" target="_blank"><i class="fa fa-cogs"></i> Cetak Daftar Hadir</a>
-                                <a class="dropdown-item" href="<?php echo str_replace('index.php/', '', current_url()) ?>/jadwal/`+data.diklatId+`"><i class="fa fa-cogs"></i> Kelola Jadwal</a>
-                                <a class="dropdown-item" href="<?php echo str_replace('index.php/', '', current_url()) ?>/nilai/`+data.diklatId+`"><i class="fa fa-pencil-alt"></i> Isi Nilai</a>
-                                <a class="dropdown-item" href="<?php echo str_replace('index.php/', '', current_url()) ?>/pendaftaran/`+data.diklatId+`"><i class="fa fa-check-circle"></i> Verifikasi Peserta</a>
-                                <a class="dropdown-item btnDelete" data-id="`+data.diklatId+`"><i class="fa fa-trash-restore"></i> Hapus</a>
+                            <div class="dropdown-menu dropdown-menu-fit dropdown-menu-right">
+                                <ul class="kt-nav">
+                                    <li class="kt-nav__section kt-nav__section--first">
+                                        <span class="kt-nav__section-text">Reporting</span>
+                                    </li>
+
+                                    <li class="kt-nav__item">
+
+                                        <a href="<?php echo str_replace('index.php/', '', current_url()) ?>/cetak_absensi/`+data.diklatId+`" class="kt-nav__link">
+                                            <i class="kt-nav__link-icon fa fa-cogs"></i>
+                                            <span class="kt-nav__link-text">Cetak Daftar Hadir</span>
+                                        </a>
+                                    </li>
+                                    <li class="kt-nav__item">
+                                        <a href="<?php echo str_replace('index.php/', '', current_url()) ?>/word/`+data.diklatId+`" class="kt-nav__link">
+                                            <i class="kt-nav__link-icon fa fa-file-word"></i>
+                                            <span class="kt-nav__link-text">Cetak Sertifikat</span>
+                                        </a>
+                                    </li>
+                                    <li class="kt-nav__item">
+                                        <a href="<?php echo str_replace('index.php/', '', current_url()) ?>/export_excel/`+data.diklatId+`" class="kt-nav__link">
+                                            <i class="kt-nav__link-icon fa fa-file-excel"></i>
+                                            <span class="kt-nav__link-text">Export Excel</span>
+                                        </a>
+                                    </li>
+                                    <li class="kt-nav__section">
+                                        <span class="kt-nav__section-text">Lainnya</span>
+                                    </li>
+                                    <li class="kt-nav__item">
+                                        <a href="<?php echo str_replace('index.php/', '', current_url()) ?>/jadwal/`+data.diklatId+`" class="kt-nav__link">
+                                            <i class="kt-nav__link-icon flaticon2-calendar-4"></i>
+                                            <span class="kt-nav__link-text">Kelola Jadwal</span>
+                                        </a>
+                                    </li>
+                                    <li class="kt-nav__item">
+                                        <a href="<?php echo str_replace('index.php/', '', current_url()) ?>/nilai/`+data.diklatId+`" class="kt-nav__link">
+                                            <i class="kt-nav__link-icon flaticon2-file-1"></i>
+                                            <span class="kt-nav__link-text">Isi Nilai</span>
+                                        </a>
+                                    </li>
+                                    <li class="kt-nav__item">
+                                        <a href="<?php echo str_replace('index.php/', '', current_url()) ?>/pendaftaran/`+data.diklatId+`" class="kt-nav__link">
+                                            <i class="kt-nav__link-icon fa fa-check-circle"></i>
+                                            <span class="kt-nav__link-text">Verifikasi peserta</span>
+                                        </a>
+                                    </li>
+                                    <li class="kt-nav__item">
+                                        <a class="kt-nav__link btnDelete" data-id="`+data.diklatId+`">
+                                            <i class="kt-nav__link-icon fa fa-trash-restore"></i>
+                                            <span class="kt-nav__link-text">Hapus</span>
+                                        </a>
+                                    </li>
+                                </ul>           
                             </div></span>`;
 
                     return btnEtc + btnUbah + btnDelete;
@@ -652,7 +706,7 @@
             }); 
 
             $('#kt_daterangepicker_1').daterangepicker({
-                minDate: moment('<?php echo date('Y-m-d') ?>').format('MM/DD/YYYY'),
+                // minDate: moment('<?php echo date('Y-m-d') ?>').format('MM/DD/YYYY'),
                 buttonClasses: ' btn',
                 applyClass: 'btn-primary',
                 cancelClass: 'btn-secondary',
@@ -664,7 +718,7 @@
             $('input[name="tanggalPendaftaran"]').val(moment(find.diklatTanggalPendaftaran).locale('id').format('D MMMM YYYY') + ' - ' + moment(find.diklatTanggalAkhirPendaftaran).locale('id').format('D MMMM YYYY'));
 
             $('#kt_daterangepicker_2').daterangepicker({
-                minDate: moment('<?php echo date('Y-m-d') ?>').format('MM/DD/YYYY'),
+                // minDate: moment('<?php echo date('Y-m-d') ?>').format('MM/DD/YYYY'),
                 buttonClasses: ' btn',
                 applyClass: 'btn-primary',
                 cancelClass: 'btn-secondary',

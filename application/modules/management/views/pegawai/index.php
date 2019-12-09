@@ -108,7 +108,7 @@
                 <div class="kt-portlet__head-toolbar">
                     <div class="kt-portlet__head-wrapper">
                         <div class="kt-portlet__head-actions">
-                            <div class="dropdown dropdown-inline">
+                          <!--   <div class="dropdown dropdown-inline">
                                 <button type="button" class="btn btn-default btn-icon-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="la la-download"></i> Export   
                                 </button>
@@ -149,7 +149,7 @@
                                         </li>
                                     </ul>
                                 </div>
-                            </div>
+                            </div> -->
                             &nbsp;
                             <a href="#" onclick="setTitle('Tambah', 'Tambah')" data-toggle="modal" data-target="#modal-edit" class="btnShowModal btn btn-brand btn-elevate btn-icon-sm">
                                 <i class="la la-plus"></i>
@@ -368,6 +368,25 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-danger btnConfirmDelete">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--begin::Modal-->
+<div class="modal fade" id="modal-reset" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Apakah anda yakin mereset password?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                </button>
+            </div>
+            <div class="modal-body modalDeleteBody">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger btnConfirmReset">Reset</button>
             </div>
         </div>
     </div>
@@ -594,6 +613,7 @@
                                             </a>
 
                                             <div class="kt-widget__action">
+                                                <button type="button" data-id="`+d.pegawaiUsername+`" class="btnReset btn btn-label-warning btn-sm btn-upper">Reset Password</button>&nbsp;
                                                 <button type="button" data-id="`+d.pegawaiUsername+`" class="btnDelete btn btn-label-danger btn-sm btn-upper">Delete</button>&nbsp;
                                                 <button type="button" onclick="setTitle('Perbaharui', 'Perbaharui')" data-id="`+d.pegawaiUsername+`" class="btnEdit btn btn-brand btn-sm btn-upper">Update</button>
                                             </div>
@@ -715,6 +735,15 @@
             template(find);
         });
 
+        $(document).on('click', '.btnReset', function(event) {
+            id = $(this).data('id');
+            $('#modal-reset').modal('show');
+
+            find = dataFull.find(seep => seep.pegawaiUsername == id);
+
+            template(find);
+        });
+
         function template(data)
         {
             var txt = `<div class="table-responsive">
@@ -809,6 +838,34 @@
 
                     $('#modal-delete').modal('hide');
                     oTable.api().ajax.reload();
+                }
+            })
+        });
+
+        $(document).on('click', '.btnConfirmReset', function(event) {
+            event.preventDefault();
+
+            $.ajax({
+                url: '<?php echo current_url() ?>',
+                type: 'POST',
+                dataType: 'JSON',
+                data: {'status': 'reset', 'nip': id},
+                beforeSend: function()
+                {
+                    btnLoading('.btnConfirmReset');
+                },
+                complete: function()
+                {
+                    btnNormal('.btnConfirmReset');
+                },
+                success: function(res)
+                {
+                    id = '';
+
+                    toastr[res.status](res.message);
+
+                    $('#modal-reset').modal('hide');
+                    // oTable.api().ajax.reload();
                 }
             })
         });

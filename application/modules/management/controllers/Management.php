@@ -8,6 +8,8 @@ class Management extends MY_Controller {
 		parent::__construct();
 
 		$this->load->model('Admin_m', 'model');
+		$this->load->model('home/Diklat_m', 'diklat');
+
 
 	}
 
@@ -24,7 +26,9 @@ class Management extends MY_Controller {
 		}
 		else
 		{
-			$data['selectProvinsi'] = $this->model->selectProvinsi();
+			$data['dataJadwal'] = $this->diklat->getJadwalKegiatan();
+			$data['dataTotal'] = $this->diklat->getTotal();
+
 			$this->layout->setTemplate(1);
 			$this->layout->setTitle('Dashboard', false)->render('admin_dashboard/index', $data);
 		}

@@ -43,11 +43,11 @@
                 <div class="kt-subheader__wrapper">
 
                     <a class="btn kt-subheader__btn-daterange" data-toggle="kt-tooltip" title="Tanggal Pendaftaran dibuka s.d ditutup" data-placement="left">
-                        <span class="kt-subheader__desc"><?php echo $dataDiklat->diklatTanggalPendaftaran.' s.d '.$dataDiklat->diklatTanggalAkhirPendaftaran ?></span>
+                        <span class="kt-subheader__desc" ><?php echo date_convert($dataDiklat->diklatTanggalPendaftaran)->default.' s.d '.date_convert($dataDiklat->diklatTanggalAkhirPendaftaran)->default ?></span>
                     </a>
 
                     <div class="dropdown dropdown-inline" data-toggle-="kt-tooltip" title="Quick actions" data-placement="left">
-                        <a class="btn btn-icon"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="btn btn-icon" data-target="#modal-email" data-toggle="modal"  aria-haspopup="true" aria-expanded="false">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon kt-svg-icon--success kt-svg-icon--md">
                                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                     <polygon id="Shape" points="0 0 24 0 24 24 0 24"/>
@@ -110,14 +110,11 @@
        <!-- begin:: Content -->
        <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
 
-        <!-- <div class="kt-portlet kt-portlet--mobile"> -->
-
             <div class="listPeserta">
                 
             </div>
 
             <div class="kt-portlet__body table-responsive">
-                <!--begin: Datatable -->
                 <table id="table" class="">
                     <thead>
                         <tr>
@@ -132,241 +129,95 @@
                     </tbody>
 
                 </table>
-                <!--end: Datatable -->
             </div>
-            <!-- </div>   -->
         </div>
-        <!-- end:: Content -->     
 
-        <!--Begin::App-->
-        <div class="kt-grid kt-grid--desktop kt-grid--ver kt-grid--ver-desktop kt-app">
-            <!--Begin:: App Aside Mobile Toggle-->
-            <button class="kt-app__aside-close" id="kt_contact_aside_close">
-                <i class="la la-close"></i>
-            </button>
-            <!--End:: App Aside Mobile Toggle-->
 
-            <!--Begin:: App Content-->
-            <div class="kt-grid__item kt-grid__item--fluid kt-app__content">
-
-                <!--Begin::Section-->
-                <!-- <div class="row">
-
-                    <?php foreach ($dataPeserta as $key => $peserta): ?>
-                        <?php $foto = ($peserta->pesertaFoto == null)?base_url('assets/media/users/default.jpg'):base_url('assets/upload/images/'.$peserta->pesertaFoto) ;?>
-                        <div class="col-xl-4">
-                            <div class="kt-portlet kt-portlet--height-fluid">
-                                <div class="kt-portlet__head kt-portlet__head--noborder">
-                                    <div class="kt-portlet__head-label">
-                                        <h3 class="kt-portlet__head-title">
-
-                                        </h3>
+        <!--Begin:: Chat-->
+        <div class="modal fade- modal-sticky-bottom-right" id="kt_chat_modal" role="dialog" data-backdrop="false">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="kt-chat">
+                        <div class="kt-portlet kt-portlet--last">
+                            <div class="kt-portlet__head">
+                                <div class="kt-chat__head ">
+                                    <div class="kt-chat__left">
+                                        <div class="kt-chat__label">
+                                            <a href="#" class="kt-chat__title chatNama">Jason Muller</a>
+                                            <span class="kt-chat__status">
+                                            </span>
+                                        </div>                                
                                     </div>
-                                    <div class="kt-portlet__head-toolbar">
-                                        <a href="#" class="btn btn-icon" data-toggle="dropdown">
-                                            <i class="flaticon-more-1 kt-font-brand"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <ul class="kt-nav">
-                                                <li class="kt-nav__item">
-                                                    <a href="#" class="kt-nav__link">
-                                                        <i class="kt-nav__link-icon flaticon2-line-chart"></i>
-                                                        <span class="kt-nav__link-text">Reports</span>
-                                                    </a>
-                                                </li>
-                                                <li class="kt-nav__item">
-                                                    <a href="#" class="kt-nav__link">
-                                                        <i class="kt-nav__link-icon flaticon2-send"></i>
-                                                        <span class="kt-nav__link-text">Messages</span>
-                                                    </a>
-                                                </li>
-                                                <li class="kt-nav__item">
-                                                    <a href="#" class="kt-nav__link">
-                                                        <i class="kt-nav__link-icon flaticon2-pie-chart-1"></i>
-                                                        <span class="kt-nav__link-text">Charts</span>
-                                                    </a>
-                                                </li>
-                                                <li class="kt-nav__item">
-                                                    <a href="#" class="kt-nav__link">
-                                                        <i class="kt-nav__link-icon flaticon2-avatar"></i>
-                                                        <span class="kt-nav__link-text">Members</span>
-                                                    </a>
-                                                </li>
-                                                <li class="kt-nav__item">
-                                                    <a href="#" class="kt-nav__link">
-                                                        <i class="kt-nav__link-icon flaticon2-settings"></i>
-                                                        <span class="kt-nav__link-text">Settings</span>
-                                                    </a>
-                                                </li>
-                                            </ul>                            </div>
-                                        </div>
+                                    <div class="kt-chat__right">   
+                                        <button type="button" class="btn btn-clean btn-sm btn-icon" data-dismiss="modal">
+                                            <i class="flaticon2-cross"></i>
+                                        </button>
                                     </div>
-                                    <div class="kt-portlet__body">
-                                        <div class="kt-widget kt-widget--user-profile-2">
-                                            <div class="kt-widget__head">
-                                                <div class="kt-widget__media">
-                                                    <img class="kt-widget__img kt-hidden-" width="90px" height="90px" src="<?php echo $foto ?>" alt="image">
-                                                    <div class="kt-widget__pic kt-widget__pic--warning kt-font-warning kt-font-boldest kt-hidden">
-                                                        AL
-                                                    </div>
-                                                </div>
-
-                                                <div class="kt-widget__info">
-                                                    <a href="#" class="kt-widget__username">                                        
-                                                        <?php echo $peserta->pesertaGelarDepan.' '.$peserta->pesertaNama.' '.$peserta->pesertaGelarBelakang ?>                                                            
-                                                    </a>
-
-                                                    <span class="kt-widget__desc">
-                                                        <?php echo $peserta->pesertaNik ?>                                                            
-                                                    </span>
-                                                </div>
-                                            </div>
-
-                                            <div class="kt-widget__body">
-                                                <div class="kt-widget__section">
-                                            </div>                                        
-
-                                            <div class="kt-widget__item">
-                                             <div class="kt-widget__contact">
-                                                <span class="kt-widget__label">No Hp:</span>
-                                                <a href="#" class="kt-widget__data"><?php echo $peserta->pesertaNoHp ?></a>
-                                            </div>
-                                            <div class="kt-widget__contact">
-                                                <span class="kt-widget__label">Email:</span>
-                                                <a href="#" class="kt-widget__data"><?php echo $peserta->pesertaEmail ?></a>
-                                            </div>
-                                            <div class="kt-widget__contact">
-                                                <span class="kt-widget__label">Alamat:</span>
-                                                <a href="#" class="kt-widget__data"><?php echo $peserta->pesertaAlamat ?></a>
-                                            </div>
-                                            <div class="kt-widget__contact">
-                                                <span class="kt-widget__label">TTL:</span>
-                                                <a href="#" class="kt-widget__data"><?php echo $peserta->pesertaTempatLahir.', '.$peserta->pesertaTanggalLahir ?></a>
-                                            </div>
-                                            <div class="kt-widget__contact">
-                                                <span class="kt-widget__label">Agama:</span>
-                                                <a href="#" class="kt-widget__data"><?php echo $peserta->agamaNama ?></a>
-                                            </div>
-                                            <div class="kt-widget__contact">
-                                                <span class="kt-widget__label">Pangkat/Golongan:</span>
-                                                <a href="#" class="kt-widget__data"><?php echo $peserta->pesertaPangkatGolongan ?></a>
-                                            </div>
-                                            <div class="kt-widget__contact">
-                                                <span class="kt-widget__label">Jabatan:</span>
-                                                <a href="#" class="kt-widget__data"><?php echo $peserta->pesertaJabatan ?></a>
-                                            </div>
-                                            <div class="kt-widget__contact">
-                                                <span class="kt-widget__label">Instansi:</span>
-                                                <span class="kt-widget__data"><?php echo $peserta->pesertaInstansi ?></span>
-                                            </div>
-                                            <div class="kt-widget__contact">
-                                                <span class="kt-widget__label">Pendidikan Terakhir:</span>
-                                                <a href="#" class="kt-widget__data"><?php echo $peserta->pesertaPendidikanTerakhir ?></a>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="kt-widget__footer">
-                                        <?php if ($peserta->pendaftaranIsAcc): ?>
-                                            <button type="button" data-id="<?php echo $peserta->pesertaNik ?>" class="btnTolak btn btn-label-danger btn-lg btn-upper">Tolak</button>
-                                            <?php else: ?>
-                                                <button type="button" data-id="<?php echo $peserta->pesertaNik ?>" class="btnVerifikasi btn btn-label-success btn-lg btn-upper">Terima</button>
-                                            <?php endif ?>
-                                        </div>
-                                    </div>              
-
                                 </div>
                             </div>
-                        </div>
-
-                    <?php endforeach ?>
-
-
-                </div> -->
-
-
-                <!--begin::Modal-->
-                <div class="modal fade" id="modal-delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-lg" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Apakah anda yakin menghapus data?</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                </button>
+                            <div class="kt-portlet__body">
+                                <div class="kt-scroll kt-scroll--pull ps ps--active-y" data-height="410" data-mobile-height="300">
+                                    <div class="kt-chat__messages kt-chat__messages--solid bodyMessage">
+                                        
+                                     
+                                    </div>
+                                </div>
                             </div>
-                            <div class="modal-body modalDeleteBody">
-
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-danger btnConfirmDelete">Delete</button>
+                            <div class="kt-portlet__foot">
+                                <div class="kt-chat__input">
+                                    <div class="kt-chat__editor">
+                                        <textarea class="textMessage" placeholder="Type here..." style="height: 50px"></textarea>
+                                    </div>
+                                    <div class="kt-chat__toolbar">
+                                        <div class="kt_chat__tools">
+                                        </div>                           
+                                        <div class="kt_chat__actions">
+                                            <button type="button" class="btn btn-brand btn-md  btn-font-sm btn-upper btn-bold kt-chat__reply btnReply">reply</button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!--end::Modal-->
-
-
             </div>
         </div>
-</div>
-</div>
+<!--ENd:: Chat-->
 
-
-<!--Begin:: Chat-->
-<div class="modal fade- modal-sticky-bottom-right" id="kt_chat_modal" role="dialog" data-backdrop="false">
-    <div class="modal-dialog" role="document">
+<!--begin::Modal-->
+<div class="modal fade" id="modal-email" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
-            <div class="kt-chat">
-                <div class="kt-portlet kt-portlet--last">
-                    <div class="kt-portlet__head">
-                        <div class="kt-chat__head ">
-                            <div class="kt-chat__left">
-                                <div class="kt-chat__label">
-                                    <a href="#" class="kt-chat__title chatNama">Jason Muller</a>
-                                    <span class="kt-chat__status">
-                                        <!-- <span class="kt-badge kt-badge--dot kt-badge--success"></span> Active -->
-                                    </span>
-                                </div>                                
-                            </div>
-                            <div class="kt-chat__right">   
-                                <button type="button" class="btn btn-clean btn-sm btn-icon" data-dismiss="modal">
-                                    <i class="flaticon2-cross"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Kirim email notifikasi ke semua peserta</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="form-email" class="kt-form kt-form--fit kt-form--label-right">
                     <div class="kt-portlet__body">
-                        <div class="kt-scroll kt-scroll--pull ps ps--active-y" data-height="410" data-mobile-height="300">
-                            <div class="kt-chat__messages kt-chat__messages--solid bodyMessage">
-                                
-                             
+                        <div class="form-group row">
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <div class="summernote" id="kt_summernote_1"></div>
                             </div>
                         </div>
                     </div>
-                    <div class="kt-portlet__foot">
-                        <div class="kt-chat__input">
-                            <div class="kt-chat__editor">
-                                <textarea class="textMessage" placeholder="Type here..." style="height: 50px"></textarea>
-                            </div>
-                            <div class="kt-chat__toolbar">
-                                <div class="kt_chat__tools">
-                                   <!--  <a href="#"><i class="flaticon2-link"></i></a>
-                                    <a href="#"><i class="flaticon2-photograph"></i></a>
-                                    <a href="#"><i class="flaticon2-photo-camera"></i></a> -->
-                                </div>                           
-                                <div class="kt_chat__actions">
-                                    <button type="button" class="btn btn-brand btn-md  btn-font-sm btn-upper btn-bold kt-chat__reply btnReply">reply</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary btnSendEmail">Kirim</button>
             </div>
         </div>
     </div>
 </div>
-<!--ENd:: Chat-->
+<!--end::Modal-->
+
+      
+</div>
+</div>
+
+
 
 <script type="text/javascript">
     function setTitle(title, button)
@@ -376,49 +227,69 @@
     }
 
       var id;
-        $(document).on('click', '.btnModalChat', function(event) {
-            event.preventDefault();
-            $('#kt_chat_modal').modal('show');
+      $(document).on('click', '.btnModalChat', function(event) {
+        event.preventDefault();
+        $('#kt_chat_modal').modal('show');
 
-            id = $(this).data('id');
+        id = $(this).data('id');
 
-            $('.bodyMessage').html('');
-            $('.chatNama').html( $(this).data('nama') );
+        $('.bodyMessage').html('');
+        $('.chatNama').html( $(this).data('nama') );
 
-            $.ajax({
-               url: '<?php echo current_url() ?>',
-               type: 'POST',
-               dataType: 'JSON',
-               data: {id: id, status: 'readMessage'},
-               success: function(res)
-               {
-                    $.each(res, function(index, val) 
-                    {
-                         $('.bodyMessage').append( templateMessage(val.notifContent, val.notifSend, val.notifRead) );
-                    });
+        $.ajax({
+         url: '<?php echo current_url() ?>',
+         type: 'POST',
+         dataType: 'JSON',
+         data: {id: id, status: 'readMessage'},
+         success: function(res)
+         {
+            $.each(res, function(index, val) 
+            {
+               $('.bodyMessage').append( templateMessage(val) );
+           });
 
-               }
-           })
+        }
+    })
 
 
-        });
+    });
 
-        function templateMessage(text, time, notifRead)
+        var uid = '<?php echo $this->session->user['user'] ?>';
+        function templateMessage(val)
         {
-            var read = (notifRead == '1')?'<span class="fa fa-check"></span>':'';
-            return `<div class="kt-chat__message kt-chat__message--right kt-chat__message--brand">
-                        <div class="kt-chat__user">                                
-                            <span class="kt-chat__datetime">`+time+`</span>
-                            <a href="#" class="kt-chat__username"><?php echo ucwords($this->session->user['nama']) ?></a>                                
+            var read = (val.notifRead == '1')?'<span class="fa fa-check"></span>':'';
+            var foto = (val.pesertaFoto == null)?'<?php echo base_url('assets/media/users/default.jpg') ?>':'<?php echo base_url('assets/upload/images') ?>/'+val.pesertaFoto; 
+
+            if (uid == val.notifFrom) 
+            {
+                return `<div class="kt-chat__message kt-chat__message--right kt-chat__message--brand">
+                            <div class="kt-chat__user">                                
+                                <span class="kt-chat__datetime">`+ val.notifSend+`</span>
+                                <a href="#" class="kt-chat__username"><?php echo ucwords($this->session->user['nama']) ?></a>                                
+                                <span class="kt-media kt-media--circle kt-media--sm"> 
+                                    <span class="kt-badge kt-badge--username kt-badge--unified-success kt-badge--lg kt-badge--rounded kt-badge--bold">
+                                    <?php echo strtoupper(substr($this->session->user['nama'], 0, 1)) ?></span>
+                                </span>
+                            </div>
+                            <div class="kt-chat__text">
+                               `+read+`  `+val.notifContent+`
+                            </div>
+                        </div>`
+            }
+
+            return `<div class="kt-chat__message kt-chat__message--success">
+                        <div class="kt-chat__user">
                             <span class="kt-media kt-media--circle kt-media--sm"> 
-                                <span class="kt-badge kt-badge--username kt-badge--unified-success kt-badge--lg kt-badge--rounded kt-badge--bold">
-                                <?php echo strtoupper(substr($this->session->user['nama'], 0, 1)) ?></span>
+                                <img src="`+foto+`" alt="image">   
                             </span>
-                        </div>
+                            <a href="#" class="kt-chat__username">`+val.pesertaNama+`</a>
+                            <span class="kt-chat__datetime">`+val.notifSend+`</span>
+                        </div>                                    
                         <div class="kt-chat__text">
-                           `+read+`  `+text+`
+                            `+val.notifContent+`
                         </div>
-                    </div>`
+                    </div>`;
+
         }
 
     var KTChat = function () {
@@ -564,6 +435,59 @@
         $('.templateUser').hide();
         $('table').hide();
 
+        $(document).on('click', '.btnSendEmail', function(event) {
+            event.preventDefault();
+            var data = $('.note-editable').html();
+            var ini = $(this);
+
+            $.ajax({
+                url: '<?php echo current_url() ?>',
+                type: 'POST',
+                dataType: 'JSON',
+                data: {data: data, status: 'broadcastEmail'},
+                beforeSend : function()
+                {
+                    btnLoading(ini);
+                },
+                complete: function()
+                {
+                    btnNormal(ini);
+                },
+                error: function()
+                {
+                    toastr['error']('Sepertinya pengiriman email terlalu lama');
+                },
+                success: function(res)
+                {
+                    $('#modal-email').modal('hide');
+                    $('.note-editable').html('');
+                    toastr[res.status](res.message);
+
+                    sendEmail(res.dataEmail)
+                }
+            })
+
+        });
+
+        function sendEmail(data)
+        {
+            $.ajax({
+                url: '<?php echo current_url() ?>',
+                type: 'POST',
+                dataType: 'JSON',
+                data: {data: data, status: 'sendEmail'},
+                success: function(res)
+                {
+                    $('#modal-email').modal('hide');
+                    $('.note-editable').html('');
+                    toastr[res.status](res.message);
+
+                    console.log(res.dataEmail)
+                }
+            })
+        }
+
+
     
         $(document).on('click', '.btnVerifikasi', function(event) {
             event.preventDefault();
@@ -677,14 +601,15 @@
            $.each(dataFull, function(index, data) {
             var foto = (data.pesertaFoto == null)?'<?php echo base_url('assets/media/users/default.jpg') ?>':'<?php echo base_url('assets/upload/images/'); ?>/'+data.pesertaFoto;
             var btnAksi = '';
+            var disabled = '<?php echo $disabled ?>';
 
             if (data.pendaftaranIsAcc == '1') 
             {
-                btnAksi = `<button type="button" data-id="`+data.pesertaNik+`" class="btnTolak btn btn-label-danger btn-lg btn-upper">Tolak</button>`;
+                btnAksi = `<button type="button" data-id="`+data.pesertaNik+`" class="btnTolak btn btn-label-danger btn-lg btn-upper" `+disabled+`>Tolak</button>`;
             }
             else 
             {
-                btnAksi = ` <button type="button" data-id="`+data.pesertaNik+`" class="btnVerifikasi btn btn-label-success btn-lg btn-upper">Terima</button>`;
+                btnAksi = ` <button type="button" data-id="`+data.pesertaNik+`" class="btnVerifikasi btn btn-label-success btn-lg btn-upper" `+disabled+`>Terima</button>`;
             }
 
                 text += `
@@ -1088,6 +1013,21 @@
             { 
                 oTable.fnFilter($("#field-cari").val());
             }
+        });
+
+        $(".summernote").summernote({
+            height: 300,
+            toolbar: [
+            [ 'style', [ 'style' ] ],
+            [ 'font', [ 'bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript', 'clear'] ],
+            [ 'fontname', [ 'fontname' ] ],
+            [ 'fontsize', [ 'fontsize' ] ],
+            [ 'color', [ 'color' ] ],
+            [ 'para', [ 'ol', 'ul', 'paragraph', 'height' ] ],
+            [ 'table', [ 'table' ] ],
+            [ 'insert', [ 'link'] ],
+            [ 'view', [ 'undo', 'redo', 'fullscreen', 'codeview', 'help' ] ]
+            ]
         });
 
 

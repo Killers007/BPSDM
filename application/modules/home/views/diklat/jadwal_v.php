@@ -7,7 +7,7 @@
 
             <div class="kt-subheader__main">
 
-                <h3 class="kt-subheader__title">JADWAL DIKLAT <?php echo strtoupper($detailDiklat->diklatNama) ?></h3>
+                <h3 class="kt-subheader__title">JADWAL PELATIHAN DIKLAT <?php echo strtoupper($detailDiklat->diklatNama) ?></h3>
 
 
                 <div class="kt-input-icon kt-input-icon--right kt-subheader__search kt-hidden">
@@ -97,7 +97,7 @@
                     </h3>
                 </div>
                 <div class="kt-portlet__head-toolbar">
-                   
+                 
                 </div>
             </div>
             <div class="kt-portlet__body">
@@ -157,15 +157,6 @@
                         eventLimit: true,
                         navLinks: true,
                         events: <?php echo str_replace('"', '', json_encode($dataJadwal, JSON_PRETTY_PRINT)) ?>,
-                        // events: [
-                        // {
-                        //     title: 'Meeting',
-                        //     start: '2019-11-24' + 'T10:30:00',
-                        //     end: '2019-11-24' + 'T12:30:00',
-                        //     description: 'Lorem ipsum dolor eiu idunt ut labore'
-                        // },
-                        // ],
-
                         eventRender: function(info) {
                             var element = $(info.el);
 
@@ -183,13 +174,13 @@
                         }
                     });
 
-    calendar.render();
-}
-};
-}();
+                    calendar.render();
+                }
+            };
+        }();
 
-jQuery(document).ready(function() {
-    KTCalendarListView.init();
-});
-});
+        jQuery(document).ready(function() {
+            KTCalendarListView.init();
+        });
+    });
 </script>

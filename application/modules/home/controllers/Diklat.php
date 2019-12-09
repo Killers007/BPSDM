@@ -8,10 +8,12 @@ class Diklat extends MY_Controller {
 		parent::__construct();
 
 		$this->load->model('Diklat_m', 'model');
+		$this->load->model('peserta/Peserta_m', 'modelPeserta');
+
 
 	}
 
-	public function index() {
+	public function index($diklatId = null) {
 		if ($this->input->is_ajax_request()) 
 		{
 			if ($this->input->post('status') == 'getPengajar') 
@@ -28,6 +30,33 @@ class Diklat extends MY_Controller {
 
 				echo json_encode($res);	
 			}
+			else if ($this->input->post()) 
+			{
+				$this->load->library('form_validation');
+
+				$this->form_validation->set_error_delimiters('<span class="form-text text-danger">', '</span>');
+				$this->form_validation->set_rules($this->model->rulesBiodata());
+
+				if(!$this->form_validation->run())
+				{
+					$res = array();
+
+					$res['status'] = false;
+
+					foreach ($this->model->rulesBiodata() as $value) {
+						$res['error'][$value['field']] = form_error($value['field']);
+					}
+
+					echo json_encode($res);
+
+				}
+				else
+				{
+					$data = $this->model->replaceData($diklatId);
+
+					echo json_encode($data);
+				}
+			}
 			else
 			{
 				$res = $this->model->getDataGrid($this->input->get(), 'renderDatatable', array(NULL));
@@ -37,52 +66,12 @@ class Diklat extends MY_Controller {
 		}
 		else
 		{
+			$data['profile'] = $this->modelPeserta->getProfile();
 			$data['selectAgama'] = $this->model->selectAgama();
 			$this->layout->setTemplate(0);
-			$this->layout->setTitle('Data DIKLAT', false)->render('diklat/index', $data);
+			$this->layout->setTitle('Daftar DIKLAT BPSDMD', false)->render('diklat/index', $data);
 		}
 		
-	}
-
-	function replaceData($id = null)
-	{
-		if ($this->input->is_ajax_request()) 
-		{
-			$this->load->library('form_validation');
-
-			$this->form_validation->set_error_delimiters('<span class="form-text text-danger">', '</span>');
-			$this->form_validation->set_rules($this->model->rules($id));
-
-			if(!$this->form_validation->run())
-			{
-				$res = array();
-
-				$res['status'] = false;
-
-				foreach ($this->model->rules() as $value) {
-					$res['error'][$value['field']] = form_error($value['field']);
-				}
-
-				echo json_encode($res);
-
-			}
-			else
-			{
-				$data = $this->model->replaceData($id);
-
-				echo json_encode($data);
-			}
-		}
-	}
-
-	function deleteData($id = null)
-	{
-		if ($this->input->is_ajax_request()) 
-		{
-			$data = $this->model->deleteData($id);
-
-			echo json_encode($data);
-		}
 	}
 
 	function jadwal($diklatId = null)
@@ -103,6 +92,14 @@ class Diklat extends MY_Controller {
 			$this->layout->setTemplate(0);
 			$this->layout->setTitle('Jadwal', false)->render('diklat/jadwal_v', $data);
 		}
+	}
+
+	function kegiatan_diklat()
+	{
+		$data['dataJadwal'] = $this->model->getJadwalKegiatan();
+
+		$this->layout->setTemplate(0);
+		$this->layout->setTitle('Jadwal Kegiatan DIKLAT', false)->render('diklat/jadwal_kegiatan_v', $data);
 	}
 
 	function cek($diklatId)

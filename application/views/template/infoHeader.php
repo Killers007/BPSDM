@@ -1,5 +1,5 @@
  <!--begin: Notifications -->
- <?php if (isset($this->session->user['nama'])): ?>
+ <?php if ($this->session->user['role'] == 'peserta'): ?>
 <div class="kt-header__topbar-item dropdown">
     <div class="kt-header__topbar-wrapper" data-toggle="dropdown" data-offset="30px,0px" aria-expanded="true">
         <span class="kt-header__topbar-icon kt-pulse kt-pulse--brand">
@@ -59,7 +59,7 @@
                                         <?php $color = 'success' ?>
                                         <?php $icon = 'fa fa-envelope-open' ?>
                                     <?php endif ?>
-                                    <a href="#" class="kt-notification__item">
+                                    <a href="<?php echo base_url('peserta/notifikasi') ?>" class="kt-notification__item">
                                         <div class="kt-notification__item-icon">
                                             <i class="<?php echo $icon ?> kt-font-<?php echo $color ?>"></i>
                                         </div>

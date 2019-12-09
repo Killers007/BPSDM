@@ -37,7 +37,7 @@
                     </li>
 
                     <?php else: ?>
-                        <?php $actived = ($menus['modules'] == $name)?'kt-menu__item--open':''; ?>
+                        <?php $actived = ($menus['modules'] == $name && strstr(current_url(), $menus['url']))?'kt-menu__item--open':''; ?>
                         <li class="kt-menu__item <?php echo $actived ?>">
                             <a  href="<?= base_url($menus['url'])?>" class="kt-menu__link">
                                 <span class="kt-menu__link-text kt-pulse__ring"><span class="<?= $menus['icon']?>"></span>&nbsp;<?= $menus['label']?></span>

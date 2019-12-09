@@ -199,7 +199,7 @@
                                         <td align="center" style="font-size:0px;padding:10px 25px;padding-bottom:40px;word-break:break-word;">
 
                                             <div style="font-family:'Helvetica Neue',Arial,sans-serif;font-size:18px;line-height:1;text-align:center;color:#555;">
-                                                It seems that you’ve forgotten your password.
+                                                Tekan tombol reset passowrd untuk mengubah password, anda akan diminta memasukkan password yang baru
                                             </div>
 
                                         </td>
@@ -229,9 +229,9 @@
                                             <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:separate;line-height:100%;">
                                                 <tr>
                                                     <td align="center" bgcolor="#2F67F6" role="presentation" style="border:none;border-radius:3px;color:#ffffff;cursor:auto;padding:15px 25px;" valign="middle">
-                                                        <p style="background:#2F67F6;color:#ffffff;font-family:'Helvetica Neue',Arial,sans-serif;font-size:15px;font-weight:normal;line-height:120%;Margin:0;text-decoration:none;text-transform:none;">
+                                                        <a href="<?php echo $link ?>" style="background:#2F67F6;color:#ffffff;font-family:'Helvetica Neue',Arial,sans-serif;font-size:15px;font-weight:normal;line-height:120%;Margin:0;text-decoration:none;text-transform:none;">
                                                             Reset Password
-                                                        </p>
+                                                        </a>
                                                     </td>
                                                 </tr>
                                             </table>
@@ -310,7 +310,7 @@
                                                         <td align="center" style="font-size:0px;padding:0;word-break:break-word;">
 
                                                             <div style="font-family:'Helvetica Neue',Arial,sans-serif;font-size:12px;font-weight:300;line-height:1;text-align:center;color:#575757;">
-                                                                Some Firm Ltd, 35 Avenue. City 10115, USA
+                                                                BPSDMD, Banjarbaru City 73613, Indonesia
                                                             </div>
 
                                                         </td>

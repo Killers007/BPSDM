@@ -106,6 +106,10 @@ class Layout {
         {
             return array_merge($this->menuDefault());
         }
+        else
+        {
+            show_error('Tidak ada akses ke sini');
+        }
     }
 
     private function menuAdmin()
@@ -116,6 +120,12 @@ class Layout {
                 'modules' => 'management',
                 'icon' => 'fa fa-tachometer-alt',
                 'url' => 'management/management',
+            ),
+            array(
+                'label' => 'Manajemen DIKLAT',
+                'modules' => 'diklat',
+                'icon' => 'fa fa-coins',
+                'url' => 'management/diklat',
             ),
             array(
                 'label' => 'Master',
@@ -141,12 +151,6 @@ class Layout {
                     ),
                     
                 ],
-            ),
-            array(
-                'label' => 'Manajemen DIKLAT',
-                'modules' => 'diklat',
-                'icon' => 'fa fa-coins',
-                'url' => 'management/diklat',
             ),
             array(
                 'label' => 'Ubah Password',
@@ -221,23 +225,35 @@ class Layout {
     private function menuDefault()
     {
         return array(
-            array(
-                'label' => 'Home',
-                'icon' => 'socicon-bufferSS',
-                'child' => [
-                    array(
-                        'label' => 'Provinsi',
-                        'modules' => 'provinsi',
-                        'icon' => 'socicon-buffer',
-                        'url' => 'admin/provinsi',
-                    ),
-                ],
-            ),
+            // array(
+            //     'label' => 'Home',
+            //     'icon' => 'socicon-bufferSS',
+            //     'child' => [
+            //         array(
+            //             'label' => 'DIKLAT',
+            //             'modules' => 'diklat',
+            //             'icon' => '',
+            //             'url' => 'home/diklat',
+            //         ),
+            //         array(
+            //             'label' => 'Jadwal Kegiatan',
+            //             'modules' => 'diklat',
+            //             'icon' => '',
+            //             'url' => 'home/diklat/kegiatan_diklat',
+            //         ),
+            //     ],
+            // ),
             array(
                 'label' => 'DIKLAT',
                 'modules' => 'diklat',
                 'icon' => '',
                 'url' => 'home/diklat',
+            ),
+            array(
+                'label' => 'Jadwal Kegiatan',
+                'modules' => 'diklat',
+                'icon' => '',
+                'url' => 'home/diklat/kegiatan_diklat',
             ),
         );
     }

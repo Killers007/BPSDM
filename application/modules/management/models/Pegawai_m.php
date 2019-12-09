@@ -68,6 +68,16 @@ class Pegawai_m extends MY_Model {
 		return $this->db->get($this->table);
 	}
 
+	function resetPass($nip)
+	{
+		$data['userPassword'] = md5($nip);
+
+		$this->db->where('userUsername', $nip);
+		$this->db->update('diklat_m_user', $data);
+
+		return ['status' => 'success', 'message' => 'Password berhasil direset'];
+	}
+
 	function deleteData($id)
 	{
 		$this->db->trans_begin();

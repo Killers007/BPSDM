@@ -100,9 +100,9 @@
                         <div class="kt-sc__top">
                             <div class="kt-sc__content">
                                 <h2 class="kt-sc__title">
-                                 Cari?
-                             </h2>
-                             <div class="kt-sc__form">
+                                   Cari?
+                               </h2>
+                               <div class="kt-sc__form">
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon1">
@@ -216,7 +216,7 @@
                                                                 <a class="kt-link" href="#">Sertifikat</a>
                                                             </h3>
                                                             <div class="kt-iconbox__content">
-                                                                Kumpulkan sertifikat sebanyak banyaknya
+                                                                Sertifikat akan diberikan setelah pelatihan
                                                             </div>
                                                         </div>
                                                     </div>
@@ -231,37 +231,136 @@
                         </div>
                     </div>         
 
-            <!--begin::Modal-->
-            <div class="modal fade" id="modal-delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg" role="document">
-                    <div class="modal-content">
-                     <div class="kt-portlet">
+                    <!--begin::Modal-->
+                    <div class="modal fade" id="modal-delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                               <div class="kt-portlet">
 
-                        <div class="kt-portlet__body">
-                            <div class="kt-pricing-1 kt-pricing-1--fixed">
-                                <div class="kt-pricing-1__items row">
+                                <div class="kt-portlet__body">
+                                 <?php echo form_open_multipart('', 'id="formData" class="kt-form kt-form--label-right"'); ?> 
+                                 <div class="kt-portlet__body">
+                                    <div class="kt-section kt-section--first">
+                                        <div class="kt-section__body">
 
-                                    <div class="kt-pricing-1__item col-lg-12">
-                                        <div class="kt-pricing-1__visual">
-                                            <div class="kt-pricing-1__hexagon1"></div>
-                                            <div class="kt-pricing-1__hexagon2"></div>
-                                            <span class="kt-pricing-1__icon kt-font-brand"><i class="fa flaticon-piggy-bank"></i></span>
-                                        </div>
-                                        <span class="kt-pricing-1__price">69<span class="kt-pricing-1__label">$</span></span>
-                                        <h2 class="kt-pricing-1__subtitle">Business License</h2>
-                                        <span class="kt-pricing-1__description">
-                                            <span>Lorem ipsum dolor sit amet edipiscing elit</span>
-                                            <span>sed do eiusmod elpors labore et dolore</span>
-                                            <span>magna siad enim aliqua</span>
-                                        </span> 
-                                        <h2 class="kt-pricing-1__subtitle text-danger lblError"></h2>
-                                        <div class="kt-pricing-1__btn">
-                                            <button type="button" class="btnDaftar btn btn-pill  btn-brand btn-wide btn-uppercase btn-bolder btn-sm">DAFTAR</button>
+                                            <div class="form-group row">
+                                                <div class="col-lg-3">
+                                                    <label>Gelar Depan</label>
+                                                    <input type="text" class="form-control" name="pesertaGelarDepan" value="<?php echo html_escape($profile->pesertaGelarDepan); ?>" placeholder="">
+                                                    <div class="cleanError pesertaGelarDepan"></div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <label class="">Nama Lengkap <span class="text-danger">*</span></label>
+                                                    <input type="text" class="form-control" name="pesertaNama" value="<?php echo html_escape($profile->pesertaNama); ?>" placeholder="">
+                                                    <div class="cleanError pesertaNama"></div>
+                                                </div>
+                                                <div class="col-lg-3">
+                                                    <label class="">Gelar Belakang</label>
+                                                    <input type="text" class="form-control" value="<?php echo html_escape($profile->pesertaGelarBelakang); ?>" name="pesertaGelarBelakang" placeholder="">
+                                                    <div class="cleanError pesertaGelarBelakang"></div>
+                                                </div>
+                                            </div> 
+                                            <div class="form-group row">
+                                                <div class="col-lg-7">
+                                                    <label>Tempat lahir</label>
+                                                    <input type="text" class="form-control" value="<?php echo html_escape($profile->pesertaTempatLahir); ?>" name="pesertaTempatLahir" placeholder="">
+                                                    <div class="cleanError pesertaTempatLahir"></div>
+                                                </div>
+                                                <div class="col-lg-5">
+                                                    <label class="">Tanggal Lahir</label>
+                                                    <div class="input-group date">
+                                                        <input type="text" class="form-control datePicker" value="<?php echo html_escape($profile->pesertaTanggalLahir); ?>" readonly name="pesertaTanggalLahir" placeholder="">
+                                                        <!-- <input type="text" class="form-control" readonly="" value="05/20/html_escape(2017"); id="kt_datepicker_3"> -->
+                                                        <div class="input-group-append">
+                                                            <span class="input-group-text">
+                                                                <i class="la la-calendar"></i>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="cleanError pesertaTanggalLahir"></div>
+                                                </div>
+                                            </div> 
+                                            <div class="form-group row">
+                                                <div class="col-lg-4">
+                                                    <label>Jabatan <span class="text-danger">*</span></label>
+                                                    <input type="text" class="form-control" value="<?php echo html_escape($profile->pesertaJabatan); ?>" name="pesertaJabatan" placeholder="">
+                                                    <div class="cleanError pesertaJabatan"></div>
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <label class="">Instansi <span class="text-danger">*</span></label>
+                                                    <input type="text" class="form-control" value="<?php echo html_escape($profile->pesertaInstansi); ?>" name="pesertaInstansi" placeholder="">
+                                                    <div class="cleanError pesertaInstansi"></div>
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <label class="">Pangkat Golongan <span class="text-danger">*</span></label>
+                                                    <input type="text" class="form-control" value="<?php echo html_escape($profile->pesertaPangkatGolongan); ?>" name="pesertaPangkatGolongan" placeholder="">
+                                                    <div class="cleanError pesertaPangkatGolongan"></div>
+                                                </div>
+                                            </div> 
+                                            <div class="form-group row">
+                                                <div class="col-lg-6">
+                                                    <label>Alamat Rumah</label>
+                                                    <div class="kt-input-icon">
+                                                        <input type="text" class="form-control" value="<?php echo html_escape($profile->pesertaAlamat); ?>" name="pesertaAlamat" placeholder="">
+                                                        <span class="kt-input-icon__icon kt-input-icon__icon--right"><span><i class="la la-map-marker"></i></span></span>
+                                                    </div>
+                                                    <div class="cleanError pesertaAlamat"></div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <label>Alamat Kantor</label>
+                                                    <div class="kt-input-icon">
+                                                        <input type="text" class="form-control" value="<?php echo html_escape($profile->pesertaAlamatKantor); ?>" name="pesertaAlamatKantor" placeholder="">
+                                                        <span class="kt-input-icon__icon kt-input-icon__icon--right"><span><i class="la la-map-marker"></i></span></span>
+                                                    </div>
+                                                    <div class="cleanError pesertaAlamatKantor"></div>
+                                                </div>
+                                            </div> 
+                                            <div class="form-group row">
+                                                <div class="col-lg-6">
+                                                    <label>No Hp <span class="text-info text-sm"><small>ex : 85291860735</small></span></label>
+                                                    <div class="kt-input-icon kt-input-icon--left">
+                                                        <input type="text" class="form-control" value="<?php echo html_escape($profile->pesertaNoHp); ?>" name="pesertaNoHp" placeholder="">
+                                                        <span class="kt-input-icon__icon kt-input-icon__icon--left">
+                                                            <span>+62</span>
+                                                        </span>
+                                                    </div>
+                                                    <div class="cleanError pesertaNoHp"></div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <label>Email</label>
+                                                    <input type="text" class="form-control" value="<?php echo html_escape($profile->pesertaEmail); ?>" name="pesertaEmail" placeholder="">
+                                                    <div class="cleanError pesertaEmail"></div>
+                                                </div>
+                                            </div>   
+                                            <div class="form-group row">
+                                                <div class="col-lg-6">
+                                                    <label>Agama <span class="text-danger">*</span></label>
+                                                    <?php echo form_dropdown('pesertaAgama', $selectAgama, $profile->pesertaAgama, ['class' => 'form-control kt-select2', 'style' => 'width: 100%']) ?>
+                                                    <div class="cleanError pesertaAgama"></div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <label>Pendidikan Terakhir <span class="text-danger">*</span></label>
+                                                    <input type="text" class="form-control" value="<?php echo html_escape($profile->pesertaPendidikanTerakhir); ?>" name="pesertaPendidikanTerakhir" placeholder="">
+                                                    <div class="cleanError pesertaPendidikanTerakhir"></div>
+                                                </div>
+                                            </div>   
+
                                         </div>
                                     </div>
 
                                 </div>
-                            </div>
+                                <div class="kt-portlet__foot">
+                                    <div class="kt-form__actions">
+                                        <div class="row">
+                                            <div class="col-lg-12 col-xl-12 text-center">
+                                                <div class="kt-pricing-1__btn">
+                                                    <button type="submit" class="btnSimpan REMOVEDbtnDaftar btn btn-pill  btn-brand btn-wide btn-uppercase btn-bolder btn-sm">DAFTAR</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -281,6 +380,65 @@
 
                 var dataFull;
                 var tanggal;
+
+                $(document).on('submit', 'form', function(event) {
+                    event.preventDefault();
+
+                    var data = new FormData(this);
+
+                    $.ajax({
+                        url: '<?php echo base_url('home/diklat/index') ?>/'+id,
+                        type: 'POST',
+                        dataType: 'JSON',
+                        cache: false,
+                        processData : false,
+                        contentType: false,
+                        data: data,
+                        beforeSend: function()
+                        {
+                            btnLoading($('.btnSimpan'));
+                            cleanError();
+                        },
+                        complete: function()
+                        {
+                            btnNormal($('.btnSimpan'));
+                        },
+                        success: function(res)
+                        {
+                            if (!res.status) 
+                            {
+                                getError(res)
+                            }
+                            else
+                            {
+                                cleanError();
+                                oTable.api().ajax.reload();
+
+                                toastr[res.status](res.message);
+                                $('#modal-delete').modal('hide');
+                            }
+                        }
+                    })
+
+                });
+
+                var tanggal = '<?php echo $profile->pesertaTanggalLahir ?>';
+
+                $('.datePicker').val(moment(tanggal).format('dddd, D MMMM YYYY'));
+
+                $('.datePicker').datepicker({
+                    rtl: KTUtil.isRTL(),
+                    todayHighlight: true,
+                    orientation: "bottom left",
+                }).on('hide', function(e) {
+                    $('.datePicker').val(moment(tanggal).format('dddd, D MMMM YYYY'));
+                });;
+
+                $(document).on('change', '.datePicker', function(event) {
+                    tanggal = $(this).val();
+
+                    $('.datePicker').val(moment(tanggal).format('dddd, D MMMM YYYY'));
+                });
 
                 $('#kt_daterangepicker_2').daterangepicker({
                     minDate: moment('<?php echo date('Y-m-d') ?>').format('MM/DD/YYYY'),
@@ -444,214 +602,223 @@
                         </a>`
                     });
 
-                    if (d.diklatStatus == 1 && d.diklatIsDaftar == '0' && role == 'peserta') 
+                    if (d.diklatStatus == 1 && d.diklatIsDaftar == '0' && role == 'peserta' && d.diklatJumlah < d.diklatKuota) 
                     {
                         statusPendaftaran = ` <a href="#" data-id="`+d.diklatId+`" class="btnDetailDaftar btn btn-label-facebook"><i class="fa fa-paper-plane"></i> Daftar</a>`;
                     }
 
-            // var indexPeserta = 0;
-            // var indexPendaftar = 0;
-            $.each(data.pendaftar, function(index, val) {
+                    if (role == '') 
+                    {
+                        statusPendaftaran = ` <a href="<?php echo base_url('login/login') ?>" class="btn btn-label-facebook"><i class="fa fa-plus"></i> Login</a>`;
+                    }
 
-                var foto = (val.pesertaFoto == null)?'<?php echo base_url('assets/media/users/default.jpg') ?>':'<?php echo base_url('assets/upload/images') ?>/'+val.pesertaFoto;
+                    $.each(data.pendaftar, function(index, val) {
 
-                // if (index > 1) 
-                // {
-                //     if (true) {}
-                //      peserta += ` <a href="#" class="kt-media kt-media--sm kt-media--circle" data-toggle="kt-tooltip" data-skin="brand" data-placement="top" title="" data-original-title="Micheal York">
-                //                              <span> +`+(data.pendaftar.length - 2)+`</span>
-                //                      </a>`
-                //                      return false;
-                // }
-                // else 
-                if (val.pendaftaranIsAcc == '1') 
-                {
-                    peserta += ` <a href="#" class="kt-media kt-media--sm kt-media--circle" data-toggle="kt-tooltip" data-skin="brand" data-placement="top" title="" data-original-title="`+val.pesertaNama+`">
-                    <img src="`+foto+`" alt="image">
-                    </a>`
+                        var foto = (val.pesertaFoto == null)?'<?php echo base_url('assets/media/users/default.jpg') ?>':'<?php echo base_url('assets/upload/images') ?>/'+val.pesertaFoto;
+
+
+                        if (val.pendaftaranIsAcc == '1') 
+                        {
+                            peserta += ` <a href="#" class="kt-media kt-media--sm kt-media--circle" data-toggle="kt-tooltip" data-skin="brand" data-placement="top" title="" data-original-title="`+val.pesertaNama+`">
+                            <img src="`+foto+`" alt="image">
+                            </a>`
+                        }
+                        else
+                        {
+                            pendaftar += ` <a href="#" class="kt-media kt-media--sm kt-media--circle" data-toggle="kt-tooltip" data-skin="brand" data-placement="top" title="" data-original-title="`+val.pesertaNama+`">
+                            <img src="`+foto+`" alt="image">
+                            </a>`
+                        }
+                    });
+                    return `<div class="kt-portlet__body kt-portlet__body--fit">
+                    <div class="kt-widget kt-widget--project-1">
+
+
+                    <div class="kt-widget__body">
+                    <div class="kt-widget__stats">
+                    <div class="kt-widget__item">
+                    <span class="kt-widget__date">
+                    Tanggal Pendaftaran
+                    </span>
+                    <div class="kt-widget__label">
+                    <span class="btn btn-label-brand btn-sm btn-bold btn-upper">`+moment(d.diklatTanggalPendaftaran).locale('id').format('dddd, D MMMM YYYY') +`</span>
+                    </div>
+                    </div>
+
+                    <div class="kt-widget__item">
+                    <span class="kt-widget__date">
+                    Pendaftaran Ditutup
+                    </span>
+                    <div class="kt-widget__label">
+                    <span class="btn btn-label-danger btn-sm btn-bold btn-upper">`+moment(d.diklatTanggalAkhirPendaftaran).locale('id').format('dddd, D MMMM YYYY')+`</span>
+                    </div>
+                    </div>
+
+                    <div class="kt-widget__item">
+                    <span class="kt-widget__date">
+                    Tanggal Pelatihan
+                    </span>
+                    <div class="kt-widget__label">
+                    <span class="btn btn-label-success btn-sm btn-bold btn-upper">`+moment(d.diklatTanggalMulai).locale('id').format('dddd, D MMMM YYYY')+`</span>
+                    </div>
+                    </div>
+
+                    <div class="kt-widget__item">
+                    <span class="kt-widget__date">
+                    Penutupan Pelatihan
+                    </span>
+                    <div class="kt-widget__label">
+                    <span class="btn btn-label-info btn-sm btn-bold btn-upper">`+ moment(d.diklatTanggalSelesai).locale('id').format('dddd, D MMMM YYYY')+`</span>
+                    </div>
+                    </div>
+
+                    </div>
+
+                    <span class="kt-widget__text">
+                    `+d.diklatKeterangan+`
+
+                    <div class="kt-widget__content">
+
+                    <div class="kt-widget__details">
+                    <span class="kt-widget__subtitle">Pengajar</span>
+
+                    <div class="kt-media-group">
+                    `+pengajar+`
+                    </div>
+                    </div>
+
+                    <div class="kt-widget__details">
+                    <span class="kt-widget__subtitle">Peserta</span>
+
+                    <div class="kt-media-group">
+                    `+peserta+`
+                    </div>
+                    </div>
+
+                    <div class="kt-widget__details">
+                    <span class="kt-widget__subtitle">Pendaftar Belum Diverifikasi</span>
+
+                    <div class="kt-media-group">
+                    `+pendaftar+`
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+
+                    <div class="kt-widget__footer">
+                    <div class="kt-widget__wrapper">
+                    <div class="kt-widget__section">
+
+                    </div>
+
+                    <div class="kt-widget__section">
+                    <a href="<?php echo base_url('home/diklat/jadwal/') ?>/`+d.diklatId+`" class="btn btn-label-twitter"><i class="fa fa-calendar-alt"></i> Jadwal Pelatihan</a>&nbsp;
+                    `+statusPendaftaran+`
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>`;
                 }
-                else
+
+                $(document).on('click', '.btnShowModal', function(event) {
+                    id = '';
+
+                    cleanError();
+                    $('#formData').trigger('reset');
+                });
+
+                $(document).on('click', '.btnDaftar', function(event) {
+
+                    var ini = $(this);
+
+                    $.ajax({
+                        url: '<?php echo current_url() ?>',
+                        type: 'POST',
+                        dataType: 'JSON',
+                        data: {
+                            diklatId: id,
+                            status: 'sendPendaftaran'
+                        },
+                        beforeSend: function(){
+                            btnLoading(ini);
+                        },
+                        success: function(res)
+                        {
+                            if (res.status == 'success') 
+                            {
+                                oTable.api().ajax.reload();
+                                $('.lblError').html('');
+                                ini.html(res.message);
+                            }
+                            else
+                            {
+
+                                $('.lblError').html(res.message);
+                                btnNormal(ini);
+                            }
+                        },
+                    })
+
+                });
+
+                var id;
+                $(document).on('click', '.btnDetailDaftar', function(event) {
+                    id = $(this).data('id');
+                    console.log(id)
+
+                    $('#modal-delete').modal('show');
+
+                });
+
+                function getError(data)
                 {
-                    pendaftar += ` <a href="#" class="kt-media kt-media--sm kt-media--circle" data-toggle="kt-tooltip" data-skin="brand" data-placement="top" title="" data-original-title="`+val.pesertaNama+`">
-                    <img src="`+foto+`" alt="image">
-                    </a>`
+                    $.each(data.error, function(index, el) 
+                    {
+                        $('.'+index).html(el);
+                    }); 
                 }
+
+                function cleanError()
+                {
+                    $('.cleanError').html('');
+                }
+
+
+                var btnText;
+                function btnLoading(selector)
+                {
+                    btnText = selector.html();
+                    selector.html('<i class="fa fa-spinner fa-spin"></i> Loading .....');
+                    selector.attr('disabled', 'true');
+                }
+
+                function btnNormal(selector)
+                {
+                    selector.html(btnText);
+                    selector.removeAttr('disabled');
+                }
+
+                toastConfig();
+                function toastConfig(){
+                    toastr.options = {
+                        "closeButton": false,
+                        "debug": false,
+                        "newestOnTop": false,
+                        "progressBar": false,
+                        "positionClass": "toast-top-right",
+                        "preventDuplicates": true,
+                        "onclick": null,
+                        "showDuration": "300",
+                        "hideDuration": "1000",
+                        "timeOut": "5000",
+                        "extendedTimeOut": "1000",
+                        "showEasing": "swing",
+                        "hideEasing": "linear",
+                        "showMethod": "fadeIn",
+                        "hideMethod": "fadeOut"
+                    }
+                }
+
             });
-            return `<div class="kt-portlet__body kt-portlet__body--fit">
-            <div class="kt-widget kt-widget--project-1">
-
-
-            <div class="kt-widget__body">
-            <div class="kt-widget__stats">
-            <div class="kt-widget__item">
-            <span class="kt-widget__date">
-            Tanggal Pendaftaran
-            </span>
-            <div class="kt-widget__label">
-            <span class="btn btn-label-brand btn-sm btn-bold btn-upper">`+moment(d.diklatTanggalPendaftaran).locale('id').format('dddd, D MMMM YYYY') +`</span>
-            </div>
-            </div>
-
-            <div class="kt-widget__item">
-            <span class="kt-widget__date">
-            Pendaftaran Ditutup
-            </span>
-            <div class="kt-widget__label">
-            <span class="btn btn-label-danger btn-sm btn-bold btn-upper">`+moment(d.diklatTanggalAkhirPendaftaran).locale('id').format('dddd, D MMMM YYYY')+`</span>
-            </div>
-            </div>
-
-            <div class="kt-widget__item">
-            <span class="kt-widget__date">
-            Tanggal Pelatihan
-            </span>
-            <div class="kt-widget__label">
-            <span class="btn btn-label-success btn-sm btn-bold btn-upper">`+moment(d.diklatTanggalMulai).locale('id').format('dddd, D MMMM YYYY')+`</span>
-            </div>
-            </div>
-
-            <div class="kt-widget__item">
-            <span class="kt-widget__date">
-            Penutupan Pelatihan
-            </span>
-            <div class="kt-widget__label">
-            <span class="btn btn-label-info btn-sm btn-bold btn-upper">`+ moment(d.diklatTanggalSelesai).locale('id').format('dddd, D MMMM YYYY')+`</span>
-            </div>
-            </div>
-
-            </div>
-
-            <span class="kt-widget__text">
-            `+d.diklatKeterangan+`
-
-            <div class="kt-widget__content">
-
-            <div class="kt-widget__details">
-            <span class="kt-widget__subtitle">Pengajar</span>
-
-            <div class="kt-media-group">
-            `+pengajar+`
-            </div>
-            </div>
-
-            <div class="kt-widget__details">
-            <span class="kt-widget__subtitle">Peserta</span>
-
-            <div class="kt-media-group">
-            `+peserta+`
-            </div>
-            </div>
-
-            <div class="kt-widget__details">
-            <span class="kt-widget__subtitle">Pendaftar Belum Diverifikasi</span>
-
-            <div class="kt-media-group">
-            `+pendaftar+`
-            </div>
-            </div>
-            </div>
-            </div>
-
-            <div class="kt-widget__footer">
-            <div class="kt-widget__wrapper">
-            <div class="kt-widget__section">
-
-            </div>
-
-            <div class="kt-widget__section">
-            <a href="<?php echo base_url('home/diklat/jadwal/') ?>/`+d.diklatId+`" class="btn btn-label-twitter"><i class="fa fa-calendar-alt"></i> Jadwal Pelatihan</a>&nbsp;
-            `+statusPendaftaran+`
-            </div>
-            </div>
-            </div>
-            </div>
-            </div>`;
-        }
-
-        $(document).on('click', '.btnShowModal', function(event) {
-            id = '';
-
-            cleanError();
-            $('#formData').trigger('reset');
-        });
-
-        $(document).on('click', '.btnDaftar', function(event) {
-
-            var ini = $(this);
-
-            $.ajax({
-                url: '<?php echo current_url() ?>',
-                type: 'POST',
-                dataType: 'JSON',
-                data: {
-                    diklatId: id,
-                    status: 'sendPendaftaran'
-                },
-                beforeSend: function(){
-                    btnLoading(ini);
-                },
-                success: function(res)
-                {
-                    if (res.status == 'success') 
-                    {
-                        oTable.api().ajax.reload();
-                        $('.lblError').html('');
-                        ini.html(res.message);
-                    }
-                    else
-                    {
-
-                        $('.lblError').html(res.message);
-                        btnNormal(ini);
-                    }
-                },
-            })
-            
-        });
-
-        var id;
-        $(document).on('click', '.btnDetailDaftar', function(event) {
-            id = $(this).data('id');
-            console.log(id)
-
-            $('#modal-delete').modal('show');
-
-        });
-
-        var btnText;
-        function btnLoading(selector)
-        {
-            btnText = selector.html();
-            selector.html('<i class="fa fa-spinner fa-spin"></i> Loading .....');
-            selector.attr('disabled', 'true');
-        }
-
-        function btnNormal(selector)
-        {
-            selector.html(btnText);
-            selector.removeAttr('disabled');
-        }
-
-        toastConfig();
-        function toastConfig(){
-            toastr.options = {
-                "closeButton": false,
-                "debug": false,
-                "newestOnTop": false,
-                "progressBar": false,
-                "positionClass": "toast-top-right",
-                "preventDuplicates": true,
-                "onclick": null,
-                "showDuration": "300",
-                "hideDuration": "1000",
-                "timeOut": "5000",
-                "extendedTimeOut": "1000",
-                "showEasing": "swing",
-                "hideEasing": "linear",
-                "showMethod": "fadeIn",
-                "hideMethod": "fadeOut"
-            }
-        }
-
-    });
-</script>
+        </script>

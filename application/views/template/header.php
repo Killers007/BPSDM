@@ -11,8 +11,9 @@
 
         <!--begin::Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700">        <!--end::Fonts -->
-
-        
+        <link href="<?php echo base_url(); ?>assets/css/demo1/pages/inbox/inbox.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url(); ?>assets/vendors/general/dropzone/dist/dropzone.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url(); ?>assets/vendors/general/quill/dist/quill.snow.css" rel="stylesheet" type="text/css" />
         <link href="<?php echo base_url(); ?>assets/css/demo4/pages/pricing/pricing-1.css" rel="stylesheet" type="text/css" />
         <!--begin:: Global Mandatory Vendors -->
 <link href="<?php echo base_url(); ?>assets/vendors/general/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet" type="text/css" />

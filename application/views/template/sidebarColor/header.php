@@ -32,6 +32,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 
     <!--begin:: Global Mandatory Vendors -->
+    <link href="<?php echo base_url(); ?>assets/vendors/general/summernote/dist/summernote.css" rel="stylesheet" type="text/css" />
     <link href="<?php echo base_url(); ?>assets/vendors/general/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet" type="text/css" />
     <!--end:: Global Mandatory Vendors -->
 

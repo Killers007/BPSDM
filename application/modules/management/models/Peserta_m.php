@@ -18,14 +18,14 @@ class Peserta_m extends MY_Model {
 			array('field' => 'pesertaEmail', 'label' => 'Email', 'rules' => 'valid_email'),
 		);
 
-		if ($update == null) 
-		{
-			$rules[] = array('field' => 'pesertaNik', 'label' => 'NIP / NIK', 'rules' => 'required|callback_cek_username|trim');
-		}
-		else
-		{
-			$rules[] = array('field' => 'pesertaNik', 'label' => 'NIP / NIK', 'rules' => 'required|trim');
-		}
+		// if ($update == null) 
+		// {
+		// 	$rules[] = array('field' => 'pesertaNik', 'label' => 'NIP / NIK', 'rules' => 'required|callback_cek_username|trim');
+		// }
+		// else
+		// {
+		// 	$rules[] = array('field' => 'pesertaNik', 'label' => 'NIP / NIK', 'rules' => 'required|trim');
+		// }
 
 		return $rules;
 	}
@@ -120,17 +120,11 @@ class Peserta_m extends MY_Model {
 		if ($imageName != null) {
             $data['pesertaFoto'] = $imageName;
         }
-
-		$formData['userUsername'] = $data['pesertaNik'];
-		$formData['userPassword'] = md5($data['pesertaNik']);
-		$formData['userIdrole'] = 2;
-
+        
 		if ($id == NULL) 
 		{
 			$this->db->trans_begin();
 			$this->db->insert($this->table, $data);
-
-			$this->db->insert('diklat_m_user', $formData);
 
 			if ($this->db->trans_status()) 
 			{
@@ -152,11 +146,6 @@ class Peserta_m extends MY_Model {
 
 			$this->db->where($this->key, $id);
 			$this->db->update($this->table, $data);
-
-			unset($formData['userPassword']);
-
-			$this->db->where('userUsername', $id);
-			$this->db->update('diklat_m_user', $formData);
 
 			if ($this->db->trans_status()) 
 			{

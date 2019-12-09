@@ -33,10 +33,12 @@ class Peserta_m extends MY_Model {
 			array('field' => 'pesertaAgama', 'label' => 'Agama', 'rules' => 'required'),
 			array('field' => 'pesertaPangkatGolongan', 'label' => 'Pangkat / Golongan', 'rules' => 'required'),
 			array('field' => 'pesertaPendidikanTerakhir', 'label' => 'Pendidikan Terakhir', 'rules' => 'required'),
-			array('field' => 'pesertaNoHp', 'label' => 'No Hp', 'rules' => 'numeric'),
-			array('field' => 'pesertaEmail', 'label' => 'Email', 'rules' => 'valid_email'),
+			array('field' => 'pesertaNoHp', 'label' => 'No Hp', 'rules' => 'numeric|required'),
+			array('field' => 'pesertaEmail', 'label' => 'Email', 'rules' => 'valid_email|required'),
 			array('field' => 'pesertaTempatLahir', 'label' => 'Tempat Lahir', 'rules' => 'required'),
 			array('field' => 'pesertaTanggalLahir', 'label' => 'Tanggal Lahir', 'rules' => 'required'),
+			array('field' => 'pesertaAlamat', 'label' => 'Alamat Rumah', 'rules' => 'required'),
+			array('field' => 'pesertaAlamatKantor', 'label' => 'Alamat Kantor', 'rules' => 'required'),
 		);
 
 		return $rules;
@@ -46,6 +48,35 @@ class Peserta_m extends MY_Model {
 	{
 		$this->db->where($this->key, $this->nik);
 		$res = $this->db->get($this->table)->row();
+
+		if (empty($res)) 
+		{
+			$res = (object)array(
+				'pesertaNama' => null,
+				'pesertaJabatan' => null,
+				'pesertaInstansi' => null,
+				'pesertaAgama' => null,
+				'pesertaPangkatGolongan' => null,
+				'pesertaPendidikanTerakhir' => null,
+				'pesertaNoHp' => null,
+				'pesertaEmail' => null,
+				'pesertaTempatLahir' => null,
+				'pesertaTanggalLahir' => null,
+				'pesertaAlamat' => null,
+				'pesertaAlamatKantor' => null,
+			);
+		}
+		
+		return $res;
+	}
+
+	function getEmail()
+	{
+		$this->db->order_by('bctDate', 'desc');
+		$this->db->join('diklat_m_pegawai', 'pegawaiUsername = bctSender', 'left');
+		$this->db->join('diklat_m_diklat', 'diklatId = bctDiklatId');
+		$this->db->where('bctReceiver', $this->session->user['user']);
+		$res = $this->db->get('diklat_t_broadcast_email')->result();
 		
 		return $res;
 	}
@@ -55,8 +86,19 @@ class Peserta_m extends MY_Model {
         $this->db->where('notifTo', $this->nik);
         $this->db->update('diklat_t_notif', ['notifRead' => 1]);
 
-        $this->db->order_by('notifSend', 'desc');
-        $this->db->where('notifTo', $this->nik);
+        $this->db->order_by('notifSend', 'asc');
+
+        $this->db->group_start();
+		$this->db->where('notifFrom', $this->session->user['user']);
+		$this->db->group_end();
+
+		$this->db->or_group_start();
+		$this->db->where('notifTo', $this->session->user['user']);
+		$this->db->group_end();
+
+        // $this->db->join('diklat_m_peserta', 'pesertaNik = notifFrom', 'left');
+        $this->db->join('diklat_m_pegawai', 'pegawaiUsername = notifFrom', 'left');
+		$this->db->order_by('notifSend', 'asc');
         
         return $this->db->get('diklat_t_notif')->result();
     }
@@ -74,6 +116,16 @@ class Peserta_m extends MY_Model {
 		return ['status' => 'success', 'message' => 'Notifikasi berhasil diperbaharui'];
 	}
 
+	function sendMessage($content)
+	{
+		$data['notifFrom'] = $this->nik;
+		$data['notifContent'] = $content;
+		
+		$this->db->insert('diklat_t_notif', $data);
+		
+		return ['status' => 'success', 'message' => 'Pesan berhasil dikirim'];
+	}
+
 	function changePassword($password)
 	{
 		$data['userPassword'] = md5($password);
@@ -89,7 +141,7 @@ class Peserta_m extends MY_Model {
 		}
 		else
 		{
-    		return ['status' => 'error', 'message' => 'Password gagal diperbaharui'];
+    		return ['status' => 'error', 'message' => 'Password tidak diperbaharui'];
 		}
 	}
 

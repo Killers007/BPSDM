@@ -104,37 +104,88 @@ class Diklat extends MY_Controller {
 		}
 	}
 
-	public function word($diklatId =  3)
+	function export_excel($diklatId =  3)
+	{
+
+		$this->load->library('excel');
+
+		$diklat = $this->model->getDataById($diklatId);
+		$data = $this->model->getPeserta($diklatId);
+		if (empty($diklat)) {
+			show_error('Diklat Tidak Tersedia', 404, 'WTF LAH');
+		}
+
+		$field = [
+			'pesertaNama' => 'Nama',
+			'pesertaNik' => 'NIK', 
+			'pesertaTanggalLahir' => 'Tempat, Tanggal Lahir',
+			'pesertaAlamat' => 'Alamat', 
+			'pesertaPangkatGolongan' => 'Pangkat / Golongan', 
+			'pesertaInstansi' => 'Instansi', 
+			'pesertaJabatan' => 'Jabatan', 
+			'pesertaNoHp' => 'No Hp', 
+		];
+
+		$arr = [];
+		foreach ($data as $key => $value) {
+			$arr[$key] = (array)$value;
+			$arr[$key]['pesertaTanggalLahir'] = $value->pesertaTempatLahir.', '.date_convert($value->pesertaTanggalLahir)->default;
+			$arr[$key]['pesertaNoHp'] = '+62 '.$value->pesertaNoHp;
+			$arr[$key]['pesertaNama'] = $value->pesertaGelarDepan.' '.$value->pesertaNama.' '.$value->pesertaGelarBelakang;
+		}
+
+		// echo "<pre>";
+		// print_r($arr);
+		// echo "</pre>";exit;
+
+		$this->excel->generateExcel($arr, $diklat->diklatNama, $field);
+	}
+
+	public function word($diklatId =  null)
 	{
 		if (!$this->input->is_ajax_request()) 
 		{
-			$data['detailDiklat'] = $this->model->getDataById($diklatId);
-			$data['dataPeserta'] = $this->model->getPeserta($diklatId);
+			$this->load->helper('time');
+			$diklat = $this->model->getDataById($diklatId);
+			$data = $this->model->getPeserta($diklatId);
+
+			if (empty($diklat)) {
+				show_error('Diklat Tidak Tersedia', 404, 'WTF LAH');
+			}
+
+			// echo "<pre>";
+			// print_r($data);
+			// echo "</pre>";exit;
 
 			$this->load->library('word');
-			$document = $this->word->loadTemplate('assets/tesDuplikat.docx');
+			$templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor('assets/Sertifikat.docx');
 
-			// $document->cloneBlock('CLONEME', 3);
-			// $document->setValue('Title',  "Testtitel 1", 1);
-			// $document->setValue('Title',  "Testtitel 2", 1);
-			// $document->setValue('Title',  "Testtitel 3", 1);
+			foreach ($data as $key => $value) {
+				$replacements[] = array(
+					'namadiklat' => $diklat->diklatNama,
+					'tanggal_mulai' => date_convert($diklat->diklatTanggalMulai)->default,
+					'tanggal_selesai' => date_convert($diklat->diklatTanggalSelesai)->default,
+					'tanggal_sekarang' => date_convert()->default,
+					'tahun' => date('Y'),
+					'nama' => $value->pesertaNama,
+					'nip' => $value->pesertaNik,
+					'tempat' => $value->pesertaTempatLahir,
+					'tanggal_lahir' => date_convert($value->pesertaTanggalLahir)->default,
+					'pangkat' => $value->pesertaPangkatGolongan,
+					'jabatan' => $value->pesertaJabatan,
+					'instansi' => $value->pesertaInstansi,
+					'kualifikasi' => $value->nilaiKeterangan,
+					'nama_gubernur' => 'Si ANJAY',
+				);
+			}
 
-			$datas['nim'][0] = '1611';
-			$datas['semester'][0] = '1611';
-			$datas['ipk'][0] = '1611';
-
-			$datas['nim'][1] = '1611';
-			$datas['semester'][1] = '1611';
-			$datas['ipk'][1] = '1611';
-
-			$document->setValue('{nama}','Ahmad Juhdi');
-			$document->cloneRow('TBL1', $datas);
+			$templateProcessor->cloneBlock('CLONEME', 0, true, false, $replacements);
 
 			$temp_name=tempnam(sys_get_temp_dir(),'PHPWord');
-			$document->save($temp_name);
+			$templateProcessor->saveAs($temp_name);
 			ob_end_clean();
 
-			$filename='1.docx';
+			$filename = $diklat->diklatNama.'.docx';
 			header('Content-Type: application/vnd.openxmlformats-officedocument.wordprocessingml.document');
 			header('Cache-Control: max-age=0'); 
 			header('Content-Disposition: attachment;filename="'.$filename.'"'); 
@@ -144,7 +195,7 @@ class Diklat extends MY_Controller {
 		}
 	}
 
-	private function cloneWord($diklatId =  3)
+	public function cloneWord($diklatId =  3)
 	{
 		if (!$this->input->is_ajax_request()) 
 		{
@@ -152,7 +203,7 @@ class Diklat extends MY_Controller {
 			$data['dataPeserta'] = $this->model->getPeserta($diklatId);
 
 			$this->load->library('word');
-			$document = $this->word->loadTemplate('assets/duplicateRow.docx');
+			$document =  new \PhpOffice\PhpWord\TemplateProcessor('assets/duplicateRow.docx');//$this->word->loadTemplate('assets/duplicateRow.docx');
 
 			$datas = [];
 			// foreach ($res as $key => $value) {
@@ -168,7 +219,7 @@ class Diklat extends MY_Controller {
 			$document->cloneRow('TBL1', $datas);
 
 			$temp_name=tempnam(sys_get_temp_dir(),'PHPWord');
-			$document->save($temp_name);
+			$document->saveAs($temp_name);
 			ob_end_clean();
 
 			$filename='1.docx';
@@ -205,6 +256,33 @@ class Diklat extends MY_Controller {
 
 				echo json_encode($data);
 			}
+			else if ($this->input->post('status') == 'broadcastEmail') 
+			{
+				$data = $this->input->post('data');
+
+				$data = $this->model->broadcastEmail($diklatId, $data);
+
+				echo json_encode($data);
+
+				// if (isset($data['dataEmail'])) 
+				// {
+				// 	$this->load->library('emails');
+				// 	foreach ($data['dataEmail'] as $key => $value) 
+				// 	{
+				// 		$this->emails->sendEmail($value[0], $value[1], $value[2]);
+				// 	}
+				// }
+			}
+			else if ($this->input->post('status') == 'sendEmail') 
+			{
+				$data = ($this->input->post('data'))?$this->input->post('data'):[];
+			
+				$this->load->library('emails');
+				foreach ($data as $value) 
+				{
+					echo $this->emails->sendEmail($value[0], $value[1], $value[2], true);
+				}
+			}
 			else if ($this->input->post()) 
 			{
 				$status = $this->input->post('status', TRUE);
@@ -227,6 +305,9 @@ class Diklat extends MY_Controller {
 		{
 			$data['dataDiklat'] = $this->model->getDataById($diklatId);
 			$data['dataPeserta'] = $this->model->getPeserta($diklatId);
+
+			$disabled = $this->model->cekTanggalPendaftaran($diklatId);
+			$data['disabled'] = ($disabled == 0)?'disabled':'';
 
 			$this->layout->setTemplate(1);
 			$this->layout->setTitle('Peserta', false)->render('diklat/pendaftaran_v', $data);
@@ -320,22 +401,7 @@ class Diklat extends MY_Controller {
 		}
 	}
 
-	function excel()
-	{
-		$this->load->library('excel');
-
-		$this->db->select('pegawaiUsername, pegawaiNama, pegawaiTanggalLahir');
-		$data = $this->db->get('diklat_m_pegawai');
-
-		$field = [
-			'pegawaiUsername' => 'NIP',
-			'pegawaiNama' => 'Nama', 
-			'pegawaiTanggalLahir' => 'Tanggal Lahir',
-		];
-
-		$this->excel->generateExcel($data->result_array(), 'Data Pegawai', $field);
-	}
-
+	
 	/*
      * ------------------------------------------------------
      *  Callback Form Validation

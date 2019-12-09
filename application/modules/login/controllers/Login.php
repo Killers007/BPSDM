@@ -24,12 +24,39 @@ class Login extends MY_Controller {
 
 		if ($this->input->is_ajax_request()) 
 		{
-			$username = $this->input->post('username', TRUE);
-			$password = $this->input->post('password', TRUE);
+			if ($this->input->post('status') == 'reset') 
+			{
+				$this->db->where('pesertaEmail', $this->input->post('email', TRUE));
+				$res = $this->db->get('diklat_m_peserta')->row();
 
-			$res = $this->model->cekLogin($username, md5($password));
+				if (!empty($res)) 
+				{
+					$token = $this->model->genUuid();
+					$this->db->where('pesertaNik', $res->pesertaNik);
+					$this->db->update('diklat_m_peserta', ['pesertaTokenPassword' => $token]);
 
-			echo json_encode($res);
+
+					$link = base_url('home/reset/?uid='.$res->pesertaNik.'&token='.$token);
+
+					$this->load->library('emails');
+					$status = $this->emails->sendResetPassword($res->pesertaEmail, $link, 'Reset Password', true);
+
+					echo json_encode(['status' => 'success', 'message' => 'Periksa Email Anda', 'gmailResponse' => $status]);
+				}
+				else
+				{
+					echo json_encode(['status' => 'error', 'message' => 'Email tidak ditemukan']);
+				}
+			}
+			else
+			{
+				$username = $this->input->post('username', TRUE);
+				$password = $this->input->post('password', TRUE);
+
+				$res = $this->model->cekLogin($username, md5($password));
+
+				echo json_encode($res);
+			}
 		}
 		else
 		{
@@ -102,6 +129,19 @@ class Login extends MY_Controller {
     	if (!empty($this->model->getDataById($str))) 
     	{
     		$this->form_validation->set_message(__FUNCTION__, "NIP / NIK $str sudah digunakan");
+    		return FALSE;
+    	}
+    	else
+    	{
+    		return TRUE;
+    	}
+    }
+
+    public function cek_email($str)
+    {
+    	if (!empty($this->model->getEmail($str))) 
+    	{
+    		$this->form_validation->set_message(__FUNCTION__, "Email $str sudah digunakan");
     		return FALSE;
     	}
     	else

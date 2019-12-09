@@ -18,13 +18,31 @@ class Welcome_m extends MY_Model {
         $rules = array(
             array('field' => 'pesertaNik', 'label' => 'NIK / NIP', 'rules' => 'required|numeric|callback_cek_username'),
             array('field' => 'pesertaNama', 'label' => 'Nama', 'rules' => 'required'),
-            array('field' => 'pesertaEmail', 'label' => 'Email', 'rules' => 'required|valid_email'),
+            array('field' => 'pesertaEmail', 'label' => 'Email', 'rules' => 'required|valid_email|callback_cek_email'),
             array('field' => 'userPassword', 'label' => 'Password', 'rules' => 'required'),
             array('field' => 'repassword', 'label' => 'Konfirmasi Password', 'rules' => 'required|matches[userPassword]'),
             array('field' => 'agree', 'label' => 'Ketentuan', 'rules' => 'required', 'errors' => $errorRequired),
         );
 
         return $rules;
+    }
+
+    /**
+     * Generate UUID
+     * @return String [generate uuid]
+     */
+    function genUuid() {
+    	return sprintf( '%04x%04x-%04x-%04x-%04x-%04x%04x%04x',
+    		mt_rand( 0, 0xffff ), mt_rand( 0, 0xffff ),
+
+    		mt_rand( 0, 0xffff ),
+
+    		mt_rand( 0, 0x0fff ) | 0x4000,
+
+    		mt_rand( 0, 0x3fff ) | 0x8000,
+
+    		mt_rand( 0, 0xffff ), mt_rand( 0, 0xffff ), mt_rand( 0, 0xffff )
+    	);
     }
 
 
@@ -43,7 +61,13 @@ class Welcome_m extends MY_Model {
     	{
     		$this->db->trans_commit();
 
-    		return ['status' => 'success', 'message' => 'Akun berhasil didaftarkan, silahkan login dengan akun tersebut'];
+    		$session['user'] = $formData['pesertaNik'];
+    		$session['role'] = 'peserta';
+    		$session['nama'] = $formData['pesertaNama'];
+
+			$this->session->set_userdata('user', $session);
+
+    		return ['status' => 'success', 'message' => 'Akun berhasil didaftarkan', 'redirect' => base_url('peserta')];
     	}
     	else
     	{
@@ -117,5 +141,12 @@ class Welcome_m extends MY_Model {
         $this->db->where('userUsername', $id);
 
         return $this->db->get('diklat_m_user')->row();
+    } 
+
+    public function getEmail($email){
+
+        $this->db->where('pesertaEmail', $email);
+
+        return $this->db->get('diklat_m_peserta')->row();
     } 
 }
