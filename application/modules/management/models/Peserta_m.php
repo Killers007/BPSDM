@@ -71,15 +71,16 @@ class Peserta_m extends MY_Model {
 	function deleteData($id)
 	{
 		$this->db->trans_begin();
-		$this->deleteImage($id);
 		$this->db->where($this->key, $id);
 		$this->db->delete($this->table);
 
-		$this->db->where('userUsername', $id);
-		$this->db->delete('diklat_m_user');
 
 		if ($this->db->trans_status()) 
 		{
+			$this->db->where('userUsername', $id);
+			$this->db->delete('diklat_m_user');
+			$this->deleteImage($id);
+			
 			$this->db->trans_commit();
 
 			return ['status' => 'success', 'message' => 'Data berhasil dihapus'];

@@ -10,6 +10,8 @@ class Diklat_m extends MY_Model {
 		$rules = array(
 			array('field' => 'diklatNama', 'label' => 'Nama DIKLAT', 'rules' => 'required|trim'),
 			array('field' => 'diklatKuota', 'label' => 'Kuota Peserta', 'rules' => 'required|numeric'),
+			array('field' => 'diklatNoDepan', 'label' => 'Nomor Depan', 'rules' => 'numeric'),
+			array('field' => 'diklatNoBelakang', 'label' => 'Nomor Belakang', 'rules' => 'numeric'),
 			array('field' => 'diklatTempatPelatihan', 'label' => 'Tempat Pelatihan', 'rules' => 'required'),
 			array('field' => 'tanggalPendaftaran', 'label' => 'Tanggal Pendaftaran', 'rules' => 'required'),
 			array('field' => 'tanggalPelatihan', 'label' => 'Tanggal Pendaftaran', 'rules' => 'required'),

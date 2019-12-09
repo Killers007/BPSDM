@@ -166,7 +166,7 @@ class Diklat extends MY_Controller {
 					'tanggal_mulai' => date_convert($diklat->diklatTanggalMulai)->default,
 					'tanggal_selesai' => date_convert($diklat->diklatTanggalSelesai)->default,
 					'tanggal_sekarang' => date_convert()->default,
-					'tahun' => date('Y'),
+					'tahun' => date_convert($diklat->diklatTanggalSelesai)->year,
 					'nama' => $value->pesertaNama,
 					'nip' => $value->pesertaNik,
 					'tempat' => $value->pesertaTempatLahir,
@@ -175,7 +175,9 @@ class Diklat extends MY_Controller {
 					'jabatan' => $value->pesertaJabatan,
 					'instansi' => $value->pesertaInstansi,
 					'kualifikasi' => $value->nilaiKeterangan,
-					'nama_gubernur' => 'Si ANJAY',
+					'no_depan' => $diklat->diklatNoDepan,
+					'no_belakang' => $diklat->diklatNoBelakang,
+					'nama_gubernur' => 'Ahmad Juhdi',
 				);
 			}
 
