@@ -4,6 +4,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Pegawai extends MY_Controller {
 
+	private $idNip;
+
 	public function __construct() {
 		parent::__construct();
 
@@ -43,6 +45,7 @@ class Pegawai extends MY_Controller {
 
 	function replaceData($id = null)
 	{
+		$this->idNip = $id;
 		if ($this->input->is_ajax_request()) 
 		{
 			$this->load->library('form_validation');
@@ -109,7 +112,7 @@ class Pegawai extends MY_Controller {
     
     public function cek_username($str)
     {
-    	if (!empty($this->getDataById($str))) 
+    	if (!empty($this->getDataById($str)) && $this->idNip != $str) 
     	{
     		$this->form_validation->set_message(__FUNCTION__, "NIP $str sudah digunakan");
     		return FALSE;

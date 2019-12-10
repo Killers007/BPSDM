@@ -199,7 +199,7 @@
 
     });
 
-        var uid = '<?php echo $this->session->user['user'] ?>';
+        var uid = '<?php echo 'admin';$this->session->user['user'] ?>';
         function templateMessage(val)
         {
             var read = (val.notifRead == '1')?'<span class="fa fa-check"></span>':'';
@@ -458,6 +458,10 @@
                         ini.removeClass('btnVerifikasi').addClass('btnTolak');
                         ini.removeClass('btn-label-success').addClass('btn-label-danger');
                         ini.html('Tolak');
+                    }
+                    else
+                    {
+                        toastr[res.status](res.message);
                     }
                 }
             })

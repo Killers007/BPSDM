@@ -25,7 +25,7 @@ class Emails {
         $this->ci->email->initialize($config);
 
         $this->ci->load->library('email'); // Note: no $config param needed
-        $this->ci->email->from($email, $email);
+        $this->ci->email->from($email, 'BPSDMD PROV KALSEL');
         $this->ci->email->to($to);
         $this->ci->email->subject($subject);
         $this->ci->email->message($msg);
@@ -68,7 +68,7 @@ class Emails {
         $this->ci->email->initialize($config);
 
         $this->ci->load->library('email'); // Note: no $config param needed
-        $this->ci->email->from($email, $email);
+        $this->ci->email->from($email, 'BPSDMD PROV KALSEL');
         $this->ci->email->to($to);
         $this->ci->email->subject($subject);
         $this->ci->email->message($msg);

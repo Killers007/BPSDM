@@ -81,6 +81,23 @@ class Peserta_m extends MY_Model {
 		return $res;
 	}
 
+	function getEmailNotif()
+	{
+		$this->db->where('bctRead', 0);
+		$this->db->where('bctReceiver', $this->session->user['user']);
+		$res = $this->db->get('diklat_t_broadcast_email')->num_rows();
+		
+		return $res;
+	}
+
+	function setReadEmail()
+	{
+		$this->db->where('bctReceiver', $this->session->user['user']);
+		$res = $this->db->update('diklat_t_broadcast_email', ['bctRead' => 1]);
+		
+		return $res;
+	}
+
 	function readMessage()
     {
         $this->db->where('notifTo', $this->nik);
@@ -200,6 +217,12 @@ class Peserta_m extends MY_Model {
 
         if ($this->db->trans_status()) 
         {
+
+        	$session['user'] = $id;
+        	$session['role'] = 'peserta';
+        	$session['nama'] = $data['pesertaNama'];
+
+        	$this->session->set_userdata('user', $session);
 
         	$this->db->trans_commit();
 

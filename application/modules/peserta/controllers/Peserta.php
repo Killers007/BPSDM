@@ -52,6 +52,7 @@ class Peserta extends MY_Controller {
 		else
 		{
 			$data['profile'] = $this->model->getProfile();
+			$data['emailNotif'] = $this->model->getEmailNotif();
 			$data['subTitle'] = 'Biodata';
 			$data['selectAgama'] = $this->model->selectAgama();
 
@@ -96,6 +97,7 @@ class Peserta extends MY_Controller {
 		{
 			$data['profile'] = $this->model->getProfile();
 			$data['subTitle'] = 'Ubah Password';
+			$data['emailNotif'] = $this->model->getEmailNotif();
 
 			$this->layout->setTemplate(0);
 			$this->layout->setTitle('Dashboard', false)->render('changePassword_v', $data);
@@ -117,6 +119,7 @@ class Peserta extends MY_Controller {
 		{
 			$data['profile'] = $this->model->getProfile();
 			$data['subTitle'] = 'Setting Notifikasi';
+			$data['emailNotif'] = $this->model->getEmailNotif();
 
 			$this->layout->setTemplate(0);
 			$this->layout->setTitle('Dashboard', false)->render('settingNotifikasi_v', $data);
@@ -139,6 +142,8 @@ class Peserta extends MY_Controller {
 			$data['profile'] = $this->model->getProfile();
 			$data['subTitle'] = 'Semua Notifikasi';
 			$data['notifikasiData'] = $this->model->readMessage();
+			$data['emailNotif'] = $this->model->getEmailNotif();
+
 
 			$this->layout->setTemplate(0);
 			$this->layout->setTitle('Dashboard', false)->render('readNotifikasi_v', $data);
@@ -158,12 +163,15 @@ class Peserta extends MY_Controller {
 		}
 		else
 		{
+			$this->model->setReadEmail();
 			$this->load->helper('time');
 			$data['subTitle'] = 'Email';
 			$data['notifikasiData'] = $this->model->readMessage();
 			
 			$data['getEmail'] = $this->model->getEmail();
+			$data['emailNotif'] = $this->model->getEmailNotif();
 			$data['profile'] = $this->model->getProfile();
+
 
 			$this->layout->setTemplate(0);
 			$this->layout->setTitle('Dashboard', false)->render('emailRead', $data);

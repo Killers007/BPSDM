@@ -106,6 +106,7 @@ class Diklat_m extends MY_Model {
 		$this->db->select('(SELECT COUNT(*) FROM diklat_t_pendaftaran WHERE pendaftaranDiklatId = diklatId) as diklatJumPendaftar');
 
 		$this->db->select("(SELECT COUNT(*) FROM diklat_t_pendaftaran WHERE pendaftaranDiklatId = diklatId $pesertaOnly) as diklatIsDaftar", 'left');
+		$this->db->select("(SELECT COUNT(*) FROM diklat_t_pendaftaran WHERE pendaftaranDiklatId = diklatId $pesertaOnly and pendaftaranIsAcc = '1') as diklatIsAcc", 'left');
 
 		return $this->db->get($this->table);
 	}

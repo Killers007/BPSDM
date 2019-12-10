@@ -8,6 +8,7 @@ class Pegawai_m extends MY_Model {
 	public function rules($update = null) {
 
 		$rules = array(
+			array('field' => 'pegawaiUsername', 'label' => 'NIP', 'rules' => 'required|callback_cek_username|trim'),
 			array('field' => 'pegawaiNama', 'label' => 'Nama', 'rules' => 'required|trim'),
 			array('field' => 'pegawaiJabatan', 'label' => 'Jabatan', 'rules' => 'required'),
 			array('field' => 'pegawaiInstansi', 'label' => 'Instansi', 'rules' => 'required'),
@@ -18,14 +19,14 @@ class Pegawai_m extends MY_Model {
 			array('field' => 'pegawaiEmail', 'label' => 'Email', 'rules' => 'valid_email'),
 		);
 
-		if ($update == null) 
-		{
-			$rules[] = array('field' => 'pegawaiUsername', 'label' => 'NIP', 'rules' => 'required|callback_cek_username|trim');
-		}
-		else
-		{
-			$rules[] = array('field' => 'pegawaiUsername', 'label' => 'NIP', 'rules' => 'required|trim');
-		}
+		// if ($update == null) 
+		// {
+		// 	$rules[] = array('field' => 'pegawaiUsername', 'label' => 'NIP', 'rules' => 'required|callback_cek_username|trim');
+		// }
+		// else
+		// {
+		// 	$rules[] = array('field' => 'pegawaiUsername', 'label' => 'NIP', 'rules' => 'required|trim');
+		// }
 
 		return $rules;
 	}

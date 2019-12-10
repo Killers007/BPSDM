@@ -94,12 +94,12 @@ class Diklat_m extends MY_Model {
 	{
 		$this->db->group_start();
 		$this->db->where('notifTo', $id);
-		$this->db->where('notifFrom', $this->session->user['user']);
+		$this->db->where('notifFrom', 'admin');
 		$this->db->group_end();
 
 		$this->db->or_group_start();
 		$this->db->where('notifFrom', $id);
-		$this->db->where('notifTo', $this->session->user['user']);
+		$this->db->where('notifTo', 'admin');
 		$this->db->group_end();
 		
         $this->db->join('diklat_m_peserta', 'pesertaNik = notifFrom', 'left');
@@ -107,7 +107,7 @@ class Diklat_m extends MY_Model {
 		return $this->db->get('diklat_t_notif')->result();
 	}
 
-	function broadcastEmail($diklatId, $pesan, $header = 'BPSDMD PROV KALSEL')
+	function broadcastEmail($diklatId, $pesan, $header = 'INFO DIKLAT')
 	{
 
 		$this->db->where('pendaftaranDiklatId', $diklatId);
@@ -178,19 +178,27 @@ class Diklat_m extends MY_Model {
 
 	function verifikasi($diklatId, $pesertaNik)
 	{
-		// $this->db->join('diklat_m_diklat', 'diklatId = pendaftaranDiklatId');
-		// $this->db->select('IF((SELECT COUNT(*) FROM diklat_t_pendaftaran WHERE pendaftaranDiklatId = $diklatId and pendaftaranIsAcc = 1) <= diklatKuota, 1, 0) as diklatStatus');
-		// $res = $this->db->get('diklat_t_pendaftaran')->rows()->total;
-
+		$this->db->join('diklat_m_diklat', 'diklatId = pendaftaranDiklatId');
 		$this->db->where('pendaftaranDiklatId', $diklatId);
-		$this->db->where('pendaftaranPesertaId', $pesertaNik);
+		$this->db->select('*');
+		$this->db->select('(SELECT COUNT(*) FROM diklat_t_pendaftaran WHERE pendaftaranIsAcc = 1) as diklatStatus');
+		$res = $this->db->get('diklat_t_pendaftaran')->row();
 
-		$this->db->update('diklat_t_pendaftaran', ['pendaftaranIsAcc' => 1]);
-		$res = $this->db->affected_rows();
+		if ($res->diklatStatus > $res->diklatKuota) 
+		{
+			return ['status' => 'error', 'message' => 'Kuota Penuh'];
+		}
+		else
+		{
+			$this->db->where('pendaftaranDiklatId', $diklatId);
+			$this->db->where('pendaftaranPesertaId', $pesertaNik);
 
-		// if ($res) {
+			$this->db->update('diklat_t_pendaftaran', ['pendaftaranIsAcc' => 1]);
+			$res = $this->db->affected_rows();
+
 			return ['status' => 'success', 'message' => 'Peserta diverifikasi'];
-		// }
+		}
+
 	}
 
 	function tolak($diklatId, $pesertaNik)
