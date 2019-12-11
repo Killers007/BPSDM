@@ -89,6 +89,53 @@ class Diklat extends MY_Controller {
 		}
 	}
 
+	public function materi($diklatId = null, $materriId = null) 
+	{
+		if ($this->input->is_ajax_request()) 
+		{
+			if ($this->input->post()) 
+			{
+				$this->load->library('form_validation');
+
+				$this->form_validation->set_error_delimiters('<span class="form-text text-danger">', '</span>');
+				$this->form_validation->set_rules($this->model->rulesMateri());
+
+				if(!$this->form_validation->run())
+				{
+					$res = array();
+
+					$res['status'] = false;
+
+					foreach ($this->model->rulesMateri() as $value) {
+
+						$res['error'][$value['field']] = form_error($value['field']);
+					}
+
+					echo json_encode($res);
+
+				}
+				else
+				{
+					$data = $this->model->replaceDataMateri($diklatId, $materriId);
+
+					echo json_encode($data);
+				}
+			}
+			else
+			{
+				$res = $this->model->getDataGrid($this->input->get(), 'renderDatatableMateri', array('materiDiklatId' => $diklatId));
+
+				echo json_encode($res);
+			}
+		}
+		else
+		{
+			$data['dataDiklat'] = $this->model->getDataById($diklatId);
+			$this->layout->setTemplate(1);
+			$this->layout->setTitle('Materi Diklat', false)->render('diklat/materi_v', $data);
+		}
+	}
+
 	public function cetak_absensi($diklatId =  3)
 	{
 		if (!$this->input->is_ajax_request()) 
@@ -153,10 +200,6 @@ class Diklat extends MY_Controller {
 				show_error('Diklat Tidak Tersedia', 404, 'WTF LAH');
 			}
 
-			// echo "<pre>";
-			// print_r($data);
-			// echo "</pre>";exit;
-
 			$this->load->library('word');
 			$templateProcessor = new \PhpOffice\PhpWord\TemplateProcessor('assets/Sertifikat.docx');
 
@@ -167,7 +210,7 @@ class Diklat extends MY_Controller {
 					'tanggal_selesai' => date_convert($diklat->diklatTanggalSelesai)->default,
 					'tanggal_sekarang' => date_convert()->default,
 					'tahun' => date_convert($diklat->diklatTanggalSelesai)->year,
-					'nama' => $value->pesertaNama,
+					'nama' => $value->pesertaGelarDepan.' '.$value->pesertaNama.' '.$value->pesertaGelarBelakang,
 					'nip' => $value->pesertaNik,
 					'tempat' => $value->pesertaTempatLahir,
 					'tanggal_lahir' => date_convert($value->pesertaTanggalLahir)->default,
@@ -178,8 +221,8 @@ class Diklat extends MY_Controller {
 					'no_depan' => $diklat->diklatNoDepan,
 					'no_belakang' => $diklat->diklatNoBelakang,
 					'nama_gubernur' => 'Drs. H. MUHAMMAD NISPUANI, M.AP',
-					'jam_pelatihan' => $diklat->diklatJamPelatihan,
-					// 'jam_pelatihan' => $diklat->jam_pelatihan,
+					// 'jam_pelatihan' => $diklat->diklatJamPelatihan,
+					'jam_pelatihan' => $diklat->jam_pelatihan,
 				);
 			}
 
@@ -196,7 +239,92 @@ class Diklat extends MY_Controller {
 			readfile($temp_name);
 			unlink($temp_name);
 
+			//  ob_end_clean();
+
+			// $this->wordBACK($diklat, $data);
+
+			// $baru = new \PhpOffice\PhpWord\TemplateProcessor('assets/BelakangSertifikat.docx');
+
+			// foreach ($data as $key => $value) {
+			// 	$replacements[] = array(
+			// 		'namadiklat' => $diklat->diklatNama,
+			// 		'tanggal_mulai' => date_convert($diklat->diklatTanggalMulai)->default,
+			// 		'tanggal_selesai' => date_convert($diklat->diklatTanggalSelesai)->default,
+			// 		'tanggal_sekarang' => date_convert()->default,
+			// 		'tahun' => date_convert($diklat->diklatTanggalSelesai)->year,
+			// 		'nama' => $value->pesertaNama,
+			// 		'nip' => $value->pesertaNik,
+			// 		'tempat' => $value->pesertaTempatLahir,
+			// 		'tanggal_lahir' => date_convert($value->pesertaTanggalLahir)->default,
+			// 		'pangkat' => $value->pesertaPangkatGolongan,
+			// 		'jabatan' => $value->pesertaJabatan,
+			// 		'instansi' => $value->pesertaInstansi,
+			// 		'kualifikasi' => $value->nilaiKeterangan,
+			// 		'no_depan' => $diklat->diklatNoDepan,
+			// 		'no_belakang' => $diklat->diklatNoBelakang,
+			// 		'nama_gubernur' => 'Drs. H. MUHAMMAD NISPUANI, M.AP',
+			// 		'jam_pelatihan' => $diklat->diklatJamPelatihan,
+			// 		// 'jam_pelatihan' => $diklat->jam_pelatihan,
+			// 	);
+			// }
+
+			// $baru->cloneBlock('CLONEME', 0, true, false, $replacements);
+
+			// $temp_name=tempnam(sys_get_temp_dir(),'PHPWord');
+			// $baru->saveAs($temp_name);
+			// ob_end_clean();
+
+			// $filename = 'BACKCOVER_'.$diklat->diklatNama.'.docx';
+			// header('Content-Type: application/vnd.openxmlformats-officedocument.wordprocessingml.document');
+			// header('Cache-Control: max-age=0'); 
+			// header('Content-Disposition: attachment;filename="'.$filename.'"'); 
+			// readfile($temp_name);
+			// unlink($temp_name);
+
 		}
+	}
+
+	public function wordBack($diklatId = null)
+	{
+		$this->load->helper('time');
+		$diklat = $this->model->getDataById($diklatId);
+		$data = $this->model->getMateri($diklatId);
+
+		if (empty($diklat)) {
+			show_error('Diklat Tidak Tersedia', 404, 'WTF LAH');
+		}
+		
+		$this->load->library('word');
+
+		$baru = new \PhpOffice\PhpWord\TemplateProcessor('assets/BelakangSertifikat.docx');
+		$total_jam = 0;
+		foreach ($data as $key => $value) {
+			$replacements[] = array(
+				'no' => $key+1,
+				'materi' => $value->materiNama,
+				'jam' => $value->materiJam,
+			);
+			$total_jam += $value->materiJam;
+		}
+
+		$baru->cloneBlock('CLONEME', 0, true, false, $replacements);
+
+		$baru->setValue('{nama_gubernur}','Drs. H. MUHAMMAD NISPUANI, M.AP');
+		$baru->setValue('{tanggal_sekarang}', date_convert(date('Y-m-d'))->default);
+		$baru->setValue('{total_jam}', $total_jam);
+
+
+		$temp_name=tempnam(sys_get_temp_dir(),'PHPWords');
+		$baru->saveAs($temp_name);
+		ob_end_clean();
+
+		$filename = 'BACKCOVER_'.$diklat->diklatNama.'.docx';
+		header('Content-Type: application/vnd.openxmlformats-officedocument.wordprocessingml.document');
+		header('Cache-Control: max-age=0'); 
+		header('Content-Disposition: attachment;filename="'.$filename.'"'); 
+		readfile($temp_name);
+		unlink($temp_name);
+
 	}
 
 	public function cloneWord($diklatId =  3)
@@ -400,6 +528,16 @@ class Diklat extends MY_Controller {
 		if ($this->input->is_ajax_request()) 
 		{
 			$data = $this->model->deleteDataJadwal($id);
+
+			echo json_encode($data);
+		}
+	}
+
+	function deleteDataMateri($id = null)
+	{
+		if ($this->input->is_ajax_request()) 
+		{
+			$data = $this->model->deleteDataMateri($id);
 
 			echo json_encode($data);
 		}

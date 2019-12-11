@@ -204,17 +204,17 @@
                                         </div>
                                     </div> 
                                      <div class="form-group row">
-                                        <div class="col-lg-4 col-md-4 col-xs-4">
+                                       <!--  <div class="col-lg-4 col-md-4 col-xs-4">
                                             <label class="">Total Jam Pelatihan <span class="text-danger">*</span></label>
                                             <input type="number" class="form-control" name="diklatJamPelatihan" placeholder="">
                                             <div class="cleanError diklatJamPelatihan"></div>
-                                        </div>
-                                        <div class="col-lg-4 col-md-4 col-xs-4">
+                                        </div> -->
+                                        <div class="col-lg-6 col-md-6 col-xs-6">
                                             <label>Nomor Depan</label>
                                             <input type="number" class="form-control" name="diklatNoDepan" placeholder="">
                                             <div class="cleanError diklatNoDepan"></div>
                                         </div>
-                                        <div class="col-lg-4 col-md-4 col-xs-4">
+                                        <div class="col-lg-6 col-md-6 col-xs-6">
                                             <label class="">Nomor Belakang</label>
                                             <input type="number" class="form-control" name="diklatNoBelakang" placeholder="">
                                             <div class="cleanError diklatNoBelakang"></div>
@@ -395,6 +395,12 @@
                                         </a>
                                     </li>
                                     <li class="kt-nav__item">
+                                        <a href="<?php echo str_replace('index.php/', '', current_url()) ?>/wordback/`+data.diklatId+`" class="kt-nav__link">
+                                            <i class="kt-nav__link-icon fa fa-file-word"></i>
+                                            <span class="kt-nav__link-text">Cetak Belakang Sertifikat</span>
+                                        </a>
+                                    </li>
+                                    <li class="kt-nav__item">
                                         <a href="<?php echo str_replace('index.php/', '', current_url()) ?>/export_excel/`+data.diklatId+`" class="kt-nav__link">
                                             <i class="kt-nav__link-icon fa fa-file-excel"></i>
                                             <span class="kt-nav__link-text">Export Excel</span>
@@ -407,6 +413,12 @@
                                         <a href="<?php echo str_replace('index.php/', '', current_url()) ?>/jadwal/`+data.diklatId+`" class="kt-nav__link">
                                             <i class="kt-nav__link-icon flaticon2-calendar-4"></i>
                                             <span class="kt-nav__link-text">Kelola Jadwal</span>
+                                        </a>
+                                    </li>
+                                    <li class="kt-nav__item">
+                                        <a href="<?php echo str_replace('index.php/', '', current_url()) ?>/materi/`+data.diklatId+`" class="kt-nav__link">
+                                            <i class="kt-nav__link-icon fa fa-book-open"></i>
+                                            <span class="kt-nav__link-text">Kelola Materi</span>
                                         </a>
                                     </li>
                                     <li class="kt-nav__item">

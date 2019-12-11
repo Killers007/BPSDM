@@ -16,7 +16,7 @@ class Diklat_m extends MY_Model {
 			array('field' => 'tanggalPendaftaran', 'label' => 'Tanggal Pendaftaran', 'rules' => 'required'),
 			array('field' => 'tanggalPelatihan', 'label' => 'Tanggal Pendaftaran', 'rules' => 'required'),
 			array('field' => 'diklatPengajar[]', 'label' => 'Pengajar', 'rules' => 'required'),
-			array('field' => 'diklatJamPelatihan', 'label' => 'Total Jam Pelatihan', 'rules' => 'numeric|required'),
+			// array('field' => 'diklatJamPelatihan', 'label' => 'Total Jam Pelatihan', 'rules' => 'numeric|required'),
 		);
 
 		return $rules;
@@ -31,6 +31,16 @@ class Diklat_m extends MY_Model {
 			array('field' => 'jadwalJP', 'label' => 'JP', 'rules' => 'numeric'),
 			array('field' => 'jadwalWaktuMulai', 'label' => 'Waktu Mulai', 'rules' => 'required'),
 			array('field' => 'jadwalWaktuSelesai', 'label' => 'Waktu Selesai', 'rules' => 'required'),
+		);
+
+		return $rules;
+	}
+
+	public function rulesMateri($update = null) {
+
+		$rules = array(
+			array('field' => 'materiNama', 'label' => 'Nama Materi', 'rules' => 'required'),
+			array('field' => 'materiJam', 'label' => 'Lama Materi / jam', 'rules' => 'required|numeric'),
 		);
 
 		return $rules;
@@ -177,6 +187,13 @@ class Diklat_m extends MY_Model {
 		return $this->db->get('diklat_t_pendaftaran')->result();
 	}
 
+	function getMateri($diklatId)
+	{
+		$this->db->where('materiDiklatId', $diklatId);
+
+		return $this->db->get('diklat_m_materi_pelatihan')->result();
+	}
+
 	function verifikasi($diklatId, $pesertaNik)
 	{
 		$this->db->join('diklat_m_diklat', 'diklatId = pendaftaranDiklatId');
@@ -242,6 +259,14 @@ class Diklat_m extends MY_Model {
 		$this->db->where('jadwalDiklatId', $diklatId);
 
 		return $this->db->get('diklat_t_jadwal');
+	}
+
+	function renderDatatableMateri($diklatId)
+	{
+		$this->db->select('*');
+		$this->db->where('materiDiklatId', $diklatId);
+
+		return $this->db->get('diklat_m_materi_pelatihan');
 	}
 
 	function renderDatatableNilai($diklatId)
@@ -311,6 +336,28 @@ class Diklat_m extends MY_Model {
 		$this->db->trans_begin();
 		$this->db->where('jadwalId', $id);
 		$this->db->delete('diklat_t_jadwal');
+
+		if ($this->db->trans_status()) 
+		{
+			$this->db->trans_commit();
+
+			return ['status' => 'success', 'message' => 'Data berhasil dihapus'];
+		}
+		else
+		{
+			$this->db->trans_rollback();
+
+			return ['status' => 'error', 'message' => 'Data gagal dihapus'];
+
+		}
+
+	}
+
+	function deleteDataMateri($id)
+	{
+		$this->db->trans_begin();
+		$this->db->where('materiId', $id);
+		$this->db->delete('diklat_m_materi_pelatihan');
 
 		if ($this->db->trans_status()) 
 		{
@@ -461,14 +508,67 @@ class Diklat_m extends MY_Model {
 		}
 	}
 
+	function replaceDataMateri($diklatId, $materiId = null)
+	{
+		$data = $this->input->post(NULL, TRUE);
+
+		// $data['jadwalTanggal'] = date('Y-m-d', strtotime($data['jadwalTanggal'])); 
+		$data['materiDiklatId'] = $diklatId;
+
+		if ($materiId == NULL) 
+		{
+			$this->db->trans_begin();
+			$this->db->insert('diklat_m_materi_pelatihan', $data);
+
+			if ($this->db->trans_status()) 
+			{
+				$this->db->trans_commit();
+
+				return ['status' => 'success', 'message' => 'Data berhasil ditambahkan'];
+			}
+			else
+			{
+				$this->db->trans_rollback();
+
+				return ['status' => 'error', 'message' => 'Data gagal ditambahkan'];
+
+			}
+		}
+		else
+		{
+			$this->db->trans_begin();
+
+			$this->db->where('materiId', $materiId);
+			$this->db->update('diklat_m_materi_pelatihan', $data);
+
+			if ($this->db->trans_status()) 
+			{
+
+				$this->db->trans_commit();
+
+				return ['status' => 'success', 'message' => 'Data berhasil diperbaharui'];
+			}
+			else
+			{
+				$this->db->trans_rollback();
+
+				return ['status' => 'error', 'message' => 'Data gagal diperbaharui'];
+
+			}
+		}
+	}
+
 	/**
      * Ambil 1 data
      * @return object [description]
      */
-	public function getDataById($id){
+	public function getDataById($id)
+	{
+		// $id = $this->db->escape($id);
 
 		$this->db->select('*');
 		// $this->db->select('TIMESTAMPDIFF(DAY, diklatTanggalMulai, diklatTanggalSelesai)*20 as jam_pelatihan');
+		$this->db->select("(SELECT SUM(materiJam) FROM diklat_m_materi_pelatihan where materiDiklatId = diklatId) as jam_pelatihan");
 		$this->db->where($this->key, $id);
 
 		return $this->db->get($this->table)->row();
