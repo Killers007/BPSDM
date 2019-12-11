@@ -200,41 +200,21 @@
                                         <div class="col-lg-12">
                                             <label>Pengajar <span class="text-danger">*</span></label>
                                             <?php echo form_dropdown('diklatPengajar[]', $selectPengajar, '', ['class' => 'form-control kt-select2', 'multiple' => 'multiple', 'style' => 'width: 100%']) ?>
-                                            <!-- <select class="form-control kt-select2" name="diklatPengajar[]" style="width:100%" multiple="multiple">
-                                                <optgroup label="Eastern Time Zone">
-                                                    <option value="CT">Connecticut</option>
-                                                    <option value="DE">Delaware</option>
-                                                    <option value="FL">Florida</option>
-                                                    <option value="GA">Georgia</option>
-                                                    <option value="IN">Indiana</option>
-                                                    <option value="ME">Maine</option>
-                                                    <option value="MD">Maryland</option>
-                                                    <option value="MA">Massachusetts</option>
-                                                    <option value="MI">Michigan</option>
-                                                    <option value="NH">New Hampshire</option>
-                                                    <option value="NJ">New Jersey</option>
-                                                    <option value="NY">New York</option>
-                                                    <option value="NC">North Carolina</option>
-                                                    <option value="OH">Ohio</option>
-                                                    <option value="PA">Pennsylvania</option>
-                                                    <option value="RI">Rhode Island</option>
-                                                    <option value="SC">South Carolina</option>
-                                                    <option value="VT">Vermont</option>
-                                                    <option value="VA">Virginia</option>
-                                                    <option value="WV">West Virginia</option>
-                                                </optgroup>
-                                            </select>    -->
-                                            <!-- <textarea class="form-control" rows="3" name="diklatPengajar" style="margin-top: 0px; margin-bottom: 0px; height: 80px;"></textarea> -->
                                             <div class="cleanError diklatPengajar"></div>
                                         </div>
                                     </div> 
                                      <div class="form-group row">
-                                        <div class="col-lg-6 col-md-6 col-xs-6">
+                                        <div class="col-lg-4 col-md-4 col-xs-4">
+                                            <label class="">Total Jam Pelatihan <span class="text-danger">*</span></label>
+                                            <input type="number" class="form-control" name="diklatJamPelatihan" placeholder="">
+                                            <div class="cleanError diklatJamPelatihan"></div>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-xs-4">
                                             <label>Nomor Depan</label>
                                             <input type="number" class="form-control" name="diklatNoDepan" placeholder="">
                                             <div class="cleanError diklatNoDepan"></div>
                                         </div>
-                                        <div class="col-lg-6 col-md-6 col-xs-6">
+                                        <div class="col-lg-4 col-md-4 col-xs-4">
                                             <label class="">Nomor Belakang</label>
                                             <input type="number" class="form-control" name="diklatNoBelakang" placeholder="">
                                             <div class="cleanError diklatNoBelakang"></div>

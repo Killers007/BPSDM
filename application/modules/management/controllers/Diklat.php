@@ -177,7 +177,9 @@ class Diklat extends MY_Controller {
 					'kualifikasi' => $value->nilaiKeterangan,
 					'no_depan' => $diklat->diklatNoDepan,
 					'no_belakang' => $diklat->diklatNoBelakang,
-					'nama_gubernur' => 'Ahmad Juhdi',
+					'nama_gubernur' => 'Drs. H. MUHAMMAD NISPUANI, M.AP',
+					'jam_pelatihan' => $diklat->diklatJamPelatihan,
+					// 'jam_pelatihan' => $diklat->jam_pelatihan,
 				);
 			}
 

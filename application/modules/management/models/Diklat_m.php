@@ -16,6 +16,7 @@ class Diklat_m extends MY_Model {
 			array('field' => 'tanggalPendaftaran', 'label' => 'Tanggal Pendaftaran', 'rules' => 'required'),
 			array('field' => 'tanggalPelatihan', 'label' => 'Tanggal Pendaftaran', 'rules' => 'required'),
 			array('field' => 'diklatPengajar[]', 'label' => 'Pengajar', 'rules' => 'required'),
+			array('field' => 'diklatJamPelatihan', 'label' => 'Total Jam Pelatihan', 'rules' => 'numeric|required'),
 		);
 
 		return $rules;
@@ -466,6 +467,8 @@ class Diklat_m extends MY_Model {
      */
 	public function getDataById($id){
 
+		$this->db->select('*');
+		// $this->db->select('TIMESTAMPDIFF(DAY, diklatTanggalMulai, diklatTanggalSelesai)*20 as jam_pelatihan');
 		$this->db->where($this->key, $id);
 
 		return $this->db->get($this->table)->row();
