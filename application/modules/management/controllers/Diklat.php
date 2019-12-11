@@ -223,6 +223,8 @@ class Diklat extends MY_Controller {
 					'nama_gubernur' => 'Drs. H. MUHAMMAD NISPUANI, M.AP',
 					// 'jam_pelatihan' => $diklat->diklatJamPelatihan,
 					'jam_pelatihan' => $diklat->jam_pelatihan,
+					'gelar' => 'Pembina Utama Madya',
+					'nip' => '19611201 198603 1 023',
 				);
 			}
 
@@ -306,12 +308,14 @@ class Diklat extends MY_Controller {
 			);
 			$total_jam += $value->materiJam;
 		}
+		$baru->setValue('${total}', $total_jam);
+		$baru->setValue('${nama_gubernur}','Drs. H. MUHAMMAD NISPUANI, M.AP');
+		$baru->setValue('${tanggal_sekarang}', date_convert(date('Y-m-d'))->default);
+		$baru->setValue('${gelar}', 'Pembina Utama Madya');
+		$baru->setValue('${nip}', '19611201 198603 1 023');
 
 		$baru->cloneBlock('CLONEME', 0, true, false, $replacements);
 
-		$baru->setValue('{nama_gubernur}','Drs. H. MUHAMMAD NISPUANI, M.AP');
-		$baru->setValue('{tanggal_sekarang}', date_convert(date('Y-m-d'))->default);
-		$baru->setValue('{total_jam}', $total_jam);
 
 
 		$temp_name=tempnam(sys_get_temp_dir(),'PHPWords');
