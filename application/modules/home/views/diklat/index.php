@@ -7,7 +7,7 @@
 
             <div class="kt-subheader__main">
 
-                <h3 class="kt-subheader__title">PENDAFTARAN DIKLAT BPSDMD</h3>
+                <h3 class="kt-subheader__title">SISTEM PENDAFTARAN DIKLAT BPSDMD</h3>
 
 
                 <div class="kt-input-icon kt-input-icon--right kt-subheader__search kt-hidden">

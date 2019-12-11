@@ -167,11 +167,20 @@
 <script src="<?php echo base_url(); ?>assets/vendors/custom/fullcalendar/fullcalendar.bundle.js" type="text/javascript"></script>
 
 <script src="<?php echo base_url(); ?>assets/js/demo1/pages/custom/inbox/inbox.js" type="text/javascript"></script>
+<script type="text/javascript" src="<?php echo base_url(); ?>assets/favico.min.js"></script>
 <!-- <script src="<?php echo base_url(); ?>assets/vendors/general/quill/dist/quill.js" type="text/javascript"></script> -->
 <!-- <script src="<?php echo base_url(); ?>assets/vendors/general/dropzone/dist/dropzone.js" type="text/javascript"></script> -->
 <!-- <script src="<?php echo base_url(); ?>assets/vendors/custom/js/vendors/dropzone.init.js" type="text/javascript"></script> -->
 <!-- <script src="<?php echo base_url(); ?>assets/js/demo1/pages/components/calendar/list-view.js" type="text/javascript"></script> -->
-
+<script type="text/javascript">
+  var favicon=new Favico({
+    animation:'slide',
+    position : 'up',
+     bgColor : '#5CB85C',
+    textColor : '#ff0',
+  });
+  favicon.badge(<?php echo $infoNotifUnread ?>);
+</script>
 </body>
 <!-- end::Body -->
 </html>

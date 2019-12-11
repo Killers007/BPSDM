@@ -18,7 +18,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <base href="../../../../"><!--end::Base Path -->
     <meta charset="utf-8"/>
 
-    <title>SI PENDAFTARAN DIKLAT | Sign In</title>
+    <title>SISTEM PENDAFTARAN PESERTA DIKLAT | REGISTRASI</title>
     <meta name="description" content="Login page example">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -96,7 +96,7 @@ License: You must have a valid license purchased only from themeforest(the above
                     </div>
                     <div class="kt-login__signin">
                         <div class="kt-login__head">
-                            <h3 class="kt-login__title">Sign In SI BPSDMD PROV KALSEL</h3>
+                            <h3 class="kt-login__title">LOGIN SISTEM PENDAFTARAN PESERTA DIKLAT PROV KALSEL</h3>
                         </div>
                         <form class="kt-form formLogin" onsubmit="return false">
                             <div class="input-group">
@@ -108,7 +108,7 @@ License: You must have a valid license purchased only from themeforest(the above
                             <div class="row kt-login__extra">
                                 <div class="col">
                                     <label class="kt-checkbox">
-                                        <input type="checkbox" name="remember"> Remember me
+                                        <input type="checkbox" name="remember"> Ingatkan Saya
                                         <span></span>
                                     </label>
                                 </div>
@@ -118,13 +118,13 @@ License: You must have a valid license purchased only from themeforest(the above
                             </div>
 
                             <div class="kt-login__actions">
-                                <button id="btnLogin" class="btn btn-brand btn-pill kt-login__btn-primary">Sign In</button>
+                                <button id="btnLogin" class="btn btn-brand btn-pill kt-login__btn-primary">Login</button>
                             </div>
                         </form>
                     </div>
                     <div class="kt-login__signup">
                         <div class="kt-login__head">
-                            <h3 class="kt-login__title">Sign Up</h3>
+                            <h3 class="kt-login__title">Registrasi</h3>
                             <div class="kt-login__desc">Registrasi untuk mendaftar pada DIKLAT yang telah disediakan:</div>
                         </div>
                         <form class=" kt-form formRegister" onsubmit="return false">
@@ -159,7 +159,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                 </div>
                             </div>
                             <div class="kt-login__actions">
-                                <button id="btnRegister" class="btn btn-brand btn-pill kt-login__btn-primary">Sign Up</button>&nbsp;&nbsp;
+                                <button id="btnRegister" class="btn btn-brand btn-pill kt-login__btn-primary">Registrasi</button>&nbsp;&nbsp;
                                 <button id="kt_login_signup_cancel" class="btn btn-secondary btn-pill kt-login__btn-secondary">Cancel</button>
                             </div>
                         </form>
@@ -181,10 +181,10 @@ License: You must have a valid license purchased only from themeforest(the above
                     </div>
                     <div class="kt-login__account">
                         <span class="kt-login__account-msg">
-                            Don't have an account yet ?
+                            Tidak punya akun ?
                         </span>
                         &nbsp;&nbsp;
-                        <a href="javascript:;" id="kt_login_signup" class="kt-login__account-link">Sign Up!</a>
+                        <a href="javascript:;" id="kt_login_signup" class="kt-login__account-link">Registrasi!</a>
                     </div>
                 </div>  
             </div>

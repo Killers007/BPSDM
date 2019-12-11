@@ -69,7 +69,7 @@ class Diklat extends MY_Controller {
 			$data['profile'] = $this->modelPeserta->getProfile();
 			$data['selectAgama'] = $this->model->selectAgama();
 			$this->layout->setTemplate(0);
-			$this->layout->setTitle('Daftar DIKLAT BPSDMD', false)->render('diklat/index', $data);
+			$this->layout->setTitle('PENDAFTARAN DIKLAT BPSDMD', false)->render('diklat/index', $data);
 		}
 		
 	}
@@ -90,7 +90,7 @@ class Diklat extends MY_Controller {
 			$data['detailDiklat'] = $this->model->getDiklat($diklatId);
 
 			$this->layout->setTemplate(0);
-			$this->layout->setTitle('Jadwal', false)->render('diklat/jadwal_v', $data);
+			$this->layout->setTitle('Jadwal Pelatihan DIKLAT', false)->render('diklat/jadwal_v', $data);
 		}
 	}
 

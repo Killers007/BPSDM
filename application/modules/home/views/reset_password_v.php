@@ -91,7 +91,8 @@ License: You must have a valid license purchased only from themeforest(the above
                 <div class="kt-login__container">
                     <div class="kt-login__logo">
                         <a href="<?php echo base_url() ?>">
-                            <img src="<?php echo base_url() ?>assets/media/logos/logo-5.png">     
+                            <img src="<?php echo base_url() ?>assets/pemprov.png" style="width: 170px">     
+                            <!-- <img src="<?php echo base_url() ?>assets/media/logos/logo-5.png">      -->
                         </a>
                     </div>
                     <div class="kt-login__signin">

@@ -38,7 +38,7 @@ class Welcome_m extends MY_Model {
         $codeAlphabet.= "0123456789";
         $max = strlen($codeAlphabet);
 
-        for ($i=0; $i < 15; $i++) {
+        for ($i=0; $i < 50; $i++) {
             $token .= $codeAlphabet[random_int(0, $max-1)];
         }
 

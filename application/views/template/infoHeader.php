@@ -342,7 +342,7 @@
                                             <?php $text = 'Login' ?>
                                             <?php $msg = 'Masuk untuk akses menu' ?>
                                             <?php $color = 'success' ?>
-                                            <?php $icon = 'flaticon2-start-up' ?>
+                                            <?php $icon = 'fa fa-key' ?>
                                         <?php endif ?>
                                         <a href="<?php echo $link ?>" class="kt-notification__item">
                                             <div class="kt-notification__item-icon">
