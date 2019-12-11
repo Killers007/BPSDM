@@ -11,7 +11,7 @@
 
                 <span class="kt-subheader__separator kt-subheader__separator--v"></span>
 
-                <span class="kt-subheader__desc"><?php echo date_convert($dataDiklat->diklatTanggalPendaftaran)->default.' s.d '.date_convert($dataDiklat->diklatTanggalAkhirPendaftaran)->default ?></span>
+                <span class="kt-subheader__desc"><?php echo date_convert($dataDiklat->diklatTanggalMulai)->default.' s.d '.date_convert($dataDiklat->diklatTanggalSelesai)->default ?></span>
 
               <!--   <a href="#" class="btn btn-label-warning btn-bold btn-sm btn-icon-h kt-margin-l-10">
                     Add New
@@ -251,7 +251,7 @@
             serverSide: true,
             scrollX: false,
             lengthMenu: [15, 30],
-            order: [[1, "asc"]],
+            order: [[0, "asc"]],
             'searching'   : true,
             pagingType: 'numbers',
             language:{

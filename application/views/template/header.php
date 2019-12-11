@@ -6,7 +6,7 @@
     <meta charset="utf-8"/>
 
     <title>
-        <?php if ($infoNotifUnread != 0): ?>
+        <?php if ($infoNotifUnread != 0 && $this->session->user['role'] == 'peserta'): ?>
             (<?php echo $infoNotifUnread ?>)
         <?php endif ?>
         <?php echo $title ?></title>

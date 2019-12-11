@@ -44,6 +44,8 @@ class Diklat extends MY_Controller {
 
 	public function jadwal($diklatId = null, $jadwalId = null) 
 	{
+		$this->cekDiklat($diklatId);
+		
 		if ($this->input->is_ajax_request()) 
 		{
 			if ($this->input->post()) 
@@ -91,6 +93,8 @@ class Diklat extends MY_Controller {
 
 	public function materi($diklatId = null, $materriId = null) 
 	{
+		$this->cekDiklat($diklatId);
+
 		if ($this->input->is_ajax_request()) 
 		{
 			if ($this->input->post()) 
@@ -240,48 +244,6 @@ class Diklat extends MY_Controller {
 			header('Content-Disposition: attachment;filename="'.$filename.'"'); 
 			readfile($temp_name);
 			unlink($temp_name);
-
-			//  ob_end_clean();
-
-			// $this->wordBACK($diklat, $data);
-
-			// $baru = new \PhpOffice\PhpWord\TemplateProcessor('assets/BelakangSertifikat.docx');
-
-			// foreach ($data as $key => $value) {
-			// 	$replacements[] = array(
-			// 		'namadiklat' => $diklat->diklatNama,
-			// 		'tanggal_mulai' => date_convert($diklat->diklatTanggalMulai)->default,
-			// 		'tanggal_selesai' => date_convert($diklat->diklatTanggalSelesai)->default,
-			// 		'tanggal_sekarang' => date_convert()->default,
-			// 		'tahun' => date_convert($diklat->diklatTanggalSelesai)->year,
-			// 		'nama' => $value->pesertaNama,
-			// 		'nip' => $value->pesertaNik,
-			// 		'tempat' => $value->pesertaTempatLahir,
-			// 		'tanggal_lahir' => date_convert($value->pesertaTanggalLahir)->default,
-			// 		'pangkat' => $value->pesertaPangkatGolongan,
-			// 		'jabatan' => $value->pesertaJabatan,
-			// 		'instansi' => $value->pesertaInstansi,
-			// 		'kualifikasi' => $value->nilaiKeterangan,
-			// 		'no_depan' => $diklat->diklatNoDepan,
-			// 		'no_belakang' => $diklat->diklatNoBelakang,
-			// 		'nama_gubernur' => 'Drs. H. MUHAMMAD NISPUANI, M.AP',
-			// 		'jam_pelatihan' => $diklat->diklatJamPelatihan,
-			// 		// 'jam_pelatihan' => $diklat->jam_pelatihan,
-			// 	);
-			// }
-
-			// $baru->cloneBlock('CLONEME', 0, true, false, $replacements);
-
-			// $temp_name=tempnam(sys_get_temp_dir(),'PHPWord');
-			// $baru->saveAs($temp_name);
-			// ob_end_clean();
-
-			// $filename = 'BACKCOVER_'.$diklat->diklatNama.'.docx';
-			// header('Content-Type: application/vnd.openxmlformats-officedocument.wordprocessingml.document');
-			// header('Cache-Control: max-age=0'); 
-			// header('Content-Disposition: attachment;filename="'.$filename.'"'); 
-			// readfile($temp_name);
-			// unlink($temp_name);
 
 		}
 	}
@@ -439,6 +401,8 @@ class Diklat extends MY_Controller {
 		}
 		else
 		{
+			$this->cekDiklat($diklatId);
+
 			$data['dataDiklat'] = $this->model->getDataById($diklatId);
 			$data['dataPeserta'] = $this->model->getPeserta($diklatId);
 
@@ -452,6 +416,7 @@ class Diklat extends MY_Controller {
 
 	public function nilai($diklatId = null) 
 	{
+		$this->cekDiklat($diklatId);
 		if ($this->input->is_ajax_request()) 
 		{
 			if ($this->input->post()) 
@@ -514,6 +479,14 @@ class Diklat extends MY_Controller {
 
 				echo json_encode($data);
 			}
+		}
+	}
+
+	function cekDiklat($diklatId)
+	{
+		if (!$this->model->getDataById($diklatId)) 
+		{
+			show_error('Diklat tidak ditemukan');
 		}
 	}
 

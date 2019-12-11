@@ -172,7 +172,10 @@
 <!-- <script src="<?php echo base_url(); ?>assets/vendors/general/dropzone/dist/dropzone.js" type="text/javascript"></script> -->
 <!-- <script src="<?php echo base_url(); ?>assets/vendors/custom/js/vendors/dropzone.init.js" type="text/javascript"></script> -->
 <!-- <script src="<?php echo base_url(); ?>assets/js/demo1/pages/components/calendar/list-view.js" type="text/javascript"></script> -->
+<?php if ($infoNotifUnread != 0 && $this->session->user['role'] == 'peserta'): ?>
+  
 <script type="text/javascript">
+
   var favicon=new Favico({
     animation:'slide',
     position : 'up',
@@ -181,6 +184,7 @@
   });
   favicon.badge(<?php echo $infoNotifUnread ?>);
 </script>
+<?php endif ?>
 </body>
 <!-- end::Body -->
 </html>

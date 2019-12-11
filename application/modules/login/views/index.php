@@ -27,7 +27,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 
     <!--begin::Page Custom Styles(used by this page) -->
-    <link href="<?php echo base_url() ?>assets/css/demo4/pages/login/login-3.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo base_url() ?>assets/css/demo4/pages/login/login-4.css" rel="stylesheet" type="text/css" />
     <!--end::Page Custom Styles -->
 
     <!--begin:: Global Mandatory Vendors -->
@@ -85,17 +85,17 @@ License: You must have a valid license purchased only from themeforest(the above
  <!-- end::Page Loader -->        
  <!-- begin:: Page -->
  <div class="kt-grid kt-grid--ver kt-grid--root kt-page">
-    <div class="kt-grid kt-grid--hor kt-grid--root  kt-login kt-login--v3 kt-login--signin" id="kt_login">
-        <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor" style="background-image: url(<?php echo base_url() ?>assets/media//bg/bg-3.jpg);">
+    <div class="kt-grid kt-grid--hor kt-grid--root  kt-login kt-login--v4 kt-login--signin" id="kt_login">
+        <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor" style="background-image: url(<?php echo base_url() ?>assets/media/bg/bg-2.jpg);">
             <div class="kt-grid__item kt-grid__item--fluid kt-login__wrapper">
                 <div class="kt-login__container">
                     <div class="kt-login__logo">
-                        <a href="<?php echo base_url() ?>">
+                        <a href="#">
                             <img src="<?php echo base_url() ?>assets/pemprov.png" style="width: 170px">     
                         </a>
                     </div>
                     <div class="kt-login__signin">
-                        <div class="kt-login__head">
+                         <div class="kt-login__head">
                             <h3 class="kt-login__title">LOGIN SISTEM PENDAFTARAN PESERTA DIKLAT PROV KALSEL</h3>
                         </div>
                         <form class="kt-form formLogin" onsubmit="return false">
@@ -123,7 +123,7 @@ License: You must have a valid license purchased only from themeforest(the above
                         </form>
                     </div>
                     <div class="kt-login__signup">
-                        <div class="kt-login__head">
+                         <div class="kt-login__head">
                             <h3 class="kt-login__title">Registrasi</h3>
                             <div class="kt-login__desc">Registrasi untuk mendaftar pada DIKLAT yang telah disediakan:</div>
                         </div>
@@ -167,7 +167,7 @@ License: You must have a valid license purchased only from themeforest(the above
                     <div class="kt-login__forgot">
                         <div class="kt-login__head">
                             <h3 class="kt-login__title">Lupa Password ?</h3>
-                            <div class="kt-login__desc">Enter your email to send link change your password:</div>
+                            <div class="kt-login__desc">Masukkan email untuk mengirimkan link ubah password ke email anda:</div>
                         </div>
                         <form class="kt-form formReset" onsubmit="return false">
                             <div class="input-group">
@@ -284,8 +284,8 @@ License: You must have a valid license purchased only from themeforest(the above
     $(document).ready(function() {
 
         $( document ).on( 'focus', 'input', function(){
-           $( this ).attr( 'autocapitalize', 'off' );
-       });
+         $( this ).attr( 'autocapitalize', 'off' );
+     });
 
         $(document).on('click', '#btnLogin', function(event) {
             event.preventDefault();
@@ -335,11 +335,6 @@ License: You must have a valid license purchased only from themeforest(the above
                     toastr[res.status](res.message);
 
                     btnNormal('#btnReset');
-                },
-                error: function()
-                {
-                    toastr['error']('Sepertinya koneksi anda bermasalah');
-                    btnNormal('#btnReset');
                 }
             })
 
@@ -376,8 +371,7 @@ License: You must have a valid license purchased only from themeforest(the above
                     }
 
                     btnNormal('#btnRegister');
-                },
-
+                }
             })
 
         });

@@ -496,6 +496,10 @@
                             {
                                 btnDetail = ` <a href="<?php echo base_url('login/login') ?>" class="btn btn-sm btn-label-facebook"><i class="fa fa-key"></i> Login</a>`;
                             }
+                            else if (role == 'admin' || role == 'pegawai') 
+                            {
+                                btnDetail = ``;
+                            }
 
                             return btnDetail;
                         }
