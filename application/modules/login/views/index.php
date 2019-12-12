@@ -90,7 +90,7 @@ License: You must have a valid license purchased only from themeforest(the above
             <div class="kt-grid__item kt-grid__item--fluid kt-login__wrapper">
                 <div class="kt-login__container">
                     <div class="kt-login__logo">
-                        <a href="#">
+                        <a href="<?php echo base_url() ?>">
                             <img src="<?php echo base_url() ?>assets/pemprov.png" style="width: 170px">     
                         </a>
                     </div>
@@ -333,6 +333,12 @@ License: You must have a valid license purchased only from themeforest(the above
                 success: function(res)
                 {
                     toastr[res.status](res.message);
+
+                    btnNormal('#btnReset');
+                },
+                error: function()
+                {
+                    toastr['error']('Terjadi kesalahan koneksi');
 
                     btnNormal('#btnReset');
                 }

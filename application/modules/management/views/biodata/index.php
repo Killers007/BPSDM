@@ -33,60 +33,6 @@
                         <i class="flaticon2-calendar-1"></i>
                     </a>
 
-                    <div class="dropdown dropdown-inline" data-toggle-="kt-tooltip" title="Quick actions" data-placement="left">
-                        <a class="btn btn-icon"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon kt-svg-icon--success kt-svg-icon--md">
-                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                    <polygon id="Shape" points="0 0 24 0 24 24 0 24"/>
-                                    <path d="M5.85714286,2 L13.7364114,2 C14.0910962,2 14.4343066,2.12568431 14.7051108,2.35473959 L19.4686994,6.3839416 C19.8056532,6.66894833 20,7.08787823 20,7.52920201 L20,20.0833333 C20,21.8738751 19.9795521,22 18.1428571,22 L5.85714286,22 C4.02044787,22 4,21.8738751 4,20.0833333 L4,3.91666667 C4,2.12612489 4.02044787,2 5.85714286,2 Z" id="Combined-Shape" fill="#000000" fill-rule="nonzero" opacity="0.3"/>
-                                    <path d="M11,14 L9,14 C8.44771525,14 8,13.5522847 8,13 C8,12.4477153 8.44771525,12 9,12 L11,12 L11,10 C11,9.44771525 11.4477153,9 12,9 C12.5522847,9 13,9.44771525 13,10 L13,12 L15,12 C15.5522847,12 16,12.4477153 16,13 C16,13.5522847 15.5522847,14 15,14 L13,14 L13,16 C13,16.5522847 12.5522847,17 12,17 C11.4477153,17 11,16.5522847 11,16 L11,14 Z" id="Combined-Shape" fill="#000000"/>
-                                </g>
-                            </svg>                        <!--<i class="flaticon2-plus"></i>-->
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-fit dropdown-menu-md dropdown-menu-right">
-                            <!--begin::Nav-->
-                            <ul class="kt-nav">
-                                <li class="kt-nav__head">
-                                    Add anything or jump to:                                   
-                                    <i class="flaticon2-information" data-toggle="kt-tooltip" data-placement="right" title="Click to learn more..."></i>
-                                </li>
-                                <li class="kt-nav__separator"></li>
-                                <li class="kt-nav__item">
-                                    <a href="#" class="kt-nav__link">
-                                        <i class="kt-nav__link-icon flaticon2-drop"></i>
-                                        <span class="kt-nav__link-text">Order</span>
-                                    </a>
-                                </li>
-                                <li class="kt-nav__item">
-                                    <a href="#" class="kt-nav__link">
-                                        <i class="kt-nav__link-icon flaticon2-calendar-8"></i>
-                                        <span class="kt-nav__link-text">Ticket</span>
-                                    </a>
-                                </li>
-                                <li class="kt-nav__item">
-                                    <a href="#" class="kt-nav__link">
-                                        <i class="kt-nav__link-icon flaticon2-telegram-logo"></i>
-                                        <span class="kt-nav__link-text">Goal</span>
-                                    </a>
-                                </li>
-                                <li class="kt-nav__item">
-                                    <a href="#" class="kt-nav__link">
-                                        <i class="kt-nav__link-icon flaticon2-new-email"></i>
-                                        <span class="kt-nav__link-text">Support Case</span>
-                                        <span class="kt-nav__link-badge">
-                                            <span class="kt-badge kt-badge--brand kt-badge--rounded">5</span>
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="kt-nav__separator"></li>
-                                <li class="kt-nav__foot">
-                                    <a class="btn btn-label-brand btn-bold btn-sm" href="#">Upgrade plan</a>                                    
-                                    <a class="btn btn-clean btn-bold btn-sm kt-hidden" href="#" data-toggle="kt-tooltip" data-placement="right" title="Click to learn more...">Learn more</a>
-                                </li>
-                            </ul>
-                            <!--end::Nav-->
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -94,6 +40,7 @@
     <!-- end:: Subheader -->
     
     <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
+        <?php echo form_open_multipart('', 'id="formData" class="kt-form kt-form--label-right"'); ?> 
 
         <div class="kt-portlet kt-portlet--mobile">
             <div class="kt-portlet__head kt-portlet__head--lg">
@@ -102,58 +49,17 @@
                         <i class="kt-font-brand flaticon2-line-chart"></i>
                     </span>
                     <h3 class="kt-portlet__head-title">
-                        Datatable <?php echo $title ?>
+                       Profil <?php echo $this->session->user['nama'] ?>
                     </h3>
                 </div>
                 <div class="kt-portlet__head-toolbar">
                     <div class="kt-portlet__head-wrapper">
                         <div class="kt-portlet__head-actions">
-                            <div class="dropdown dropdown-inline">
-                                <button type="button" class="btn btn-default btn-icon-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="la la-download"></i> Export   
-                                </button>
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    <ul class="kt-nav">
-                                        <li class="kt-nav__section kt-nav__section--first">
-                                            <span class="kt-nav__section-text">Choose an option</span>
-                                        </li>
-                                        <li class="kt-nav__item">
-                                            <a href="#" class="kt-nav__link">
-                                                <i class="kt-nav__link-icon la la-print"></i>
-                                                <span class="kt-nav__link-text">Print</span>
-                                            </a>
-                                        </li>
-                                        <li class="kt-nav__item">
-                                            <a href="#" class="kt-nav__link">
-                                                <i class="kt-nav__link-icon la la-copy"></i>
-                                                <span class="kt-nav__link-text">Copy</span>
-                                            </a>
-                                        </li>
-                                        <li class="kt-nav__item">
-                                            <a href="<?php echo current_url() ?>/excel" class="kt-nav__link">
-                                                <i class="kt-nav__link-icon la la-file-excel-o"></i>
-                                                <span class="kt-nav__link-text">Excel</span>
-                                            </a>
-                                        </li>
-                                        <li class="kt-nav__item">
-                                            <a href="#" class="kt-nav__link">
-                                                <i class="kt-nav__link-icon la la-file-text-o"></i>
-                                                <span class="kt-nav__link-text">CSV</span>
-                                            </a>
-                                        </li>
-                                        <li class="kt-nav__item">
-                                            <a href="#" class="kt-nav__link">
-                                                <i class="kt-nav__link-icon la la-file-pdf-o"></i>
-                                                <span class="kt-nav__link-text">PDF</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
+                          
                             &nbsp;
-                            <button onclick="setTitle('Tambah', 'Tambah')" data-toggle="modal" data-target="#modal-edit" class="btnShowModal btn btn-brand btn-elevate btn-icon-sm">
-                                <i class="la la-plus"></i>
-                                Tambah Data
+                            <button type="submit" class="btnSimpan btn btn-brand btn-elevate btn-icon-sm">
+                                <i class="la la-save"></i>
+                                Simpan
                             </button>
                         </div>  
                     </div>      </div>
@@ -161,14 +67,13 @@
 
                 <div class="kt-portlet__body table-responsive">
                     <!--begin: Datatable -->
-                    <?php echo form_open_multipart('', 'id="formData" class="kt-form kt-form--label-right"'); ?> 
                     
                     <div class="row">
                         <div class="col-md-12">
                             <div class="kt-portlet__body">
                                 <div class="kt-portlet__body">
                                     <div class="form-group row">
-                                        <div class="col-lg-6 text-center">
+                                        <div class="col-lg-12 text-center">
                                             <div class="kt-avatar kt-avatar--outline" id="kt_user_avatar">
                                                 <div class="kt-avatar__holder" id="pegawaiFoto" style="background-image: url(&quot;<?php echo base_url('assets/media/users/default.jpg') ?>&quot;);"></div>
                                                 <label class="kt-avatar__upload" data-toggle="kt-tooltip" title="" data-original-title="Ubah Foto">
@@ -297,9 +202,11 @@
                             </div>
                         </div>
 
+                        <button type="submit" onsubmit="return false" class="btnSimpan btn btn-brand btn-elevate btn-icon-sm">
+                            <i class="la la-save"></i>
+                            Simpan
+                        </button>
                     </div>  
-                    <button type="button" class="btn btn-secondary pull-left" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary btnSimpan"><span class="modalSimpan"></span></button>
                 </form>
                 <!--end: Datatable -->
             </div>
@@ -308,54 +215,10 @@
 </div>         
 
 
-<!--begin::Modal-->
-<div class="modal fade" id="modal-edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <?php echo form_open_multipart('', 'id="formData" class="kt-form kt-form--label-right"'); ?> 
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel"><span class="modalLabel"></span> Data</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                </button>
-            </div>
-            <div class="modal-body">
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary pull-left" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary btnSimpan"><span class="modalSimpan"></span></button>
-            </div>
-        </form>
-    </div>
-</div>
-</div>
-<!--end::Modal-->
-
-<!--begin::Modal-->
-<div class="modal fade" id="modal-delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Apakah anda yakin menghapus data?</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                </button>
-            </div>
-            <div class="modal-body modalDeleteBody">
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-danger btnConfirmDelete">Delete</button>
-            </div>
-        </div>
-    </div>
-</div>
-<!--end::Modal-->
-
 <script type="text/javascript">
   $(document).ready(function() {
 
-    $(document).on('submit', '#formPassword', function(event) {
+    $(document).on('submit', '#formData', function(event) {
         event.preventDefault();
 
         var data = new FormData(this);
@@ -370,12 +233,12 @@
             data: data,
             beforeSend: function()
             {
-                btnLoading('#btnChangePassword');
+                btnLoading('.btnSimpan');
                 cleanError();
             },
             complete: function()
             {
-                btnNormal('#btnChangePassword');
+                btnNormal('.btnSimpan');
             },
             success: function(res)
             {

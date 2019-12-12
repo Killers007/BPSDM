@@ -104,7 +104,7 @@ class MY_Model extends CI_Model {
             // }
             $result = call_user_func_array(array($this, $callBack), $param);
 
-            $countFilter = $result->num_rows();
+            $countFilter = $count;$result->num_rows();
 
             if (!$this->realFillter) 
             {
@@ -116,7 +116,7 @@ class MY_Model extends CI_Model {
 
             // $countFilter = $result->num_rows();
             // return $this->db->last_query();
-            return array('recordsTotal' => $count, 'recordsFiltered' => $countFilter, 'data' => $data);
+            return array('draw' => intval($_GET['draw']),'recordsTotal' => $count, 'recordsFiltered' => $countFilter, 'data' => $data);
         }
         else
         {

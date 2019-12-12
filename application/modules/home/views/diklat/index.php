@@ -416,7 +416,7 @@
                     lengthMenu: [15, 30],
                     order: [[1, "asc"]],
                     'searching'   : true,
-                    pagingType: 'numbers',
+                    // pagingType: 'numbers',
                     language:{
                         "search":"Pencarian : ",
                         "info":           "<b>Menampilkan _START_ sampai _END_ dari _TOTAL_ Data</b>",

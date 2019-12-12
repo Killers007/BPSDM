@@ -51,7 +51,7 @@
                         <i class="kt-font-brand flaticon2-line-chart"></i>
                     </span>
                     <h3 class="kt-portlet__head-title">
-                        Datatable <?php echo $title ?> 
+                        <?php echo $title ?> PESERTA DIKLAT 
                     </h3>
                 </div>
                 <div class="kt-portlet__head-toolbar">
@@ -59,10 +59,12 @@
                         <div class="kt-portlet__head-actions">
                           
                             &nbsp;
-                            <button type="submit" class="btnSimpan btn btn-brand btn-elevate btn-icon-sm">
-                                <i class="la la-plus"></i>
-                                Simpan Nilai
-                            </button>
+                            <?php if ($disabled != 'disabled'): ?>
+                                <button type="submit" class="btnSimpan btn btn-brand btn-elevate btn-icon-sm">
+                                    <i class="la la-plus"></i>
+                                    Simpan Nilai
+                                </button>
+                            <?php endif ?>    
                         </div>  
                     </div>      </div>
                 </div>
@@ -76,7 +78,7 @@
                                 <th>NIP / NIK</th>
                                 <th>Nama</th>
                                 <th>Peserta</th>
-                                <th style="min-width: 70px; max-width: 70px; width: 70px;" class="text-center">Nilai</th>
+                                <th style="min-width: 70px; max-width: 70px; width: 70px;" class="text-left">Nilai</th>
                                 <th>Status Nilai</th>
                             </tr>
                         </thead>
@@ -94,7 +96,8 @@
         </div>
             <!-- end:: Content -->     
         </div>
-    </div>         
+    </div>     
+
 
     <script type="text/javascript">
         function setTitle(title, button)
@@ -114,7 +117,7 @@
                 lengthMenu: [15, 30],
                 order: [[1, "asc"]],
                 'searching'   : true,
-                pagingType: 'numbers',
+                // pagingType: 'numbers',
                 language:{
                     "search":"Pencarian : ",
                     "info":           "<b>Menampilkan _START_ sampai _END_ dari _TOTAL_ Data</b>",
@@ -157,11 +160,16 @@
                 {
                     data: null, searchable: false, orderable: false, render: function (data) {
 
-                        var btnNilai =  `<div class="">
-                        <div class='input-group'>
-                        <input type='number' class="form-control" value="`+data.pendaftaranNilai+`" min="0" max="100" name="nilai[`+data.pesertaNik+`]" placeholder=""/>
-                        </div>
-                        </div> `;
+                       <?php if ($disabled == 'disabled'): ?>
+                        var btnNilai = data.pendaftaranNilai;
+                        <?php else: ?>
+                            var btnNilai =  `<div class="">
+                            <div class='input-group'>
+                            <input type='number' class="form-control" value="`+data.pendaftaranNilai+`" min="0" max="100" name="nilai[`+data.pesertaNik+`]" placeholder=""/>
+                            </div>
+                            </div> `;
+                        <?php endif ?>    
+
 
                         return btnNilai;
                     }

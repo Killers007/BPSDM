@@ -37,7 +37,7 @@ class Diklat extends MY_Controller {
 		{
 			$data['selectPengajar'] = $this->model->selectPengajar();
 			$this->layout->setTemplate(1);
-			$this->layout->setTitle('Data DIKLAT', false)->render('diklat/index', $data);
+			$this->layout->setTitle('MANAGEMENT DIKLAT', false)->render('diklat/index', $data);
 		}
 		
 	}
@@ -87,7 +87,7 @@ class Diklat extends MY_Controller {
 		{
 			$data['dataDiklat'] = $this->model->getDataById($diklatId);
 			$this->layout->setTemplate(1);
-			$this->layout->setTitle('Jadwal Diklat', false)->render('diklat/jadwal_v', $data);
+			$this->layout->setTitle('JADWAL DIKLAT', false)->render('diklat/jadwal_v', $data);
 		}
 	}
 
@@ -136,7 +136,7 @@ class Diklat extends MY_Controller {
 		{
 			$data['dataDiklat'] = $this->model->getDataById($diklatId);
 			$this->layout->setTemplate(1);
-			$this->layout->setTitle('Materi Diklat', false)->render('diklat/materi_v', $data);
+			$this->layout->setTitle('MATERI DIKLAT', false)->render('diklat/materi_v', $data);
 		}
 	}
 
@@ -228,7 +228,7 @@ class Diklat extends MY_Controller {
 					// 'jam_pelatihan' => $diklat->diklatJamPelatihan,
 					'jam_pelatihan' => $diklat->jam_pelatihan,
 					'gelar' => 'Pembina Utama Madya',
-					'nip' => '19611201 198603 1 023',
+					'nip_gub' => '19611201 198603 1 023',
 				);
 			}
 
@@ -410,7 +410,7 @@ class Diklat extends MY_Controller {
 			$data['disabled'] = ($disabled == 0)?'disabled':'';
 
 			$this->layout->setTemplate(1);
-			$this->layout->setTitle('Peserta', false)->render('diklat/pendaftaran_v', $data);
+			$this->layout->setTitle('VERIFIKASI PESERTA', false)->render('diklat/pendaftaran_v', $data);
 		}
 	}
 
@@ -435,11 +435,13 @@ class Diklat extends MY_Controller {
 		}
 		else
 		{
+			$disabled = $this->model->cekTanggalPendaftaran($diklatId);
+			$data['disabled'] = ($disabled == 0)?'disabled':'';
 			$data['dataDiklat'] = $this->model->getDataById($diklatId);
 
 			$this->layout->setTemplate(1);
 
-			$this->layout->setTitle('Peserta', false)->render('diklat/isi_nilai_v', $data);
+			$this->layout->setTitle('ISI NILAI', false)->render('diklat/isi_nilai_v', $data);
 		}
 	}
 

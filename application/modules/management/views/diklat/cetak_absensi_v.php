@@ -89,7 +89,9 @@
 								<?php echo $value->pesertaGelarDepan.' '. $value->pesertaNama.' '. $value->pesertaGelarBelakang ?> <br>
 								NIP. <?php echo  $value->pesertaNik ?>
 							</td>
-							<td style="vertical-align: middle;" class="text-center"><?php echo $value->pesertaInstansi ?> <br> Provinsi Kalimantan Selatan</td>
+							<td style="vertical-align: middle;" class="text-center"><?php echo $value->pesertaInstansi ?> 
+							<!-- <br> Provinsi Kalimantan Selatan -->
+							</td>
 							<td style="vertical-align: middle;" class="text-left"><?php echo $key+1 ?>.</td>
 						</tr>
 						<?php endforeach ?>

@@ -47,7 +47,7 @@ class Password extends MY_Controller {
 		else
 		{
 			$this->layout->setTemplate(1);
-			$this->layout->setTitle('Ubah password', false)->render('password/index');
+			$this->layout->setTitle('UBAH PASSWORD', false)->render('password/index');
 		}
 		
 	}

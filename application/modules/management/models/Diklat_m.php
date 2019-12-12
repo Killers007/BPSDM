@@ -196,13 +196,16 @@ class Diklat_m extends MY_Model {
 
 	function verifikasi($diklatId, $pesertaNik)
 	{
+		$this->db->select('*');
+		$this->db->select('(SELECT COUNT(*) FROM diklat_t_pendaftaran WHERE pendaftaranIsAcc = 1 AND diklatId = pendaftaranDiklatId) as diklatStatus');
 		$this->db->join('diklat_m_diklat', 'diklatId = pendaftaranDiklatId');
 		$this->db->where('pendaftaranDiklatId', $diklatId);
-		$this->db->select('*');
-		$this->db->select('(SELECT COUNT(*) FROM diklat_t_pendaftaran WHERE pendaftaranIsAcc = 1) as diklatStatus');
 		$res = $this->db->get('diklat_t_pendaftaran')->row();
+		// echo "<pre>";
+		// print_r($res);
+		// echo "</pre>";
 
-		if ($res->diklatStatus > $res->diklatKuota) 
+		if ($res->diklatStatus >= $res->diklatKuota) 
 		{
 			return ['status' => 'error', 'message' => 'Kuota Penuh'];
 		}

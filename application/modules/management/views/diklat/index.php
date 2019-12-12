@@ -49,7 +49,7 @@
                         <i class="kt-font-brand flaticon2-line-chart"></i>
                     </span>
                     <h3 class="kt-portlet__head-title">
-                        Datatable <?php echo $title ?>
+                        DATA <?php echo $title ?>
                     </h3>
                 </div>
                 <div class="kt-portlet__head-toolbar">
@@ -302,7 +302,7 @@
             lengthMenu: [15, 30],
             order: [[1, "asc"]],
             'searching'   : true,
-            pagingType: 'numbers',
+            // pagingType: 'numbers',
             columnDefs: [{"className": "dt-center", "targets": [3]}],
             language:{
                 "search":"Pencarian : ",
