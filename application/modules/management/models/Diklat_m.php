@@ -88,14 +88,14 @@ class Diklat_m extends MY_Model {
 	{
 		$peserta = $this->db->get_where('diklat_m_peserta', ['pesertaNik' => $id])->row();
 
-		if ($peserta->pesertaWaNotif == 1) {
-			$this->load->library('whatsapp');
-			$this->whatsapp->sendMessage($peserta->pesertaNoHp, $message);
-		}
+		// if ($peserta->pesertaWaNotif == 1) {
+		// 	$this->load->library('whatsapp');
+		// 	$this->whatsapp->sendMessage($peserta->pesertaNoHp, $message);
+		// }
 
 		$data['notifTo'] = $id;
 		$data['notifContent'] = $message;
-		$data['notifFrom'] = $this->session->user['user'];
+		$data['notifFrom'] = 'admin';//$this->session->user['user'];
 
 		$this->db->insert('diklat_t_notif', $data);
 		return $this->db->affected_rows();

@@ -8,12 +8,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | This file lets you define "hooks" to extend CI without hacking the core
 | files.  Please see the user guide for info:
 |
-|	http://codeigniter.com/user_guide/general/hooks.html
+|	https://codeigniter.com/user_guide/general/hooks.html
 |
 */
-$hook['post_controller'] = array(     // 'post_controller' indicated execution of hooks after controller is finished
-    'class' => 'Db_log_mongo',             // Name of Class
-    'function' => 'logQueries',     // Name of function to be executed in from Class
-    'filename' => 'Db_log_mongo.php',    // Name of the Hook file
-    'filepath' => 'hooks'         // Name of folder where Hook file is stored
-);
+if (ENVIRONMENT == 'development') 
+{
+	$hook['pre_system'][] = array(
+		'class'    => 'WhoopsHook',
+		'function' => 'bootWhoops',
+		'filename' => 'WhoopsHook.php',
+		'filepath' => 'hooks',
+		'params'   => array()
+	);
+}

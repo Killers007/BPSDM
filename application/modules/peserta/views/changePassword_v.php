@@ -156,7 +156,7 @@
                                                     </div>
                                                     <div class="col-lg-9 col-xl-9">
                                                         <button type="submit" id="btnChangePassword" class="btn btn-brand btn-bold">Ubah Password</button>&nbsp;
-                                                        <button type="reset" class="btn btn-secondary">Cancel</button>
+                                                        <!-- <button type="reset" class="btn btn-secondary">Cancel</button> -->
                                                     </div>
                                                 </div>
                                             </div>

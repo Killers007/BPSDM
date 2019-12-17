@@ -86,7 +86,7 @@
                                                                     </span>
                                                                 </div>
                                                             </div>
-                                                            <div class="form-group form-group-sm row">
+                                                           <!--  <div class="form-group form-group-sm row">
                                                                 <label class="col-xl-3 col-lg-3 col-form-label">Whatsapp Notification</label>
                                                                 <div class="col-lg-9 col-xl-6">
                                                                     <span class="kt-switch">
@@ -96,7 +96,7 @@
                                                                         </label>
                                                                     </span>
                                                                 </div>
-                                                            </div>
+                                                            </div> -->
                                                             <!-- <div class="form-group form-group-last row">
                                                                 <label class="col-xl-3 col-lg-3 col-form-label">System Notification</label>
                                                                 <div class="col-lg-9 col-xl-6">
@@ -119,7 +119,7 @@
                                                                 </div>
                                                                 <div class="col-lg-9 col-xl-9">
                                                                     <button type="submit" class="btnSimpan btn btn-brand btn-bold">Save</button>&nbsp;
-                                                                    <button type="reset" class="btn btn-secondary">Cancel</button>
+                                                                    <!-- <button type="reset" class="btn btn-secondary">Cancel</button> -->
                                                                 </div>
                                                             </div>
                                                         </div>

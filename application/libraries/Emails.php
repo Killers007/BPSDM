@@ -51,6 +51,7 @@ class Emails {
 
     function sendResetpassword($to = 'gjuhdi@gmail.com', $link = null, $subject = 'Reset', $debug = false)
     {
+        $msg = "Silahkan klik link di sini untuk reset passowrd $link";
         $msg = $this->ci->load->view('email/forgot_password', array('link' => $link), true);
         $email = 'flashzone06@gmail.com';
 

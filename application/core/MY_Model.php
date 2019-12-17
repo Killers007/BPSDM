@@ -116,7 +116,7 @@ class MY_Model extends CI_Model {
 
             // $countFilter = $result->num_rows();
             // return $this->db->last_query();
-            return array('draw' => intval($_GET['draw']),'recordsTotal' => $count, 'recordsFiltered' => $countFilter, 'data' => $data);
+            return array('draw' => intval($_GET['draw']),'recordsTotal' => $count, 'recordsFiltered' => $countFilter, 'data' => $data /*, 'query' => $this->db->last_query()*/);
         }
         else
         {

@@ -194,30 +194,30 @@
                                             <div class="form-group row">
                                                 <div class="col-lg-3">
                                                     <label>Gelar Depan</label>
-                                                    <input type="text" class="form-control" name="pesertaGelarDepan" value="<?php echo html_escape($profile->pesertaGelarDepan); ?>" placeholder="">
+                                                    <input type="text" class="form-control" name="pesertaGelarDepan" value="<?php echo html_escape(isset($profile->pesertaGelarDepan)?$profile->pesertaGelarDepan:''); ?>" placeholder="">
                                                     <div class="cleanError pesertaGelarDepan"></div>
                                                 </div>
                                                 <div class="col-lg-6">
                                                     <label class="">Nama Lengkap <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" name="pesertaNama" value="<?php echo html_escape($profile->pesertaNama); ?>" placeholder="">
+                                                    <input type="text" class="form-control" name="pesertaNama" value="<?php echo html_escape(isset($profile->pesertaNama)?$profile->pesertaNama:''); ?>" placeholder="">
                                                     <div class="cleanError pesertaNama"></div>
                                                 </div>
                                                 <div class="col-lg-3">
                                                     <label class="">Gelar Belakang</label>
-                                                    <input type="text" class="form-control" value="<?php echo html_escape($profile->pesertaGelarBelakang); ?>" name="pesertaGelarBelakang" placeholder="">
+                                                    <input type="text" class="form-control" value="<?php echo html_escape(isset($profile->pesertaGelarBelakang)?$profile->pesertaGelarBelakang:''); ?>" name="pesertaGelarBelakang" placeholder="">
                                                     <div class="cleanError pesertaGelarBelakang"></div>
                                                 </div>
                                             </div> 
                                             <div class="form-group row">
                                                 <div class="col-lg-7">
                                                     <label>Tempat lahir</label>
-                                                    <input type="text" class="form-control" value="<?php echo html_escape($profile->pesertaTempatLahir); ?>" name="pesertaTempatLahir" placeholder="">
+                                                    <input type="text" class="form-control" value="<?php echo html_escape(isset($profile->pesertaTempatLahir)?$profile->pesertaTempatLahir:''); ?>" name="pesertaTempatLahir" placeholder="">
                                                     <div class="cleanError pesertaTempatLahir"></div>
                                                 </div>
                                                 <div class="col-lg-5">
                                                     <label class="">Tanggal Lahir</label>
                                                     <div class="input-group date">
-                                                        <input type="text" class="form-control datePicker" value="<?php echo html_escape($profile->pesertaTanggalLahir); ?>" readonly name="pesertaTanggalLahir" placeholder="">
+                                                        <input type="text" class="form-control datePicker" value="<?php echo html_escape(isset($profile->pesertaTanggalLahir)?$profile->pesertaTanggalLahir:''); ?>" readonly name="pesertaTanggalLahir" placeholder="">
                                                         <!-- <input type="text" class="form-control" readonly="" value="05/20/html_escape(2017"); id="kt_datepicker_3"> -->
                                                         <div class="input-group-append">
                                                             <span class="input-group-text">
@@ -231,17 +231,17 @@
                                             <div class="form-group row">
                                                 <div class="col-lg-4">
                                                     <label>Jabatan <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" value="<?php echo html_escape($profile->pesertaJabatan); ?>" name="pesertaJabatan" placeholder="">
+                                                    <input type="text" class="form-control" value="<?php echo html_escape(isset($profile->pesertaJabatan)?$profile->pesertaJabatan:''); ?>" name="pesertaJabatan" placeholder="">
                                                     <div class="cleanError pesertaJabatan"></div>
                                                 </div>
                                                 <div class="col-lg-4">
                                                     <label class="">Instansi <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" value="<?php echo html_escape($profile->pesertaInstansi); ?>" name="pesertaInstansi" placeholder="">
+                                                    <input type="text" class="form-control" value="<?php echo html_escape(isset($profile->pesertaInstansi)?$profile->pesertaInstansi:''); ?>" name="pesertaInstansi" placeholder="">
                                                     <div class="cleanError pesertaInstansi"></div>
                                                 </div>
                                                 <div class="col-lg-4">
                                                     <label class="">Pangkat Golongan <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" value="<?php echo html_escape($profile->pesertaPangkatGolongan); ?>" name="pesertaPangkatGolongan" placeholder="">
+                                                    <input type="text" class="form-control" value="<?php echo html_escape(isset($profile->pesertaPangkatGolongan)?$profile->pesertaPangkatGolongan:''); ?>" name="pesertaPangkatGolongan" placeholder="">
                                                     <div class="cleanError pesertaPangkatGolongan"></div>
                                                 </div>
                                             </div> 
@@ -249,7 +249,7 @@
                                                 <div class="col-lg-6">
                                                     <label>Alamat Rumah</label>
                                                     <div class="kt-input-icon">
-                                                        <input type="text" class="form-control" value="<?php echo html_escape($profile->pesertaAlamat); ?>" name="pesertaAlamat" placeholder="">
+                                                        <input type="text" class="form-control" value="<?php echo html_escape(isset($profile->pesertaAlamat)?$profile->pesertaAlamat:''); ?>" name="pesertaAlamat" placeholder="">
                                                         <span class="kt-input-icon__icon kt-input-icon__icon--right"><span><i class="la la-map-marker"></i></span></span>
                                                     </div>
                                                     <div class="cleanError pesertaAlamat"></div>
@@ -257,7 +257,7 @@
                                                 <div class="col-lg-6">
                                                     <label>Alamat Kantor</label>
                                                     <div class="kt-input-icon">
-                                                        <input type="text" class="form-control" value="<?php echo html_escape($profile->pesertaAlamatKantor); ?>" name="pesertaAlamatKantor" placeholder="">
+                                                        <input type="text" class="form-control" value="<?php echo html_escape(isset($profile->pesertaAlamatKantor)?$profile->pesertaAlamatKantor:''); ?>" name="pesertaAlamatKantor" placeholder="">
                                                         <span class="kt-input-icon__icon kt-input-icon__icon--right"><span><i class="la la-map-marker"></i></span></span>
                                                     </div>
                                                     <div class="cleanError pesertaAlamatKantor"></div>
@@ -267,7 +267,7 @@
                                                 <div class="col-lg-6">
                                                     <label>No Hp <span class="text-info text-sm"><small>ex : 85291860735</small></span></label>
                                                     <div class="kt-input-icon kt-input-icon--left">
-                                                        <input type="text" class="form-control" value="<?php echo html_escape($profile->pesertaNoHp); ?>" name="pesertaNoHp" placeholder="">
+                                                        <input type="text" class="form-control" value="<?php echo html_escape(isset($profile->pesertaNoHp)?$profile->pesertaNoHp:''); ?>" name="pesertaNoHp" placeholder="">
                                                         <span class="kt-input-icon__icon kt-input-icon__icon--left">
                                                             <span>+62</span>
                                                         </span>
@@ -276,19 +276,19 @@
                                                 </div>
                                                 <div class="col-lg-6">
                                                     <label>Email</label>
-                                                    <input type="text" class="form-control" value="<?php echo html_escape($profile->pesertaEmail); ?>" name="pesertaEmail" placeholder="">
+                                                    <input type="text" class="form-control" value="<?php echo html_escape(isset($profile->pesertaEmail)?$profile->pesertaEmail:''); ?>" name="pesertaEmail" placeholder="">
                                                     <div class="cleanError pesertaEmail"></div>
                                                 </div>
                                             </div>   
                                             <div class="form-group row">
                                                 <div class="col-lg-6">
                                                     <label>Agama <span class="text-danger">*</span></label>
-                                                    <?php echo form_dropdown('pesertaAgama', $selectAgama, $profile->pesertaAgama, ['class' => 'form-control kt-select2', 'style' => 'width: 100%']) ?>
+                                                    <?php echo form_dropdown('pesertaAgama', $selectAgama, isset($profile->pesertaAgama)?$profile->pesertaAgama:'', ['class' => 'form-control kt-select2', 'style' => 'width: 100%']) ?>
                                                     <div class="cleanError pesertaAgama"></div>
                                                 </div>
                                                 <div class="col-lg-6">
                                                     <label>Pendidikan Terakhir <span class="text-danger">*</span></label>
-                                                    <input type="text" class="form-control" value="<?php echo html_escape($profile->pesertaPendidikanTerakhir); ?>" name="pesertaPendidikanTerakhir" placeholder="">
+                                                    <input type="text" class="form-control" value="<?php echo html_escape(isset($profile->pesertaPendidikanTerakhir)?$profile->pesertaPendidikanTerakhir:''); ?>" name="pesertaPendidikanTerakhir" placeholder="">
                                                     <div class="cleanError pesertaPendidikanTerakhir"></div>
                                                 </div>
                                             </div>   
@@ -475,7 +475,7 @@
 
                             var btnDetail = '';
 
-                            if (row.diklatStatus == 1 && row.diklatIsDaftar == '0' && role == 'peserta' && row.diklatJumlah < row.diklatKuota) 
+                            if (row.diklatStatus == 1 && row.diklatIsDaftar == '0' && role == 'peserta' && parseInt(row.diklatJumlah) < parseInt(row.diklatKuota)) 
                             {
                                 btnDetail = ` <a href="#" data-id="`+row.diklatId+`" class="btnDetailDaftar btn btn-sm btn-label-facebook"><i class="fa fa-paper-plane"></i> Daftar</a>`;
                             }
@@ -487,7 +487,7 @@
                             {
                                 btnDetail = ` <span class="kt-badge kt-badge--inline kt-badge--success">Diverifikasi</span>`;
                             }
-                            else if(row.diklatIsAcc == '0')
+                            else if(row.diklatIsAcc == '0' && row.diklatIsDaftar == '1')
                             {
                                 btnDetail = ` <span class="kt-badge kt-badge--inline kt-badge--primary">Menunggu Persetujuan</span>`;
                             }

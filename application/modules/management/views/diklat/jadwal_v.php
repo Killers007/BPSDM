@@ -66,7 +66,7 @@
 
                 <div class="kt-portlet__body table-responsive">
                     <!--begin: Datatable -->
-                    <table id="table" class="table table-checkable">
+                    <table id="table" class="table table-checkable table-hover">
                         <thead>
                             <tr>
                                 <th>Tanggal</th>

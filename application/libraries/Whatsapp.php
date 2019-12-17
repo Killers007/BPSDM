@@ -7,11 +7,11 @@ class Whatsapp {
 
     }
 
-    function sendMessage($phone = '85391860735', $text = 'Bangsat kau')
+    function sendMessage($phone = '85391860735', $text = 'Kosong')
     {
         $this->ci->load->helper('simple_dom');
         $html = $this->getCurl("https://eu92.chat-api.com/instance86194/sendMessage?token=ligprar9sgxs4zas", array('phone' => '62'.$phone, 'body' => urldecode($text)));
-        return str_get_html($html);
+        echo $phone;return str_get_html($html);
     }
 
     function getCurl($url = '', $data = array(), $post = true)
