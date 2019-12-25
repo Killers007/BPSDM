@@ -338,7 +338,7 @@
                                         <?php $color = 'danger' ?>
                                         <?php $icon = 'flaticon-reply' ?>
                                         <?php else: ?>
-                                            <?php $link = base_url('login/login') ?>
+                                            <?php $link = base_url('login/') ?>
                                             <?php $text = 'Login' ?>
                                             <?php $msg = 'Masuk untuk akses menu' ?>
                                             <?php $color = 'success' ?>

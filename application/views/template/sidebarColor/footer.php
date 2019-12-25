@@ -134,6 +134,12 @@
                             <script src="<?php echo base_url(); ?>assets/js/demo1/pages/crud/forms/widgets/summernote.js" type="text/javascript"></script>
                             
                         <!--end::Page Scripts -->
+
+                        <script type="text/javascript">
+  var baseUrl = '<?=base_url();?>/';
+</script>
+<script src="<?php echo base_url(); ?>assets/vendors/vue/vue.min.js" type="text/javascript"></script>
+<script src="<?php echo base_url(); ?>assets/vendors/scripts/app.js" type="text/javascript"></script>
             </body>
     <!-- end::Body -->
 </html>

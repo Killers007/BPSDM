@@ -42,13 +42,11 @@ class MY_Model extends CI_Model {
                 $count = call_user_func_array(array($this, $callBack), $param)->num_rows();    
             }
 
-            // $countFilter = $count;
-
             // untk pencarian data
-            if ($search != null) 
+            if ($search != null || true) 
             {
 
-                foreach ($request['columns'] as $column) 
+                foreach ($request['columns'] as $key => $column) 
                 {
                     if ($column['searchable'] == 'true')
                     {
@@ -59,26 +57,28 @@ class MY_Model extends CI_Model {
                             
                             foreach($t as $c)
                             {
-                                $like[$c] = $search;
+                                $like[$c] = ($search == null)?$column['search']['value']:$search;
                             }
                         }
                         else
                         {
-                            $like[$column['data']] = $search;
+                            $like[$column['data']] = ($search == null)?$column['search']['value']:$search;
                         }
                     }
                 }
 
-                //Count filltered
-                // $this->db->group_start();
-                // $this->db->or_like($like);
-                // $this->db->group_end();
-
-                // $countFilter = call_user_func_array(array($this, $callBack), $param)->num_rows();
-                
                 //Active record fillter
                 $this->db->group_start();
-                $this->db->or_like($like);
+
+                if ($search == null) 
+                {
+                    $this->db->like($like);
+                }
+                else
+                {
+                    $this->db->or_like($like);
+                }
+                
                 $this->db->group_end();
 
             }

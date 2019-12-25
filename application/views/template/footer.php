@@ -173,9 +173,10 @@
 <!-- <script src="<?php echo base_url(); ?>assets/vendors/custom/js/vendors/dropzone.init.js" type="text/javascript"></script> -->
 <!-- <script src="<?php echo base_url(); ?>assets/js/demo1/pages/components/calendar/list-view.js" type="text/javascript"></script> -->
 <?php if ($infoNotifUnread != 0 && $this->session->user['role'] == 'peserta'): ?>
+
+
   
 <script type="text/javascript">
-
   var favicon=new Favico({
     animation:'slide',
     position : 'up',
@@ -184,6 +185,16 @@
   });
   favicon.badge(<?php echo $infoNotifUnread ?>);
 </script>
+<script type="text/javascript">
+  var baseUrl = '<?=base_url();?>/';
+</script>
+<script src="<?php echo base_url(); ?>assets/vendors/vue/vue.min.js" type="text/javascript"></script>
+<script src="<?php echo base_url(); ?>assets/vendors/scripts/app.js" type="text/javascript"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/github.min.css">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
 <?php endif ?>
 </body>
 <!-- end::Body -->

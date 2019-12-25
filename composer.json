@@ -13,7 +13,12 @@
 	"require": {
 		"php": ">=5.3.7",
 		"filp/whoops": "^2.5",
-		"xiaoler/blade": "^5.4"
+		"xiaoler/blade": "^5.4",
+		"fabpot/goutte": "^4.0",
+		"digitalnature/php-ref": "^1.2",
+		"rmccue/requests": "^1.7",
+		"tan5en5/codeigniter-debugbar": "dev-master",
+		"maximebf/debugbar": "^1.16"
 	},
 	"suggest": {
 		"paragonie/random_compat": "Provides better randomness in PHP 5.x"
