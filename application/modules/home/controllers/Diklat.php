@@ -66,10 +66,27 @@ class Diklat extends MY_Controller {
 		}
 		else
 		{
+
 			$data['profile'] = $this->modelPeserta->getProfile();
 			$data['selectAgama'] = $this->model->selectAgama();
 			$this->layout->setTemplate(0);
 			$this->layout->setTitle('PENDAFTARAN DIKLAT BPSDMD', false)->render('diklat/index', $data);
+			
+			// $this->console->exception(new Exception('test exception'));
+			// $this->console->debug('Debug message');
+			// $this->console->info('Info message');
+			// $this->console->warning('Warning message');
+			// $this->console->error('Error message', $data);
+			// $this->console->error('Error message', $data);
+			// $this->console->error('Error message', $data);
+			// $this->console->error('Error message', $data);
+			// $this->console->error('Error message', $data);
+			// $this->output->enable_profiler(TRUE);
+			// r($this);
+			// echo "<pre>";
+			// print_r($this);
+			// echo "</pre>";
+
 		}
 		
 	}

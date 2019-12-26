@@ -13,6 +13,12 @@ class Diklat_m extends MY_Model {
 		$this->nik = $this->session->user['user'];
 	}
 
+	/**
+	 * Rules biodata untuk form validation
+	 * @author Ahmad Juhdi <email@email.com>
+	 *
+	 * @return void
+	 */
 	public function rulesBiodata() {
 
 		$rules = array(

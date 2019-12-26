@@ -190,6 +190,14 @@
 </script>
 <script src="<?php echo base_url(); ?>assets/vendors/vue/vue.min.js" type="text/javascript"></script>
 <script src="<?php echo base_url(); ?>assets/vendors/scripts/app.js" type="text/javascript"></script>
+<<<<<<< HEAD
+=======
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/github.min.css">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+>>>>>>> origin/master
 <?php endif ?>
 </body>
 <!-- end::Body -->

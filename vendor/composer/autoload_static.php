@@ -12,6 +12,10 @@ class ComposerStaticInitfd85f572983bc6e885e45cbed6c4defd
         '25072dd6e2470089de65ae7bf11d3109' => __DIR__ . '/..' . '/symfony/polyfill-php72/bootstrap.php',
         'f598d06aa772fa33d905e87be6398fb1' => __DIR__ . '/..' . '/symfony/polyfill-intl-idn/bootstrap.php',
         '0d59ee240a4cd96ddbb4ff164fccea4d' => __DIR__ . '/..' . '/symfony/polyfill-php73/bootstrap.php',
+<<<<<<< HEAD
+=======
+        '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
+>>>>>>> origin/master
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         '7cca0da9604df282f16d129f538c9833' => __DIR__ . '/..' . '/digitalnature/php-ref/ref.php',
         'e1edc6b39e340029dfa1d72c228b8497' => __DIR__ . '/..' . '/xiaoler/blade/src/helpers.php',
@@ -41,6 +45,10 @@ class ComposerStaticInitfd85f572983bc6e885e45cbed6c4defd
             'Symfony\\Contracts\\Service\\' => 26,
             'Symfony\\Contracts\\HttpClient\\' => 29,
             'Symfony\\Component\\Yaml\\' => 23,
+<<<<<<< HEAD
+=======
+            'Symfony\\Component\\VarDumper\\' => 28,
+>>>>>>> origin/master
             'Symfony\\Component\\Mime\\' => 23,
             'Symfony\\Component\\HttpClient\\' => 29,
             'Symfony\\Component\\DomCrawler\\' => 29,
@@ -61,6 +69,7 @@ class ComposerStaticInitfd85f572983bc6e885e45cbed6c4defd
         array (
             'Doctrine\\Instantiator\\' => 22,
             'DeepCopy\\' => 9,
+            'DebugBar\\' => 9,
         ),
     );
 
@@ -115,6 +124,13 @@ class ComposerStaticInitfd85f572983bc6e885e45cbed6c4defd
         array (
             0 => __DIR__ . '/..' . '/symfony/yaml',
         ),
+<<<<<<< HEAD
+=======
+        'Symfony\\Component\\VarDumper\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/var-dumper',
+        ),
+>>>>>>> origin/master
         'Symfony\\Component\\Mime\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/mime',
@@ -159,6 +175,10 @@ class ComposerStaticInitfd85f572983bc6e885e45cbed6c4defd
         array (
             0 => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy',
         ),
+        'DebugBar\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/maximebf/debugbar/src/DebugBar',
+        ),
     );
 
     public static $prefixesPsr0 = array (
@@ -176,6 +196,16 @@ class ComposerStaticInitfd85f572983bc6e885e45cbed6c4defd
                 0 => __DIR__ . '/..' . '/rmccue/requests/library',
             ),
         ),
+<<<<<<< HEAD
+=======
+        'C' => 
+        array (
+            'Composer\\Installer' => 
+            array (
+                0 => __DIR__ . '/..' . '/compwright/codeigniter-installers/src',
+            ),
+        ),
+>>>>>>> origin/master
     );
 
     public static $classMap = array (

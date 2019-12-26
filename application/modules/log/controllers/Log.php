@@ -1,21 +1,21 @@
 <?php
 
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 require_once APPPATH . "/third_party/LogView/vendor/autoload.php";
 
-class Log extends MY_Controller {
+use Goutte\Client;
+use Symfony\Component\HttpClient\HttpClient;
+use GuzzleHttp\Psr7\Request;
 
-	private $logViewer;
+use DebugBar\DebugBar;
+use DebugBar\OpenHandler;
+use DebugBar\Storage\FileStorage;
+use DebugBar\StandardDebugBar;
 
-	public function __construct() {
-		parent::__construct(); 
-		$this->logViewer = new \CILogViewer\CILogViewer();
-	}
 
-	public function index() {
-		echo $this->logViewer->showLogs();
-		return;
-	}
+class Log extends MY_Controller
+{
+
 
 }

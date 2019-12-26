@@ -8,4 +8,8 @@ $baseDir = dirname($vendorDir);
 return array(
     'org\\bovigo\\vfs' => array($vendorDir . '/mikey179/vfsstream/src/main/php'),
     'Requests' => array($vendorDir . '/rmccue/requests/library'),
+<<<<<<< HEAD
+=======
+    'Composer\\Installer' => array($vendorDir . '/compwright/codeigniter-installers/src'),
+>>>>>>> origin/master
 );
