@@ -90,7 +90,7 @@ License: You must have a valid license purchased only from themeforest(the above
         <div class="kt-grid__item kt-grid__item--fluid kt-login__wrapper">
             <div class="kt-login__container">
                 <div class="kt-login__logo">
-                    <a href="<?php echo base_url() ?>">
+                    <a href="<?php echo base_url() ?>" title="Kembali ke halaman utama">
                         <img src="<?php echo base_url() ?>assets/pemprov.png" style="width: 170px">     
                     </a>
                 </div>
@@ -106,11 +106,14 @@ License: You must have a valid license purchased only from themeforest(the above
                                 <input class="form-control" type="password" placeholder="Password" name="password">
                             </div>
                             <div class="row kt-login__extra">
-                                <div class="col">
+                                <!-- <div class="col">
                                     <label class="kt-checkbox">
                                         <input type="checkbox" name="remember"> Ingatkan Saya
                                         <span></span>
                                     </label>
+                                </div> -->
+                                 <div class="col kt-align-left">
+                                    <a href="<?php echo base_url() ?>" class="kt-login__link">Kembali ke home</a>
                                 </div>
                                 <div class="col kt-align-right">
                                     <a href="javascript:;" id="kt_login_forgot" class="kt-login__link">Lupa Password ?</a>

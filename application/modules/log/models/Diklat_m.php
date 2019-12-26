@@ -92,6 +92,12 @@ class Diklat_m extends MY_Model {
 		return $out;
 	}
 
+	/**
+	 * Render datatable default
+	 *
+	 * @param [type] $nim masukkan nim andas
+	 * @return void
+	 */
 	function renderDatatable($nim = NULL)
 	{
 		$pesertaOnly = '';

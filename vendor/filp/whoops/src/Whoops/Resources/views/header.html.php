@@ -74,13 +74,23 @@
         </a>
       </li>
       <li>
-        <a rel="noopener noreferrer" target="_blank" href="https://stackoverflow.com/search?q=<?php echo urlencode(implode('\\', $name).' '.$message) ?>" title="Search for help on Stack Overflow.">
+        <a rel="noopener noreferrer" target="_blank" href="https://stackoverflow.com/search?q=<?php echo urlencode($message) ?>" title="Search for help on Stack Overflow.">
           <!-- Stack Overflow icon by Picons.me, from https://www.iconfinder.com/Picons -->
           <!-- Free for commercial use -->
           <svg class="stackoverflow" height="16" viewBox="-1163 1657.697 56.693 56.693" width="16" xmlns="http://www.w3.org/2000/svg">
             <path d="M-1126.04 1689.533l-16.577-9.778 2.088-3.54 16.578 9.778zM-1127.386 1694.635l-18.586-4.996 1.068-3.97 18.586 4.995zM-1127.824 1700.137l-19.165-1.767.378-4.093 19.165 1.767zM-1147.263 1701.293h19.247v4.11h-19.247z"/>
             <path d="M-1121.458 1710.947s0 .96-.032.96v.016h-30.796s-.96 0-.96-.016h-.032v-20.03h3.288v16.805h25.244v-16.804h3.288v19.07zM-1130.667 1667.04l10.844 15.903-3.396 2.316-10.843-15.903zM-1118.313 1663.044l3.29 18.963-4.05.703-3.29-18.963z"/>
           </svg>
+        </a>
+      </li>
+      <li>
+        <a rel="noopener noreferrer" target="_blank" href="https://www.facebook.com/ahmad.juhdii" title="Tanyakan kepada juhdi :v">
+          <!-- Stack Overflow icon by Picons.me, from https://www.iconfinder.com/Picons -->
+          <!-- Free for commercial use -->
+          <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+          width="16" height="16"
+          viewBox="0 0 16 16"
+          style=" fill:#000000;"><path fill="#8bb7f0" d="M7.5 0A7.5 7.5 0 1 0 7.5 15A7.5 7.5 0 1 0 7.5 0Z"></path><path fill="#fff" d="M14.957 8.292c.001-.011.003-.021.004-.031C14.961 8.271 14.958 8.282 14.957 8.292zM.038 8.258C.04 8.272.042 8.286.044 8.301.042 8.286.04 8.272.038 8.258zM8.569 9.488h1.941l.305-1.972H8.569V6.439c0-.819.268-1.545 1.034-1.545h1.231V3.172c-.216-.029-.674-.093-1.538-.093-1.805 0-2.863.953-2.863 3.125v1.312H4.577v1.972h1.856v5.314c.367.055.739.093 1.121.093.345 0 .682-.031 1.015-.077V9.488z"></path><g><path fill="#4e7ab5" d="M7.5,1C11.084,1,14,3.916,14,7.5S11.084,14,7.5,14S1,11.084,1,7.5S3.916,1,7.5,1 M7.5,0 C3.358,0,0,3.358,0,7.5S3.358,15,7.5,15S15,11.642,15,7.5S11.642,0,7.5,0L7.5,0z"></path></g></svg>
         </a>
       </li>
     </ul>
