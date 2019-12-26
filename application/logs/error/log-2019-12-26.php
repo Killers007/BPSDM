@@ -35,3 +35,8 @@ ERROR - 2019-12-26 13:08:55 --> 404 Page Not Found: /index
 ERROR - 2019-12-26 13:09:31 --> 404 Page Not Found: /index
 ERROR - 2019-12-26 13:09:33 --> 404 Page Not Found: /index
 ERROR - 2019-12-26 13:09:33 --> 404 Page Not Found: /index
+ERROR - 2019-12-26 13:15:07 --> Severity: error --> Exception: syntax error, unexpected '<<' (T_SL), expecting ')' C:\Web Programming\htdocs\BPSDMD\vendor\composer\autoload_static.php 15
+ERROR - 2019-12-26 13:16:41 --> 404 Page Not Found: /index
+ERROR - 2019-12-26 13:16:41 --> 404 Page Not Found: /index
+ERROR - 2019-12-26 13:16:43 --> 404 Page Not Found: /index
+ERROR - 2019-12-26 13:16:43 --> 404 Page Not Found: /index
